@@ -9823,7 +9823,7 @@ repository:
       patterns: [
         {'include': '#defA'}
         {
-          match: '(?i)(?<!\\w)(NO|TYPE|WR|WL|SA|SE|YCA|YCE|YRA|YLA|YRE|YLE|L|HAS|HSE|INCA|INCE|HEFF|BEFF|DEFF|INCD|ASL|WREF)(?!\\w)'
+          match: '(?i)(?<!\\w)(NO|TYPE|WR|WL|SA|SE|YCA|YCE|YRA|YLA|YRE|YLE|L|HSA|HSE|INCA|INCE|HEFF|BEFF|DEFF|INCD|ASL|WREF)(?!\\w)'
           name: 'entity.name.function'
         }
         { 'include': '#normalText' }
