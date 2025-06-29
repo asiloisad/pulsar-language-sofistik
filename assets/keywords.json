@@ -2507,6 +2507,11 @@
       "FACL",
       "PREX"
     ],
+    "TXCS": [
+      "ICS1",
+      "ATIL",
+      "TEXT"
+    ],
     "WAIT": [
       "NO",
       "FROM",
