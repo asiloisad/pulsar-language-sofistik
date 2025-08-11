@@ -8,7 +8,7 @@ To install `language-sofistik` search for [language-sofistik](https://web.pulsar
 
 ## Compatibility
 
-Support versions of SOFiSTiK are 2025, 2024, 2023, 2022, 2020 and 2018. English only.
+Support versions of SOFiSTiK are 2026, 2025, 2024, 2023, 2022, 2020 and 2018. English only.
 
 # Contributing
 
