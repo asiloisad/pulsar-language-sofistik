@@ -319,7 +319,9 @@
       "NMAT",
       "STOR",
       "CHAM",
-      "POST"
+      "POST",
+      "FMA4",
+      "FMA8"
     ],
     "STEP": [
       "N",
@@ -445,6 +447,7 @@
       "FACL",
       "FCTK",
       "PREX",
+      "UX",
       "EPSC",
       "EPSS"
     ],
@@ -494,7 +497,9 @@
       "LC",
       "FACV",
       "VMAX",
-      "DIRE"
+      "DIRE",
+      "PARX",
+      "PARY"
     ],
     "SLIP": [
       "NOSL",
@@ -525,7 +530,8 @@
       "L0",
       "GRP",
       "TOLT",
-      "DIRE"
+      "DIRE",
+      "OUTF"
     ],
     "LAUN": [
       "GRP",
@@ -538,7 +544,9 @@
       "NR1",
       "NR2",
       "PHI",
-      "CS"
+      "CS",
+      "VX",
+      "REF"
     ],
     "SFIX": [
       "LC",
@@ -559,6 +567,12 @@
       "YMAX",
       "ZMIN",
       "ZMAX"
+    ],
+    "FIXH": [
+      "LC",
+      "FACT",
+      "CP",
+      "CT"
     ],
     "ACTB": [
       "NO",
@@ -588,6 +602,15 @@
     "ELLO": [
       "TYPE",
       "PCS"
+    ],
+    "TEMB": [
+      "NO",
+      "T0",
+      "IPOS",
+      "CALC",
+      "T1",
+      "T2",
+      "T22"
     ],
     "TEMP": [
       "NO",
@@ -639,6 +662,11 @@
       "LC",
       "PRZ",
       "SELE"
+    ],
+    "SOIL": [
+      "EIGE",
+      "GRP",
+      "FUNC"
     ],
     "V0": [
       "NO",
@@ -883,10 +911,14 @@
       "FEQT",
       "GMOD",
       "KMOD",
-      "GC",
+      "RHO",
       "GF",
       "MUEC",
-      "TITL"
+      "SCM0",
+      "SCM1",
+      "SCM2",
+      "TITL",
+      "GC"
     ],
     "STEE": [
       "NO",
@@ -982,6 +1014,12 @@
       "MNOC",
       "FCTF"
     ],
+    "LCA": [
+      "NO",
+      "TYPE",
+      "PHAS",
+      "VAL"
+    ],
     "MEXT": [
       "NO",
       "EXP",
@@ -1026,8 +1064,8 @@
       "MN0",
       "ES",
       "MUE",
-      "DES",
       "VARI",
+      "DES",
       "PMAX",
       "PMAL",
       "C",
@@ -1167,7 +1205,74 @@
       "AZ",
       "BCYZ",
       "SPT",
+      "INTE",
+      "CINT",
+      "MUE",
       "BEFF",
+      "BDL",
+      "TITL"
+    ],
+    "EDGB": [
+      "NO",
+      "H",
+      "B",
+      "HO",
+      "BO",
+      "SO",
+      "SU",
+      "SS",
+      "MNO",
+      "MRF",
+      "MRFL",
+      "REFS",
+      "YMIN",
+      "ZM",
+      "FSYM",
+      "FLIP",
+      "ASO",
+      "ASU",
+      "DASO",
+      "DASU",
+      "DASS",
+      "AA",
+      "FIXS",
+      "PASU",
+      "ASL",
+      "INCL",
+      "IT",
+      "AY",
+      "AZ",
+      "AYZ",
+      "SPT",
+      "CUTZ",
+      "CUTF",
+      "INTE",
+      "CINT",
+      "MUE",
+      "BEFF",
+      "BDL",
+      "TITL"
+    ],
+    "SHRW": [
+      "NO",
+      "T",
+      "L",
+      "SS",
+      "SZ+",
+      "SZ-",
+      "MNO",
+      "MRFL",
+      "A",
+      "D",
+      "RTYP",
+      "LZ+",
+      "AZ+",
+      "DZ+",
+      "RZ+",
+      "LZ-",
+      "AZ-",
+      "DZ-",
+      "RZ-",
       "TITL"
     ],
     "SCIT": [
@@ -1206,6 +1311,7 @@
       "NO",
       "MNO",
       "MRF",
+      "MRFL",
       "ALPH",
       "YM",
       "ZM",
@@ -1213,13 +1319,22 @@
       "BTYP",
       "BCY",
       "BCZ",
-      "KTZ",
-      "TITL"
+      "BCT",
+      "ALF",
+      "BET",
+      "TITL",
+      "FEM",
+      "LTEM",
+      "T",
+      "LTAU",
+      "KTZ"
     ],
     "CS": [
       "NO",
       "TITL",
-      "ATIL"
+      "ATIL",
+      "LTEM",
+      "T"
     ],
     "SV": [
       "IT",
@@ -1237,7 +1352,16 @@
       "DEFF",
       "FACE",
       "FACG",
-      "AG"
+      "AG",
+      "NPLT",
+      "NPLC",
+      "VYPL",
+      "VZPL",
+      "MTPL",
+      "MYPL",
+      "MZPL",
+      "MBPL",
+      "MT2P"
     ],
     "POLY": [
       "TYPE",
@@ -4650,7 +4774,39 @@
       "DPY",
       "DPZ",
       "NTYP",
-      "VTYP"
+      "VTYP",
+      "Z0",
+      "F0",
+      "Z1",
+      "F1",
+      "Z2",
+      "F2",
+      "Z3",
+      "F3",
+      "Z4",
+      "F4",
+      "Z5",
+      "F5",
+      "Z6",
+      "F6",
+      "Z7",
+      "F7",
+      "Z8",
+      "F8",
+      "Z9",
+      "F9",
+      "Z10",
+      "F10",
+      "Z11",
+      "F11",
+      "Z12",
+      "F12",
+      "Z13",
+      "F13",
+      "Z14",
+      "F14",
+      "Z15",
+      "F15"
     ],
     "BRIC": [
       "FROM",
@@ -5154,28 +5310,6 @@
       "NODE",
       "OPT"
     ],
-    "WAVE": [
-      "TYPE",
-      "H",
-      "T",
-      "D",
-      "SWL",
-      "DX",
-      "DY",
-      "DZ",
-      "UC",
-      "EXPU",
-      "RHO",
-      "NF",
-      "TMIN",
-      "TMAX",
-      "GAM",
-      "ALF",
-      "SIGA",
-      "SIGB",
-      "S",
-      "PHI"
-    ],
     "WIND": [
       "CODE",
       "ZONE",
@@ -5311,6 +5445,57 @@
       "TOL",
       "ELIM",
       "MNAM"
+    ],
+    "WAVE": [
+      "TYPE",
+      "H",
+      "T",
+      "D",
+      "SWL",
+      "DX",
+      "DY",
+      "DZ",
+      "UC",
+      "EXPU",
+      "RHO",
+      "NF",
+      "TMIN",
+      "TMAX",
+      "GAM",
+      "ALF",
+      "SIGA",
+      "SIGB",
+      "S",
+      "PHI"
+    ],
+    "LTD": [
+      "OPT",
+      "SRLC",
+      "SRCT",
+      "SRC",
+      "TRGT",
+      "TRG",
+      "LMAX",
+      "TRGM",
+      "DZ",
+      "TYPE",
+      "FACT",
+      "DIR",
+      "HMOM",
+      "FROM"
+    ],
+    "LTDG": [
+      "X1",
+      "Y1",
+      "Z1",
+      "X2",
+      "Y2",
+      "Z2",
+      "X3",
+      "Y3",
+      "Z3",
+      "TITL",
+      "GUID"
     ]
   },
   "SOFIMSHA": {
@@ -5991,9 +6176,10 @@
       "IDS",
       "S",
       "TYPE",
-      "GPT",
+      "SPT",
       "GRP",
       "NCS",
+      "IDP",
       "Y",
       "Z",
       "ALF",
@@ -6001,7 +6187,9 @@
       "ALFY",
       "ALFZ",
       "INCR",
-      "INCL"
+      "INCL",
+      "TITL",
+      "GPT"
     ],
     "GAXS": [
       "ID",
