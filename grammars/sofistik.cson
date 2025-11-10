@@ -21017,7 +21017,7 @@ repository:
       patterns: [
         {'include': '#defA'}
         {
-          match: '(?i)(?<!\\w)(TYPE|SIZP|SIZC|DP|DC|DIRE|VMH|VMQ|VM3|TOLA|TOLZ|LINE|GRP|MPNT)(?!\\w)'
+          match: '(?i)(?<!\\w)(TYPE|SIZP|SIZC|DP|DC|DIRE|OFFP|OFFC|OFF3|TOLA|TOLZ|LINE|GRP|MPNT)(?!\\w)'
           name: 'entity.name.function'
         }
         { 'include': '#normalText' }
