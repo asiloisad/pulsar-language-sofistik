@@ -6194,11 +6194,12 @@
     "GAXS": [
       "ID",
       "IDS",
-      "GPT",
+      "SPT",
       "GRP",
       "Y",
       "Z",
-      "TITL"
+      "TITL",
+      "GPT"
     ],
     "GAXV": [
       "ID",
@@ -7341,7 +7342,13 @@
       "HSBM",
       "WSBM",
       "HCPD",
-      "WCPD"
+      "WCPD",
+      "HSPD",
+      "WSPD",
+      "HDSL",
+      "WDSL",
+      "HSCM",
+      "HSCR"
     ],
     "GRID": [
       "TYPE",
@@ -7471,7 +7478,15 @@
       "C34",
       "C35",
       "C36",
-      "C37"
+      "C37",
+      "C38",
+      "C39",
+      "C40",
+      "C41",
+      "C42",
+      "C43",
+      "C44",
+      "C45"
     ],
     "COLB": [
       "C1",
@@ -7519,17 +7534,18 @@
       "BRIG"
     ],
     "SELE": [
-      "NO",
+      "NUMB",
       "GRP",
       "BOX",
-      "SICH",
+      "VISI",
       "PERS",
       "VIEW",
       "DEFO",
       "SEL",
       "ALTE",
       "TITL",
-      "NUMB"
+      "NO",
+      "SICH"
     ],
     "GRP": [
       "NUMB",
