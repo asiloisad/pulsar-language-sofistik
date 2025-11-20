@@ -21417,7 +21417,7 @@ repository:
       patterns: [
         {'include': '#defA'}
         {
-          match: '(?i)(?<!\\w)(TYPE|DTYP|LENG|LMAX|LMIN|DIST|DISX|DISY|DISZ|LFRB|EXCE|TABS)(?!\\w)'
+          match: '(?i)(?<!\\w)(TYPE|DTYP|LENG|LMAX|LMIN|DIST|DISX|DISY|DISZ|GFRB|LFRB|EXCE|TABS|ADD)(?!\\w)'
           name: 'entity.name.function'
         }
         { 'include': '#normalText' }

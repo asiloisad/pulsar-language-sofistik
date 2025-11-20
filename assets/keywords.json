@@ -7716,9 +7716,11 @@
       "DISX",
       "DISY",
       "DISZ",
+      "GFRB",
       "LFRB",
       "EXCE",
-      "TABS"
+      "TABS",
+      "ADD"
     ],
     "ARRO": [
       "TYPE",
