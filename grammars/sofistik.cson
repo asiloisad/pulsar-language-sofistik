@@ -485,31 +485,31 @@ patterns: [
 repository:
   normalText: {
     patterns: [
-      { include: '#textcmds' }
-      { include: '#defA' }
-      { include: '#defB' }
-      { include: '#defC' }
-      { include: '#defD' }
-      { include: '#inc1' }
-      { include: '#text' }
+      { include: '#textCommands' }
+      { include: '#preprocessorDefine' }
+      { include: '#preprocessorInclude' }
+      { include: '#preprocessorApplyAndSys' }
+      { include: '#preprocessorConditional' }
+      { include: '#dollarVariableReference' }
+      { include: '#textBlock' }
       { include: '#comments' }
-      { include: '#str1' }
-      { include: '#str2' }
-      { include: '#var1' }
-      { include: '#var2' }
-      { include: '#keys1' }
-      { include: '#keys2' }
-      { include: '#expr' }
+      { include: '#stringDoubleQuoted' }
+      { include: '#stringSingleQuoted' }
+      { include: '#variableCommands' }
+      { include: '#hashVariableReference' }
+      { include: '#loopKeyword' }
+      { include: '#controlFlowKeywords' }
+      { include: '#expressionWithEquals' }
       { include: '#units' }
     ]
   }
-  textcmds: {
+  textCommands: {
     match: '(?i)(^ *)(HEAD|TXB|TXE)( .+?$| *$)'
     captures:
       1: name: 'support.type.sofistik'
       2: name: 'keyword.control.sofistik'
   }
-  text: {
+  textBlock: {
     begin: '(?i)^[ ]*(<TEXT>|<TEXT,FILE=\\+?(.+)>)(?= |$)'
     beginCaptures:
       1: name: 'support.function.sofistik'
@@ -518,12 +518,12 @@ repository:
     endCaptures:
       1: name: 'support.function.sofistik'
     patterns: [
-      { include: '#inc1' }
-      { include: '#var2' }
-      { include: '#edit' }
+      { include: '#dollarVariableReference' }
+      { include: '#hashVariableReference' }
+      { include: '#editBlock' }
     ]
   }
-  edit: {
+  editBlock: {
     begin: '(?i)(<EDIT:.+?>)'
     beginCaptures:
       1: name: 'support.function.sofistik'
@@ -531,54 +531,54 @@ repository:
     endCaptures:
       1: name: 'support.function.sofistik'
     patterns: [
-      { include: '#var2' }
-      { include: '#inc1' }
+      { include: '#hashVariableReference' }
+      { include: '#dollarVariableReference' }
     ]
   }
-  defA: {
+  preprocessorDefine: {
     match: '(?i)^[ ]*(#DEFINE|#ENDDEF) *(.+?)?(?: *= *(.*))?$'
     captures:
       1: name: 'entity.name.section.sofistik'
       2: name: 'string.other.sofistik'
       3: patterns: [
-        { include: '#inc1' }
+        { include: '#dollarVariableReference' }
         { include: '#comments' }
-        { include: '#str1' }
-        { include: '#str2' }
-        { include: '#var1' }
-        { include: '#var2' }
-        { include: '#keys1' }
-        { include: '#keys2' }
-        { include: '#expr' }
+        { include: '#stringDoubleQuoted' }
+        { include: '#stringSingleQuoted' }
+        { include: '#variableCommands' }
+        { include: '#hashVariableReference' }
+        { include: '#loopKeyword' }
+        { include: '#controlFlowKeywords' }
+        { include: '#expressionWithEquals' }
         { include: '#units' }
       ]
       4: name: 'entity.name.section.sofistik'
   }
-  defB: {
+  preprocessorInclude: {
     match: '(?i)^[ ]*(#INCLUDE) +(.+)'
     captures:
       1: name: 'entity.name.section.sofistik'
       2:
         name: 'string.other.sofistik'
-        patterns: [{ include: '#inc1' }]
+        patterns: [{ include: '#dollarVariableReference' }]
   }
-  defC: {
+  preprocessorApplyAndSys: {
     match: '(?i)^[ ]*([\\$\\+-]?APPLY|[\\+-]?SYS)( +.+)'
     captures:
       1: name: 'support.class.sofistik'
       2:
         name: 'string.other.sofistik'
         patterns: [
-          { include: '#inc1' }
+          { include: '#dollarVariableReference' }
           { include: '#comments' }
         ]
   }
-  defD: {
+  preprocessorConditional: {
     match: '(?i)^[ ]*(#IF|#ELSE|#ENDIF)'
     captures:
       1: name: 'entity.name.section.sofistik'
   }
-  inc1: {
+  dollarVariableReference: {
     match: '(;)?[ ]*(\\$\\(\\S+?\\))'
     captures:
       1: name: 'support.type.sofistik'
@@ -590,46 +590,46 @@ repository:
     captures:
       1: patterns: [{ include: 'text.todo' }]
   }
-  str1: {
+  stringDoubleQuoted: {
     match: '\\"(.*?)\\"'
     name: 'string.double.sofistik'
     captures:
-      1: patterns: [{ include: '#inc1' }]
+      1: patterns: [{ include: '#dollarVariableReference' }]
   }
-  str2: {
+  stringSingleQuoted: {
     match: "\\'(.*?)\\'"
     name: 'string.single.sofistik'
     captures:
-      1: patterns: [{ include: '#inc1' }]
+      1: patterns: [{ include: '#dollarVariableReference' }]
   }
-  var1: {
+  variableCommands: {
     match: '(?i)(^|;)[ ]*(LET|STO|DEL|DBG|PRT)(?!\\w)'
     captures:
       1: name: 'support.type.sofistik'
       2: name: 'keyword.control.sofistik'
   }
-  var2: {
+  hashVariableReference: {
     match: '(#\\w+|#\\(\\w+(?:,\\d\\.\\d)?\\))'
     name: 'variable.other.sofistik'
   }
-  keys1: {
+  loopKeyword: {
     match: '(?i)(^|;)[ ]*(LOOP)(?!\\w)'
     captures:
       1: name: 'support.type.sofistik'
       2: name: 'keyword.control.sofistik'
   }
-  keys2: {
+  controlFlowKeywords: {
     match: '(?i)(^|;)[ ]*(IF|ELSEIF|ELSE|ENDIF|ENDLOOP|END)(?=\\s|$)'
     captures:
       1: name: 'support.type.sofistik'
       2: name: 'keyword.control.sofistik'
   }
-  expr: {
+  expressionWithEquals: {
     match: '(?<=\\s|^)(=\\S+)'
     captures:
       1:
         name: 'entity.name.function.sofistik'
-        patterns: [{'include': '#var2'}]
+        patterns: [{'include': '#hashVariableReference'}]
   }
   units: {
     match: '(?<=\\S)\\[.*?\\]'
@@ -638,14 +638,14 @@ repository:
 
   AQB: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BEAM|CAPA|COMB|CTRL|DESI|ECHO|EIGE|NORM|NSTR|REIN|STRE|TEND|TVAR|LC|S)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(BEAM|(?:C(?:APA|OMB|TRL))|DESI|(?:E(?:CHO|IGE))|LC|(?:N(?:ORM|STR))|REIN|(?:S(?:TRE|))|(?:T(?:END|VAR)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ALPH|AMAX|APAR|BETA|BETS|CBBC|CHKC|CHKR|CHKS|CHKT|CMNT|COUN|CRAC|CS10|CS11|CS12|CS13|CS14|CS15|CS16|CS17|CS18|CS19|CS20|CS21|CS22|CS23|CS24|CS25|CS26|CS27|CS28|CS29|CS30|CS31|DELR|DUMP|EXTR|FFCT|FMAX|FROM|GAMA|GAMF|GAMU|HMAX|HMIN|ICS1|ICS2|ICS3|KMAX|KMIN|KMOD|KTAU|LAMC|LAML|LAMM|LAMS|LAMT|LANG|LCST|LIMA|MSCD|NAME|PRED|PS1S|PSI0|PSI1|PSI2|RMOD|SBBC|SBBT|SCMG|SCOM|SCOP|SEIS|SELE|SFAC|SIGS|SMOD|SNOW|SSEM|SSER|SSKM|SSKR|SSTM|STAT|STEP|STYP|TANA|TANB|TANC|TANS|TASK|TAUS|TEMP|TITL|TTOL|TYPE|UNIT|VAL2|VAL3|WCAT|WIND|ZDIF|ZGRP|ZMAX|AHR|ALT|AM1|AM2|AM3|AM4|AS0|AS1|AS2|AS3|AS4|AS5|AS6|AS7|AS8|AS9|CAT|CBC|CS0|CS1|CS2|CS3|CS4|CS5|CS6|CS7|CS8|CS9|CST|CW-|EPS|EXP|FAT|GRP|INC|KSB|KSV|LAT|LC1|LC2|LC3|LC4|LC5|LC6|LCR|LON|MNO|MOD|MT2|NCS|NDC|NOB|OPT|P10|P11|P12|PHI|REF|REL|SBC|SBT|SC1|SC2|SCL|SCS|SII|SS0|SS1|SS2|SUP|TAU|TVS|VAL|YHR|ZHR|AR|AZ|BB|C1|CC|CS|CW|DC|DZ|F1|F2|F3|F4|F5|MB|MT|MY|MZ|NO|NY|NZ|P6|P7|P8|P9|RH|S1|S2|SC|SI|ST|SV|T0|TO|TS|UZ|VY|VZ|XE|Z1|Z2|ZZ|G|N|T|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:LPH|MAX|PAR|HR|LT|M1|M2|M3|M4|S0|S1|S2|S3|S4|S5|S6|S7|S8|S9|R|Z))|(?:B(?:ETA|ETS|B))|(?:C(?:BBC|HKC|HKR|HKS|HKT|MNT|OUN|RAC|S10|S11|S12|S13|S14|S15|S16|S17|S18|S19|S20|S21|S22|S23|S24|S25|S26|S27|S28|S29|S30|S31|AT|BC|S0|S1|S2|S3|S4|S5|S6|S7|S8|S9|ST|W-|1|C|S|W))|(?:D(?:ELR|UMP|C|Z))|(?:E(?:XTR|PS|XP))|(?:F(?:FCT|MAX|ROM|AT|1|2|3|4|5))|(?:G(?:AMA|AMF|AMU|RP|))|(?:H(?:MAX|MIN))|(?:I(?:CS1|CS2|CS3|NC))|(?:K(?:MAX|MIN|MOD|TAU|SB|SV))|(?:L(?:AMC|AML|AMM|AMS|AMT|ANG|CST|IMA|AT|C1|C2|C3|C4|C5|C6|CR|ON))|(?:M(?:SCD|NO|OD|T2|B|T|Y|Z))|(?:N(?:AME|CS|DC|OB|O|Y|Z|))|OPT|(?:P(?:RED|S1S|SI0|SI1|SI2|10|11|12|HI|6|7|8|9))|(?:R(?:MOD|EF|EL|H))|(?:S(?:BBC|BBT|CMG|COM|COP|EIS|ELE|FAC|IGS|MOD|NOW|SEM|SER|SKM|SKR|STM|TAT|TEP|TYP|BC|BT|C1|C2|CL|CS|II|S0|S1|S2|UP|1|2|C|I|T|V))|(?:T(?:ANA|ANB|ANC|ANS|ASK|AUS|EMP|ITL|TOL|YPE|AU|VS|0|O|S|))|(?:U(?:NIT|Z))|(?:V(?:AL2|AL3|AL|Y|Z))|(?:W(?:CAT|IND))|(?:X(?:E|))|(?:Y(?:HR|))|(?:Z(?:DIF|GRP|MAX|HR|1|2|Z|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -653,14 +653,14 @@ repository:
   }
   ASE: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(ACTB|CREP|CTRL|DESI|ECHO|EIGE|ELEM|ELLO|FIXH|FIXT|GRP2|HIGH|HIST|LAUN|LEN0|MASS|MOVS|NSTR|OBLI|PEXT|PLOT|PUSH|Q8X8|REIN|REIQ|SFIX|SLIP|SOIL|STEP|STEX|SYST|TBEX|TEMB|TEMP|ULTI|VOLU|GRP|LCC|LC|V0)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(ACTB|(?:C(?:REP|TRL))|DESI|(?:E(?:CHO|IGE|LEM|LLO))|(?:F(?:IXH|IXT))|(?:G(?:RP2|RP))|(?:H(?:IGH|IST))|(?:L(?:AUN|EN0|CC|C))|(?:M(?:ASS|OVS))|NSTR|OBLI|(?:P(?:EXT|LOT|USH))|Q8X8|(?:R(?:EIN|EIQ))|(?:S(?:FIX|LIP|OIL|TEP|TEX|YST))|(?:T(?:BEX|EMB|EMP))|ULTI|(?:V(?:OLU|0)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ALP0|ALPH|AMAX|AREA|BEAM|BET2|BETA|BWES|CALC|CHAM|CHKC|CHKR|CHKS|CHKT|CONT|CRAC|CRI1|CRI2|CRI3|CSDL|DELR|DFAK|DIRE|DMIN|DUMP|EIGE|EMOD|EPSC|EPSS|ETYP|EXPO|EX_Q|FACB|FACD|FACL|FACP|FACS|FACT|FACV|FAK1|FAKE|FCTK|FFCT|FIXE|FMA4|FMA8|FMAX|FMIN|FROM|FUNC|F_GZ|F_IZ|GAMA|GAMF|GAMU|GEOM|HING|HMAX|HMIN|IPOS|ITER|KMAX|KMIN|KMOD|KTAU|LCRS|LCSM|LCST|LMIN|MASS|MEND|MITE|MODD|MSCD|NAME|NCRE|NEFF|NEIG|NFRO|NINC|NITE|NMAT|NOEL|NONL|NOSL|NULL|OUTF|PARX|PARY|PHIF|PHIS|PHIX|PHIY|PHIZ|POSI|POST|PREX|PREY|PRIM|PROB|PS1S|PSI0|PSI1|PSI2|PTPR|QEMX|QEMY|QUEA|QUEX|QUEY|QU_M|RADA|RADB|RCRE|RELA|RELZ|RMOD|SAVE|SELE|SFAC|SIDE|SIGH|SIGN|SIGS|SLOW|SMOD|STAT|STEA|STEP|STIT|STOR|ST_M|TANA|TANB|TANC|TANS|TITL|TOL4|TOL8|TOLT|TTOL|TYPE|ULTI|ULUS|VMAX|XMAX|XMIN|YMAX|YMIN|ZGRP|ZMAX|ZMIN|ALF|AM1|AM2|AM3|AM4|BET|CW-|DEL|DIV|DLX|DLY|DLZ|DOZ|EPS|FAT|FDL|GAM|GRP|INC|INT|KSB|KSV|LCR|MNO|MOD|MUE|MXX|MXY|MYY|MZZ|NNO|NOG|NR1|NR2|NTO|NXX|NXY|NYY|OPT|P10|P11|P12|PCS|PHI|PLC|PR1|PRO|PRZ|REF|ROW|SC1|SC2|SCL|SCS|SS0|SS1|SS2|T22|THE|TOL|TVS|VAL|BB|C1|CP|CS|CT|CW|DL|DT|DV|DX|DY|DZ|HW|L0|LC|MT|MX|MY|MZ|NO|NX|NY|NZ|P0|P6|P7|P8|P9|QX|QY|RO|S1|S2|SC|SS|SX|SY|SZ|T0|T1|T2|TO|UX|UY|UZ|V0|V2|V3|V4|VX|VY|VZ|XI|XM|YM|Z1|Z2|ZM|H|K|N|T)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:LP0|LPH|MAX|REA|LF|M1|M2|M3|M4))|(?:B(?:EAM|ET2|ETA|WES|ET|B))|(?:C(?:ALC|HAM|HKC|HKR|HKS|HKT|ONT|RAC|RI1|RI2|RI3|SDL|W-|1|P|S|T|W))|(?:D(?:ELR|FAK|IRE|MIN|UMP|EL|IV|LX|LY|LZ|OZ|L|T|V|X|Y|Z))|(?:E(?:IGE|MOD|PSC|PSS|TYP|XPO|X_Q|PS))|(?:F(?:ACB|ACD|ACL|ACP|ACS|ACT|ACV|AK1|AKE|CTK|FCT|IXE|MA4|MA8|MAX|MIN|ROM|UNC|_GZ|_IZ|AT|DL))|(?:G(?:AMA|AMF|AMU|EOM|AM|RP))|(?:H(?:ING|MAX|MIN|W|))|(?:I(?:POS|TER|NC|NT))|(?:K(?:MAX|MIN|MOD|TAU|SB|SV|))|(?:L(?:CRS|CSM|CST|MIN|CR|0|C))|(?:M(?:ASS|END|ITE|ODD|SCD|NO|OD|UE|XX|XY|YY|ZZ|T|X|Y|Z))|(?:N(?:AME|CRE|EFF|EIG|FRO|INC|ITE|MAT|OEL|ONL|OSL|ULL|NO|OG|R1|R2|TO|XX|XY|YY|O|X|Y|Z|))|(?:O(?:UTF|PT))|(?:P(?:ARX|ARY|HIF|HIS|HIX|HIY|HIZ|OSI|OST|REX|REY|RIM|ROB|S1S|SI0|SI1|SI2|TPR|10|11|12|CS|HI|LC|R1|RO|RZ|0|6|7|8|9))|(?:Q(?:EMX|EMY|UEA|UEX|UEY|U_M|X|Y))|(?:R(?:ADA|ADB|CRE|ELA|ELZ|MOD|EF|OW|O))|(?:S(?:AVE|ELE|FAC|IDE|IGH|IGN|IGS|LOW|MOD|TAT|TEA|TEP|TIT|TOR|T_M|C1|C2|CL|CS|S0|S1|S2|1|2|C|S|X|Y|Z))|(?:T(?:ANA|ANB|ANC|ANS|ITL|OL4|OL8|OLT|TOL|YPE|22|HE|OL|VS|0|1|2|O|))|(?:U(?:LTI|LUS|X|Y|Z))|(?:V(?:MAX|AL|0|2|3|4|X|Y|Z))|(?:X(?:MAX|MIN|I|M))|(?:Y(?:MAX|MIN|M))|(?:Z(?:GRP|MAX|MIN|1|2|M)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -668,14 +668,14 @@ repository:
   }
   AQUA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BBAX|BBLA|BLAY|BMAT|BORE|BTAB|CABL|CIRC|CONC|CTRL|CURF|ECHO|EDGB|EXPO|FLAY|HMAT|IMPO|INTE|MASO|MATE|MEXT|MLAY|NEFF|NMAT|NORM|PANE|PLAT|POLY|PROF|SCIT|SECT|SFLA|SHRW|SMAT|SREC|SSLA|STEE|SVAL|TIMB|TVAR|VERT|WELD|WIND|WPAR|CRF|CUT|LAY|LCA|LRF|MAT|SPT|CS|RF|SV)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:B(?:BAX|BLA|LAY|MAT|ORE|TAB))|(?:C(?:ABL|IRC|ONC|TRL|URF|RF|UT|S))|(?:E(?:CHO|DGB|XPO))|FLAY|HMAT|(?:I(?:MPO|NTE))|(?:L(?:AY|CA|RF))|(?:M(?:ASO|ATE|EXT|LAY|AT))|(?:N(?:EFF|MAT|ORM))|(?:P(?:ANE|LAT|OLY|ROF))|RF|(?:S(?:CIT|ECT|FLA|HRW|MAT|REC|SLA|TEE|VAL|PT|V))|(?:T(?:IMB|VAR))|VERT|(?:W(?:ELD|IND|PAR)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(VAL10|VAL11|VAL12|VAL13|VAL14|VAL15|VAL16|VAL17|VAL18|VAL19|VAL20|ALFA|ALPH|AMAX|AMIN|ASMA|ASUP|ATIL|BCYZ|BEFF|BETA|BMAX|BRED|BTYP|CDYN|CENT|CHYD|CINT|CLAS|CLAT|CMNT|COUN|CRAC|CUTF|CUTZ|DASO|DASS|DASU|DEFF|DIST|DTYP|EPSS|EPST|EPSY|FACE|FACG|FACS|FC90|FCTD|FCTF|FCTK|FDYN|FEQR|FEQT|FFAT|FIXB|FIXE|FIXS|FLIP|FM90|FROM|FSYM|FT90|FVK0|GAMA|GAMB|GMOD|HGWH|HGWL|ICS2|ICS3|ICS4|ICS5|ICS6|ICS7|ICS8|ICS9|INCL|INTE|KDEF|KMO1|KMO2|KMO3|KMO4|KMOD|KSIG|LANG|LEVY|LEVZ|LTAU|LTEM|LTYP|MBPL|MCLA|MNOC|MREF|MRFL|MT2P|MTPL|MTYP|MUEC|MUET|MYPL|MZPL|NAME|NPLC|NPLT|NREF|PASS|PASU|PHAS|PMA1|PMA2|PMAL|PMAX|QH90|QMAX|REFA|REFD|REFE|REFI|REFP|REFR|REFS|REL1|REL2|RFAC|RFDA|RFDE|RFDI|RFSA|RFSE|RFSI|RTYP|SCLA|SCM0|SCM1|SCM2|SCOP|SECT|SEIS|SIGC|SIGY|SMAX|SMIN|SNOW|STYP|TANA|TAND|TANR|TAUC|TEFF|TEMP|TITL|TMAX|TORS|TRAF|TYPE|TYPR|UNIT|VAL1|VAL2|VAL3|VAL4|VAL5|VAL6|VAL7|VAL8|VAL9|VARI|VR10|VR11|VR12|VR13|VR14|VR15|VR16|VR17|VR18|VR19|VYFK|VYPL|VZFK|VZPL|WCAT|WIDT|WIND|YIEL|YMAX|YMIN|YREF|ZMAX|ZMIN|ZREF|ALF|ALT|ASA|ASI|ASL|ASO|ASU|AYZ|AZ+|AZ-|BCT|BCY|BCZ|BDL|BET|CA0|CA2|CAT|CL0|CL1|CL2|CL3|CMS|COH|CWT|CWY|CWZ|DAS|DES|DIL|DZ+|DZ-|E90|ECR|EPS|EXP|FBD|FC0|FCN|FCR|FCT|FEM|FIX|FT0|FTB|FTC|FVB|FVR|FYC|GAM|ICE|ICS|INL|IYZ|KTZ|KXX|KXY|KXZ|KYY|KYZ|KZZ|LAT|LAY|LEV|LON|LZ+|LZ-|M90|MAT|MN0|MNO|MRF|MUE|MXY|MY+|MY-|MZ+|MZ-|NDC|NPL|NR0|NR1|NR2|NR3|NR4|NR5|NR6|NR7|NR8|NR9|NS0|NS1|NSP|OAF|OAL|OPT|OUT|P+ |P10|P11|P12|PHI|REF|RHO|RZ+|RZ-|SCM|SIG|SM0|SM2|SPM|SPT|SXE|SYM|SZ+|SZ-|TID|V10|V11|V12|V13|V14|V15|V16|V17|V18|V19|VAL|VB2|VR0|VR1|VR2|VR3|VR4|VR5|VR6|VR7|VR8|VR9|VT2|VY+|VY-|VZ+|VZ-|WTD|WTM|WTY|WTZ|WU1|WU2|WU3|WVY|WVZ|YSC|ZSC|AA|AG|AK|AR|AS|AY|AZ|BO|C0|CM|CS|CT|CW|D0|D2|DC|DY|DZ|EC|EP|ES|EY|FB|FC|FK|FM|FP|FT|FV|FY|GC|GF|HO|IT|IY|IZ|K0|K1|K2|K3|KE|KR|M0|MS|NO|NS|NX|NY|NZ|P-|P0|P1|P2|P3|P4|P5|P6|P7|P8|P9|QH|S1|S2|SA|SH|SI|SO|SS|SU|T0|T1|T2|T3|T4|T5|T6|T7|T8|T9|TK|TO|TS|V0|V1|V2|V3|V4|V5|V6|V7|V8|V9|VB|VD|VS|VT|WT|YB|YE|YM|Z1|Z2|Z3|ZB|ZE|ZM|A|B|C|D|E|F|G|H|K|L|R|S|T|U|W|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:LFA|LPH|MAX|MIN|SMA|SUP|TIL|LF|LT|SA|SI|SL|SO|SU|YZ|Z+|Z-|A|G|K|R|S|Y|Z|))|(?:B(?:CYZ|EFF|ETA|MAX|RED|TYP|CT|CY|CZ|DL|ET|O|))|(?:C(?:DYN|ENT|HYD|INT|LAS|LAT|MNT|OUN|RAC|UTF|UTZ|A0|A2|AT|L0|L1|L2|L3|MS|OH|WT|WY|WZ|0|M|S|T|W|))|(?:D(?:ASO|ASS|ASU|EFF|IST|TYP|AS|ES|IL|Z+|Z-|0|2|C|Y|Z|))|(?:E(?:PSS|PST|PSY|90|CR|PS|XP|C|P|S|Y|))|(?:F(?:ACE|ACG|ACS|C90|CTD|CTF|CTK|DYN|EQR|EQT|FAT|IXB|IXE|IXS|LIP|M90|ROM|SYM|T90|VK0|BD|C0|CN|CR|CT|EM|IX|T0|TB|TC|VB|VR|YC|B|C|K|M|P|T|V|Y|))|(?:G(?:AMA|AMB|MOD|AM|C|F|))|(?:H(?:GWH|GWL|O|))|(?:I(?:CS2|CS3|CS4|CS5|CS6|CS7|CS8|CS9|NCL|NTE|CE|CS|NL|YZ|T|Y|Z))|(?:K(?:DEF|MO1|MO2|MO3|MO4|MOD|SIG|TZ|XX|XY|XZ|YY|YZ|ZZ|0|1|2|3|E|R|))|(?:L(?:ANG|EVY|EVZ|TAU|TEM|TYP|AT|AY|EV|ON|Z+|Z-|))|(?:M(?:BPL|CLA|NOC|REF|RFL|T2P|TPL|TYP|UEC|UET|YPL|ZPL|90|AT|N0|NO|RF|UE|XY|Y+|Y-|Z+|Z-|0|S))|(?:N(?:AME|PLC|PLT|REF|DC|PL|R0|R1|R2|R3|R4|R5|R6|R7|R8|R9|S0|S1|SP|O|S|X|Y|Z))|(?:O(?:AF|AL|PT|UT))|(?:P(?:ASS|ASU|HAS|MA1|MA2|MAL|MAX|+ |10|11|12|HI|-|0|1|2|3|4|5|6|7|8|9))|(?:Q(?:H90|MAX|H))|(?:R(?:EFA|EFD|EFE|EFI|EFP|EFR|EFS|EL1|EL2|FAC|FDA|FDE|FDI|FSA|FSE|FSI|TYP|EF|HO|Z+|Z-|))|(?:S(?:CLA|CM0|CM1|CM2|COP|ECT|EIS|IGC|IGY|MAX|MIN|NOW|TYP|CM|IG|M0|M2|PM|PT|XE|YM|Z+|Z-|1|2|A|H|I|O|S|U|))|(?:T(?:ANA|AND|ANR|AUC|EFF|EMP|ITL|MAX|ORS|RAF|YPE|YPR|ID|0|1|2|3|4|5|6|7|8|9|K|O|S|))|(?:U(?:NIT|))|(?:V(?:AL10|AL11|AL12|AL13|AL14|AL15|AL16|AL17|AL18|AL19|AL20|AL1|AL2|AL3|AL4|AL5|AL6|AL7|AL8|AL9|ARI|R10|R11|R12|R13|R14|R15|R16|R17|R18|R19|YFK|YPL|ZFK|ZPL|10|11|12|13|14|15|16|17|18|19|AL|B2|R0|R1|R2|R3|R4|R5|R6|R7|R8|R9|T2|Y+|Y-|Z+|Z-|0|1|2|3|4|5|6|7|8|9|B|D|S|T))|(?:W(?:CAT|IDT|IND|TD|TM|TY|TZ|U1|U2|U3|VY|VZ|T|))|X|(?:Y(?:IEL|MAX|MIN|REF|SC|B|E|M|))|(?:Z(?:MAX|MIN|REF|SC|1|2|3|B|E|M|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -683,14 +683,14 @@ repository:
   }
   BDK: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CTRL|ECHO|MEMB|TVAR|CVA|CVE|CVL|CVM|CV|LF)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:C(?:TRL|VA|VE|VL|VM|V))|ECHO|LF|MEMB|TVAR)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(BETA|BMQY|BMQZ|CMNT|CURV|FROM|HDIV|LCST|LLT0|MTHD|NAME|SCOP|SFAC|TYPE|BMY|BMZ|INC|LTB|OPT|REF|SCL|SKY|SKZ|SWY|SWZ|TAB|VAL|CB|CY|CZ|DX|DY|DZ|NO|TO|S)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:B(?:ETA|MQY|MQZ|MY|MZ))|(?:C(?:MNT|URV|B|Y|Z))|(?:D(?:X|Y|Z))|FROM|HDIV|INC|(?:L(?:CST|LT0|TB))|MTHD|(?:N(?:AME|O))|OPT|REF|(?:S(?:COP|FAC|CL|KY|KZ|WY|WZ|))|(?:T(?:YPE|AB|O))|VAL)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -698,14 +698,14 @@ repository:
   }
   BEAM: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(COMB|CRCK|CTRL|DEFL|DELR|DESI|DSLN|ECHO|LPOS|LRF|POS|SRF)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:C(?:OMB|RCK|TRL))|(?:D(?:EFL|ELR|ESI|SLN))|ECHO|(?:L(?:POS|RF))|POS|SRF)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(BETA|DELT|EPCS|FCTE|KOTE|PLAC|TEMP|TETA|TEXT|TITL|TYPE|VAL1|FDX|OPT|PHI|VAL|LC|NO|RH|T0|TS|WK|T|X)(?!\\w)'
+        match: '(?i)(?<!\\w)(BETA|DELT|EPCS|(?:F(?:CTE|DX))|KOTE|LC|NO|OPT|(?:P(?:LAC|HI))|RH|(?:T(?:EMP|ETA|EXT|ITL|YPE|0|S|))|(?:V(?:AL1|AL))|WK|X)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -713,14 +713,14 @@ repository:
   }
   BEMESS: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CRAC|CTRL|DI3D|DIRE|ECHO|ELEM|EXPO|GEOM|MREI|NODE|NORM|NSTR|PARA|PUNC|REIN|SELE|SHFT|THRE|GRP|LAY|MAT|LC|S)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:C(?:RAC|TRL))|(?:D(?:I3D|IRE))|(?:E(?:CHO|LEM|XPO))|(?:G(?:EOM|RP))|(?:L(?:AY|C))|(?:M(?:REI|AT))|(?:N(?:ODE|ORM|STR))|(?:P(?:ARA|UNC))|REIN|(?:S(?:ELE|HFT|))|THRE)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ABEX|ABIN|ABMI|ASL2|ASL3|ASMA|ASU2|ASU3|AUGM|BEEX|BEIN|BEMI|BET1|BET2|BETA|BETZ|BOND|BOUN|BRIC|BSL2|BSL3|BSU2|BSU3|BUBB|CHKC|CHKR|CODE|CONC|CORE|COTT|COUN|DDEB|DDES|DDHA|DDHB|DECO|DELT|DHEA|DIRE|DMOM|ENVA|ENVB|FACH|FACL|FACP|FACT|FACU|FACV|FATC|FFCT|FROM|GROU|G_SD|HEAD|HPRE|HRED|LANG|LC14|LCRI|LCRP|LC_P|LOCP|LS_L|LS_P|LS_U|LS_V|MINC|MINS|MMOM|MREI|MSTA|MUEZ|NOEL|PARA|PASS|PERC|PFAI|RADP|REDM|REDN|REIN|RMOD|ROBU|RO_L|RO_M|RO_V|SEIS|SELE|SIGA|SIGB|SIGL|SIGP|SIGS|SIGT|SIGU|SIGZ|SNIP|SNOW|SSL2|SSL3|SSU2|SSU3|STAN|STEE|SYST|T011|TENS|THIC|TITL|TUGR|TYPE|UNIT|VF70|VLEV|VMIN|VPDC|WALL|WARN|WCAT|WEND|WIND|WINT|WKL2|WKL3|WKU2|WKU3|WTEN|XMAX|XMIN|YMAX|YMIN|ZMAX|ZMIN|ALT|AM3|ASL|ASU|BSL|BSU|CAT|DHA|DHB|DL2|DL3|DU2|DU3|FYS|GRP|INC|LAT|LAY|LCR|LON|LOW|MXY|NDC|NO1|NOG|NXY|OAF|OAL|OPT|POS|ROT|SAR|SC1|SC2|SS1|SS2|SSL|SSU|T02|T03|TRD|TU0|UPP|VAL|VPD|WKA|WKB|WKL|WKU|AS|BS|C1|CS|DC|DL|DU|FC|FV|FY|HA|HB|K1|KC|MX|MY|NO|NX|NY|S2|SS|TO|V2|V3|VX|VY|WK|B|D|G|H|K|L|N|P|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:BEX|BIN|BMI|SL2|SL3|SMA|SU2|SU3|UGM|LT|M3|SL|SU|S))|(?:B(?:EEX|EIN|EMI|ET1|ET2|ETA|ETZ|OND|OUN|RIC|SL2|SL3|SU2|SU3|UBB|SL|SU|S|))|(?:C(?:HKC|HKR|ODE|ONC|ORE|OTT|OUN|AT|1|S))|(?:D(?:DEB|DES|DHA|DHB|ECO|ELT|HEA|IRE|MOM|HA|HB|L2|L3|U2|U3|C|L|U|))|(?:E(?:NVA|NVB))|(?:F(?:ACH|ACL|ACP|ACT|ACU|ACV|ATC|FCT|ROM|YS|C|V|Y))|(?:G(?:ROU|_SD|RP|))|(?:H(?:EAD|PRE|RED|A|B|))|INC|(?:K(?:1|C|))|(?:L(?:ANG|C14|CRI|CRP|C_P|OCP|S_L|S_P|S_U|S_V|AT|AY|CR|ON|OW|))|(?:M(?:INC|INS|MOM|REI|STA|UEZ|XY|X|Y))|(?:N(?:OEL|DC|O1|OG|XY|O|X|Y|))|(?:O(?:AF|AL|PT))|(?:P(?:ARA|ASS|ERC|FAI|OS|))|(?:R(?:ADP|EDM|EDN|EIN|MOD|OBU|O_L|O_M|O_V|OT))|(?:S(?:EIS|ELE|IGA|IGB|IGL|IGP|IGS|IGT|IGU|IGZ|NIP|NOW|SL2|SL3|SU2|SU3|TAN|TEE|YST|AR|C1|C2|S1|S2|SL|SU|2|S))|(?:T(?:011|ENS|HIC|ITL|UGR|YPE|02|03|RD|U0|O))|(?:U(?:NIT|PP))|(?:V(?:F70|LEV|MIN|PDC|AL|PD|2|3|X|Y))|(?:W(?:ALL|ARN|CAT|END|IND|INT|KL2|KL3|KU2|KU3|TEN|KA|KB|KL|KU|K))|(?:X(?:MAX|MIN|))|(?:Y(?:MAX|MIN|))|(?:Z(?:MAX|MIN|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -728,14 +728,14 @@ repository:
   }
   COLUMN: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BUCK|CINP|COMB|CREP|CTRL|ECHO|FIRE|GEOM|L0FI|SCHN|WARM|END|IMP|POS|SLN|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(BUCK|(?:C(?:INP|OMB|REP|TRL))|(?:E(?:CHO|ND))|FIRE|GEOM|IMP|(?:L(?:0FI|C))|POS|(?:S(?:CHN|LN))|WARM)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ALCC|ALPC|ALPL|AMXY|AMXZ|AXIS|BETY|BETZ|EIXY|EIXZ|EXP0|EXP1|EXP2|EXP3|EXP4|EXP5|EXP6|EXP7|EXP8|EXP9|FACE|KURV|LCXN|LCXP|LCYN|LCYP|NACH|PLAC|TEXT|TITL|TYPE|XXXX|BIS|EPS|FIX|LEV|MY1|MY2|MY3|MZ1|MZ2|MZ3|OPT|PHI|QNR|VAL|VON|CY|CZ|L0|LC|NO|Z0|L|N|R)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:LCC|LPC|LPL|MXY|MXZ|XIS))|(?:B(?:ETY|ETZ|IS))|(?:C(?:Y|Z))|(?:E(?:IXY|IXZ|XP0|XP1|XP2|XP3|XP4|XP5|XP6|XP7|XP8|XP9|PS))|(?:F(?:ACE|IX))|KURV|(?:L(?:CXN|CXP|CYN|CYP|EV|0|C|))|(?:M(?:Y1|Y2|Y3|Z1|Z2|Z3))|(?:N(?:ACH|O|))|OPT|(?:P(?:LAC|HI))|QNR|R|(?:T(?:EXT|ITL|YPE))|(?:V(?:AL|ON))|XXXX|Z0)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -743,14 +743,14 @@ repository:
   }
   CSA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CPHN|ECHO|EXPO|MCRL|PHNG|PLOT|TASK)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(CPHN|(?:E(?:CHO|XPO))|MCRL|(?:P(?:HNG|LOT))|TASK)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ALPH|LENG|LSCU|LSCY|LSRU|LSRY|MTYP|SCMC|SCMR|STAT|TITL|TYPE|NCS|OPT|VAL|CS|NO|P)(?!\\w)'
+        match: '(?i)(?<!\\w)(ALPH|CS|(?:L(?:ENG|SCU|SCY|SRU|SRY))|MTYP|(?:N(?:CS|O))|OPT|P|(?:S(?:CMC|CMR|TAT))|(?:T(?:ITL|YPE))|VAL)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -758,14 +758,14 @@ repository:
   }
   CSM: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BOND|CABL|CAMB|COMB|COPY|CREP|CTRL|DECS|DEPS|DESI|ECHO|EQBE|EQIT|EQLC|EQPP|EQUU|EXPO|GAMT|GRCS|GRPD|KINK|LAUN|LCCS|QCUT|REIN|SCAL|SELE|SUMA|TBEX|TEMP|TXCS|WAIT|ACT|BOX|GRP|LAM|MEX|CS|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(ACT|(?:B(?:OND|OX))|(?:C(?:ABL|AMB|OMB|OPY|REP|TRL|S))|(?:D(?:ECS|EPS|ESI))|(?:E(?:CHO|QBE|QIT|QLC|QPP|QUU|XPO))|(?:G(?:AMT|RCS|RPD|RP))|KINK|(?:L(?:AUN|CCS|AM|C))|MEX|QCUT|REIN|(?:S(?:CAL|ELE|UMA))|(?:T(?:BEX|EMP|XCS))|WAIT)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ACT10|ACT11|ACT12|GAM10|GAM11|GAM12|ACT1|ACT2|ACT3|ACT4|ACT5|ACT6|ACT7|ACT8|ACT9|AQ_S|ASTI|ATIL|BASE|BEAM|BEAN|BEDD|CALC|CANT|COMB|COPY|DEFQ|DEPS|DESI|DIFF|DISP|DPHI|DSIG|EACR|ETYP|EX_Q|EX_R|EX_Y|EX_Z|FAC1|FACD|FACL|FACP|FACS|FACT|FACV|FMAX|FMIN|FROM|GAM1|GAM2|GAM3|GAM4|GAM5|GAM6|GAM7|GAM8|GAM9|GAMF|GAMU|GRPM|HFIX|ICS1|ICSD|ITER|LAMC|LAML|LAMS|LAMT|LAU2|LAUN|LCRC|LML2|LMS2|LMT2|LOAD|MODE|NCRE|NO_L|PAR1|PAR2|PAR3|PAR4|PAR5|PAR6|PAR7|PAR8|PHIF|PHIX|PHIY|PHIZ|PREX|PROB|PUNC|QEMX|QGRP|QUAS|QUEA|QU_M|QU_N|QU_S|SIGD|SIGN|SITU|SLSF|TABB|TABC|TABF|TABN|TABV|TEMP|TEXT|TITL|TYPE|XMAX|XMIN|YMAX|YMIN|ZMAX|ZMIN|ADD|CDB|DRX|DRY|DRZ|DXX|DYY|DZZ|END|EPS|EXP|FOR|GRP|LC1|LC2|LCC|LCR|MNO|NR1|NR2|OPT|PHI|TOL|TOM|USE|VAL|CS|DT|DX|DY|DZ|HM|LC|MT|MX|MY|MZ|NO|PX|PY|PZ|RH|SM|T0|TN|TO|TS|UX|UY|UZ|V2|V3|V4|VY|VZ|X1|X2|XM|Y1|Y2|YM|ZM|N|T|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:CT10|CT11|CT12|CT1|CT2|CT3|CT4|CT5|CT6|CT7|CT8|CT9|Q_S|STI|TIL|DD))|(?:B(?:ASE|EAM|EAN|EDD))|(?:C(?:ALC|ANT|OMB|OPY|DB|S))|(?:D(?:EFQ|EPS|ESI|IFF|ISP|PHI|SIG|RX|RY|RZ|XX|YY|ZZ|T|X|Y|Z))|(?:E(?:ACR|TYP|X_Q|X_R|X_Y|X_Z|ND|PS|XP))|(?:F(?:AC1|ACD|ACL|ACP|ACS|ACT|ACV|MAX|MIN|ROM|OR))|(?:G(?:AM10|AM11|AM12|AM1|AM2|AM3|AM4|AM5|AM6|AM7|AM8|AM9|AMF|AMU|RPM|RP))|(?:H(?:FIX|M))|(?:I(?:CS1|CSD|TER))|(?:L(?:AMC|AML|AMS|AMT|AU2|AUN|CRC|ML2|MS2|MT2|OAD|C1|C2|CC|CR|C))|(?:M(?:ODE|NO|T|X|Y|Z))|(?:N(?:CRE|O_L|R1|R2|O|))|OPT|(?:P(?:AR1|AR2|AR3|AR4|AR5|AR6|AR7|AR8|HIF|HIX|HIY|HIZ|REX|ROB|UNC|HI|X|Y|Z))|(?:Q(?:EMX|GRP|UAS|UEA|U_M|U_N|U_S))|RH|(?:S(?:IGD|IGN|ITU|LSF|M))|(?:T(?:ABB|ABC|ABF|ABN|ABV|EMP|EXT|ITL|YPE|OL|OM|0|N|O|S|))|(?:U(?:SE|X|Y|Z))|(?:V(?:AL|2|3|4|Y|Z))|(?:X(?:MAX|MIN|1|2|M|))|(?:Y(?:MAX|MIN|1|2|M|))|(?:Z(?:MAX|MIN|M|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -773,14 +773,14 @@ repository:
   }
   DBMERG: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BEAM|BRIC|CABL|ECHO|NODE|QUAD|SECT|SPRI|TRUS|CDB|GRP|MAT|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:B(?:EAM|RIC))|(?:C(?:ABL|DB))|ECHO|GRP|LC|MAT|NODE|QUAD|(?:S(?:ECT|PRI))|TRUS)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(FMXY|FNXY|FROM|FTAU|PASS|TYPE|FMB|FMT|FMX|FMY|FMZ|FNX|FNY|FSX|FSY|FSZ|FVX|FVY|FVZ|FXX|FYY|FZZ|INC|NOS|OPT|VAL|BY|FN|FX|FY|FZ|NO|TO)(?!\\w)'
+        match: '(?i)(?<!\\w)(BY|(?:F(?:MXY|NXY|ROM|TAU|MB|MT|MX|MY|MZ|NX|NY|SX|SY|SZ|VX|VY|VZ|XX|YY|ZZ|N|X|Y|Z))|INC|(?:N(?:OS|O))|OPT|PASS|(?:T(?:YPE|O))|VAL)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -788,14 +788,14 @@ repository:
   }
   DECREATOR: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CTRL|DDEL|DGEO|DSEL|DSLC|DSLN|ECHO|GRP|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(CTRL|(?:D(?:DEL|GEO|SEL|SLC|SLN))|ECHO|GRP|LC)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(CINT|FREF|GAUS|HDIV|NCS2|TEND|TITL|TYPE|TYPM|TYPT|WARP|YMAX|YMIN|ZMAX|ZMIN|DRX|DRY|DRZ|GRP|NCS|OPT|REF|VAL|ID|NO|SA|SE|X1|X2|Y1|Y2|Z1|Z2|S)(?!\\w)'
+        match: '(?i)(?<!\\w)(CINT|(?:D(?:RX|RY|RZ))|FREF|(?:G(?:AUS|RP))|HDIV|ID|(?:N(?:CS2|CS|O))|OPT|REF|(?:S(?:A|E|))|(?:T(?:END|ITL|YPE|YPM|YPT))|VAL|WARP|(?:X(?:1|2))|(?:Y(?:MAX|MIN|1|2))|(?:Z(?:MAX|MIN|1|2)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -803,14 +803,14 @@ repository:
   }
   DOLFYN: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CASE|DOLF|DRAG|FLOW|HIST|INOU|SOLV|STEP|WALL|WIND|EPS|OUT|IN)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(CASE|(?:D(?:OLF|RAG))|EPS|FLOW|HIST|(?:I(?:NOU|N))|OUT|(?:S(?:OLV|TEP))|(?:W(?:ALL|IND)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(Origi|BLEN|COND|DIFF|FROM|HFLX|HREF|PREF|RADI|REFX|REFY|REFZ|RELA|SLOP|TEMP|TFAK|TITL|TORD|TURB|TYPE|VREF|WITH|ALF|AXX|AYY|AZZ|DEN|DTM|EPS|GAM|INC|INT|MAT|NUE|PLC|RHO|TOL|VAR|Z0M|..|AX|AY|AZ|DX|DY|DZ|LC|NO|TO|W1|Z0|F|K|N|P|R|T|U|V|W)(?!\\w)'
+        match: '(?i)(?<!\\w)(..|(?:A(?:LF|XX|YY|ZZ|X|Y|Z))|BLEN|COND|(?:D(?:IFF|EN|TM|X|Y|Z))|EPS|(?:F(?:ROM|))|GAM|(?:H(?:FLX|REF))|(?:I(?:NC|NT))|K|LC|MAT|(?:N(?:UE|O|))|Origi|(?:P(?:REF|LC|))|(?:R(?:ADI|EFX|EFY|EFZ|ELA|HO|))|SLOP|(?:T(?:EMP|FAK|ITL|ORD|URB|YPE|OL|O|))|U|(?:V(?:REF|AR|))|(?:W(?:ITH|1|))|(?:Z(?:0M|0)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -818,14 +818,14 @@ repository:
   }
   DYNA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BMAT|CONT|CTRL|ECHO|EIGE|EXTR|HIST|MASS|MODD|SMAT|STEP|SYST|GRP|MAT|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(BMAT|(?:C(?:ONT|TRL))|(?:E(?:CHO|IGE|XTR))|GRP|HIST|LC|(?:M(?:ASS|ODD|AT))|(?:S(?:MAT|TEP|YST)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ALFA|CRAC|DUMP|EIGB|EIGS|EIGT|FACM|FACP|FACS|FACT|FROM|GAMA|GAMB|HING|LCST|LCUP|LCUR|LCUT|LCUV|LMAX|LMIN|MITE|MODB|MODD|MREF|NCSP|NEIG|NITE|PERS|PHYS|PROB|RADA|RADB|RESU|RHOX|RHOY|RHOZ|STAT|STEP|STHE|STOR|STYP|TITL|TMIN|TYPE|VAL2|WIND|XREF|YIEL|YREF|ZREF|ACT|ALF|BET|COH|DEL|DIL|DLX|DLY|DLZ|DTF|GAM|INT|MAX|MIN|MUE|MXX|MXY|MXZ|MYY|MYZ|MZZ|NCS|OAF|OAL|OPT|PLC|REF|SPM|THE|TYP|VAL|CS|CT|DT|EX|EY|EZ|LC|MB|MX|MY|MZ|NO|NR|TO|A|B|C|D|E|G|H|K|N|V)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:LFA|CT|LF|))|(?:B(?:ET|))|(?:C(?:RAC|OH|S|T|))|(?:D(?:UMP|EL|IL|LX|LY|LZ|TF|T|))|(?:E(?:IGB|IGS|IGT|X|Y|Z|))|(?:F(?:ACM|ACP|ACS|ACT|ROM))|(?:G(?:AMA|AMB|AM|))|(?:H(?:ING|))|INT|K|(?:L(?:CST|CUP|CUR|CUT|CUV|MAX|MIN|C))|(?:M(?:ITE|ODB|ODD|REF|AX|IN|UE|XX|XY|XZ|YY|YZ|ZZ|B|X|Y|Z))|(?:N(?:CSP|EIG|ITE|CS|O|R|))|(?:O(?:AF|AL|PT))|(?:P(?:ERS|HYS|ROB|LC))|(?:R(?:ADA|ADB|ESU|HOX|HOY|HOZ|EF))|(?:S(?:TAT|TEP|THE|TOR|TYP|PM))|(?:T(?:ITL|MIN|YPE|HE|YP|O))|(?:V(?:AL2|AL|))|WIND|XREF|(?:Y(?:IEL|REF))|ZREF)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -833,14 +833,14 @@ repository:
   }
   DYNR: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(ECHO|EXCI|FUNC|HIST|RESP|SCHH|SIZE|SPEC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:E(?:CHO|XCI))|FUNC|HIST|RESP|(?:S(?:CHH|IZE|PEC)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(CLIM|COMP|DINA|FORM|LIM1|LIM2|MARG|REF1|REF2|REF3|TDIF|TDIM|TEFF|TITL|TMAX|TMIN|TYPE|XTYP|YMAX|YMIN|YTOL|LCS|NO0|NO1|NO2|NO3|NO4|NO5|NO6|NO7|NO8|NO9|OPT|RC1|RC2|RC3|VAL|C0|C1|C2|C3|C4|C5|C6|C7|C8|C9|D1|D2|D3|D4|D5|DT|H1|H2|H3|H4|H5|NO|NX|F|H|S|T|W)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:C(?:LIM|OMP|0|1|2|3|4|5|6|7|8|9))|(?:D(?:INA|1|2|3|4|5|T))|(?:F(?:ORM|))|(?:H(?:1|2|3|4|5|))|(?:L(?:IM1|IM2|CS))|MARG|(?:N(?:O0|O1|O2|O3|O4|O5|O6|O7|O8|O9|O|X))|OPT|(?:R(?:EF1|EF2|EF3|C1|C2|C3))|S|(?:T(?:DIF|DIM|EFF|ITL|MAX|MIN|YPE|))|VAL|W|XTYP|(?:Y(?:MAX|MIN|TOL)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -848,14 +848,14 @@ repository:
   }
   ELLA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(APPL|CALC|CASE|COMB|CTRL|ECHO|LANE|LINF|LSEL|POSL|SAVE|SHOW|SIZE|TRAI|TRBL|TRPL|ACT|GAX|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:A(?:PPL|CT))|(?:C(?:ALC|ASE|OMB|TRL))|ECHO|GAX|(?:L(?:ANE|INF|SEL|C))|POSL|(?:S(?:AVE|HOW|IZE))|(?:T(?:RAI|RBL|RPL)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(BEFF|BOGI|CONT|DABO|DAWH|DEFF|DELT|DIRT|DIST|DMAX|DMIN|DPOS|ETYP|EXCE|EXTR|FACT|FORM|FRBO|FROM|FRWH|FUGA|GAMF|GAMU|HDIV|HEFF|IMPA|INCA|INCD|INCE|LDEL|LMAX|LMIN|LSEL|LSEQ|MARG|PART|PFAC|PFAV|PHIS|PLON|PS1S|PSI0|PSI1|PSI2|PTRA|RSEL|RSEQ|SMAX|SMIN|SYNC|SYST|TGEN|TITL|TRAI|TYPE|WHEE|WIDT|WREF|XCON|YMAX|YMIN|ASL|BWH|DAB|DEL|DIR|DSV|F10|FRB|GRP|HSA|HSE|INT|L10|LCB|OPT|PHI|SNO|SUP|VAL|YCA|YCE|YEX|YLA|YLE|YRA|YRE|BW|C1|C2|C3|C4|C5|C6|C7|C8|C9|DX|DY|DZ|F1|F2|F3|F4|F5|F6|F7|F8|F9|HF|HW|L1|L2|L3|L4|L5|L6|L7|L8|L9|LW|NO|NW|NX|NY|NZ|P1|P2|P3|P4|P5|P6|P7|P8|P9|PB|PF|PW|SA|SC|SE|T1|T2|T3|T4|T5|T6|TO|V2|V3|V4|V5|V6|WL|WR|Y2|ZW|A|B|H|L|P|R|S|V|W|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:SL|))|(?:B(?:EFF|OGI|WH|W|))|(?:C(?:ONT|1|2|3|4|5|6|7|8|9))|(?:D(?:ABO|AWH|EFF|ELT|IRT|IST|MAX|MIN|POS|AB|EL|IR|SV|X|Y|Z))|(?:E(?:TYP|XCE|XTR))|(?:F(?:ACT|ORM|RBO|ROM|RWH|UGA|10|RB|1|2|3|4|5|6|7|8|9))|(?:G(?:AMF|AMU|RP))|(?:H(?:DIV|EFF|SA|SE|F|W|))|(?:I(?:MPA|NCA|NCD|NCE|NT))|(?:L(?:DEL|MAX|MIN|SEL|SEQ|10|CB|1|2|3|4|5|6|7|8|9|W|))|MARG|(?:N(?:O|W|X|Y|Z))|OPT|(?:P(?:ART|FAC|FAV|HIS|LON|S1S|SI0|SI1|SI2|TRA|HI|1|2|3|4|5|6|7|8|9|B|F|W|))|(?:R(?:SEL|SEQ|))|(?:S(?:MAX|MIN|YNC|YST|NO|UP|A|C|E|))|(?:T(?:GEN|ITL|RAI|YPE|1|2|3|4|5|6|O))|(?:V(?:AL|2|3|4|5|6|))|(?:W(?:HEE|IDT|REF|L|R|))|(?:X(?:CON|))|(?:Y(?:MAX|MIN|CA|CE|EX|LA|LE|RA|RE|2|))|(?:Z(?:W|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -863,14 +863,14 @@ repository:
   }
   FOOTING: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BESI|COLU|CTRL|ECHO|GEOM|LOAD|MATF|SLEE|ACT|BEW|POS|SPT|TAB|KN|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(ACT|(?:B(?:ESI|EW))|(?:C(?:OLU|TRL))|ECHO|GEOM|KN|(?:L(?:OAD|C))|MATF|POS|(?:S(?:LEE|PT))|TAB)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(CFUN|CMAX|CMIN|COLU|DMAX|DMIN|DUST|EOPT|FUND|GAMF|GAMG|GAMQ|GAMU|GUID|HSWI|HSWO|KOAH|KOAV|KOEB|KOEH|KOEV|LAGF|LAGU|NBEM|OPT1|PROF|PSI0|PSI1|PSI2|SCOV|SDUX|SDUY|STEE|TYPE|WIGL|WIGR|WXGU|WXWL|WXWU|WYWU|ZUGV|ASV|D1X|D1Y|DHX|DHY|DMX|DMY|GEO|OPT|POS|REP|TIT|TYP|VAL|AS|BX|BY|CX|CY|D1|DU|EX|EY|EZ|HA|HI|HX|HY|LF|MX|MY|NO|NX|NY|NZ|QA|SX|SY|SZ|WI|T|V|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:SV|S))|(?:B(?:X|Y))|(?:C(?:FUN|MAX|MIN|OLU|X|Y))|(?:D(?:MAX|MIN|UST|1X|1Y|HX|HY|MX|MY|1|U))|(?:E(?:OPT|X|Y|Z))|FUND|(?:G(?:AMF|AMG|AMQ|AMU|UID|EO))|(?:H(?:SWI|SWO|A|I|X|Y))|(?:K(?:OAH|OAV|OEB|OEH|OEV))|(?:L(?:AGF|AGU|F))|(?:M(?:X|Y))|(?:N(?:BEM|O|X|Y|Z))|(?:O(?:PT1|PT))|(?:P(?:ROF|SI0|SI1|SI2|OS))|QA|REP|(?:S(?:COV|DUX|DUY|TEE|X|Y|Z))|(?:T(?:YPE|IT|YP|))|(?:V(?:AL|))|(?:W(?:IGL|IGR|XGU|XWL|XWU|YWU|I))|X|Y|(?:Z(?:UGV|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -878,14 +878,14 @@ repository:
   }
   HASE: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BORE|CTRL|ECHO|HALF|LOAD|LOAR|PILE|PLAS|SELE|SELP|GRP|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(BORE|CTRL|ECHO|GRP|HALF|(?:L(?:OAD|OAR|C))|(?:P(?:ILE|LAS))|(?:S(?:ELE|ELP)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(BRIC|FAKX|FAKY|FAKZ|FOOT|HMIN|LCST|MANT|NAME|PMAF|PMAM|PMAX|PROF|STVZ|TITL|TYPE|ZMAN|MNO|OPT|VAL|CC|D0|DX|DY|EP|NO|PZ|RC|D|R|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)(BRIC|CC|(?:D(?:0|X|Y|))|EP|(?:F(?:AKX|AKY|AKZ|OOT))|HMIN|LCST|(?:M(?:ANT|NO))|(?:N(?:AME|O))|OPT|(?:P(?:MAF|MAM|MAX|ROF|Z))|(?:R(?:C|))|STVZ|(?:T(?:ITL|YPE))|VAL|X|Y|(?:Z(?:MAN|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -893,14 +893,14 @@ repository:
   }
   HYDRA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BOUN|CTRL|ECHO|FUNC|HIST|HMAT|LINK|NVAL|PIPE|STEP|SURF|SYST|GRP|PLC|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(BOUN|CTRL|ECHO|FUNC|GRP|(?:H(?:IST|MAT))|(?:L(?:INK|C))|NVAL|(?:P(?:IPE|LC))|(?:S(?:TEP|URF|YST)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(AREF|COPY|DHPX|DHPY|DHPZ|DHTF|DIMQ|DIMT|FROM|GDIR|HOPT|LCU0|LOAD|QMAX|TEMP|TFAK|THET|TITL|TMIN|TYPE|VAL2|VAL3|VAL4|VAL5|VAL6|DVX|DVY|DVZ|EPS|INC|KXX|KXY|KXZ|KYY|KYZ|KZZ|LCS|LCU|LEV|NSP|OPT|SNO|VAL|HC|HP|NB|NO|PU|TF|TK|TO|VP|A|B|C|F|L|N|S|T)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:REF|))|B|(?:C(?:OPY|))|(?:D(?:HPX|HPY|HPZ|HTF|IMQ|IMT|VX|VY|VZ))|EPS|(?:F(?:ROM|))|GDIR|(?:H(?:OPT|C|P))|INC|(?:K(?:XX|XY|XZ|YY|YZ|ZZ))|(?:L(?:CU0|OAD|CS|CU|EV|))|(?:N(?:SP|B|O|))|OPT|PU|QMAX|(?:S(?:NO|))|(?:T(?:EMP|FAK|HET|ITL|MIN|YPE|F|K|O|))|(?:V(?:AL2|AL3|AL4|AL5|AL6|AL|P)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -908,14 +908,14 @@ repository:
   }
   MAXIMA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(COMB|CTRL|ECHO|EXPO|SUPP|TRAC|ACT|ADA|ADD|SUM|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:A(?:CT|DA|DD))|(?:C(?:OMB|TRL))|(?:E(?:CHO|XPO))|LC|(?:S(?:UPP|UM))|TRAC)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(BASE|COMB|COMC|CSAV|ELEM|ETYP|EXTR|FACF|FACT|FACU|FROM|GAMA|GAMF|GAMU|PART|PASS|PS1S|PSI0|PSI1|PSI2|SELE|TITL|TYPE|INC|OPT|SUP|VAL|LC|NO|TO|X)(?!\\w)'
+        match: '(?i)(?<!\\w)(BASE|(?:C(?:OMB|OMC|SAV))|(?:E(?:LEM|TYP|XTR))|(?:F(?:ACF|ACT|ACU|ROM))|(?:G(?:AMA|AMF|AMU))|INC|LC|NO|OPT|(?:P(?:ART|ASS|S1S|SI0|SI1|SI2))|(?:S(?:ELE|UP))|(?:T(?:ITL|YPE|O))|VAL|X)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -923,14 +923,14 @@ repository:
   }
   PLBCONVERTER: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
         match: '(?i)(?:^ *|; *)(DOCX|IMG|OPT)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(OVRT|TMPL|FMT|FNR|IMG|OUT|IN)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:F(?:MT|NR))|(?:I(?:MG|N))|(?:O(?:VRT|UT))|TMPL)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -938,14 +938,14 @@ repository:
   }
   RELY: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CORR|CTRL|EXDS|FORM|FUNC|MVFO|OUTP|PROJ|SLSF|SORM|SUBS|ADS|RSF|VAR|DS|IS|LS|MC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(ADS|(?:C(?:ORR|TRL))|DS|EXDS|(?:F(?:ORM|UNC))|IS|LS|(?:M(?:VFO|C))|OUTP|PROJ|RSF|(?:S(?:LSF|ORM|UBS))|VAR)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ANSA|CDBP|CHAV|CLSE|CNTR|DSPT|ENTR|EPSC|EXPR|FSAP|FSAV|GRDM|GSTP|IMON|LMDA|LOAD|LSFR|MIT1|MIT2|NAME|NPRI|NSPL|OPTA|PRUV|PRXV|PTYP|RELA|REST|SAIF|SAPD|SAVE|SDES|SEED|SENS|SPLS|SPNT|SPRD|SVAL|TRAN|TYPE|UMAX|UMIN|VAR1|VAR2|VARN|CDB|DAT|LSF|NCS|SMU|TID|TXT|VAL|P0|P1|P2|P3|P4|V1|V2|V3|V4|C)(?!\\w)'
+        match: '(?i)(?<!\\w)(ANSA|(?:C(?:DBP|HAV|LSE|NTR|DB|))|(?:D(?:SPT|AT))|(?:E(?:NTR|PSC|XPR))|(?:F(?:SAP|SAV))|(?:G(?:RDM|STP))|IMON|(?:L(?:MDA|OAD|SFR|SF))|(?:M(?:IT1|IT2))|(?:N(?:AME|PRI|SPL|CS))|OPTA|(?:P(?:RUV|RXV|TYP|0|1|2|3|4))|(?:R(?:ELA|EST))|(?:S(?:AIF|APD|AVE|DES|EED|ENS|PLS|PNT|PRD|VAL|MU))|(?:T(?:RAN|YPE|ID|XT))|(?:U(?:MAX|MIN))|(?:V(?:AR1|AR2|ARN|AL|1|2|3|4)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -953,14 +953,14 @@ repository:
   }
   RESULTS: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BEAM|BRIC|CROS|DGRA|DIAG|DIAX|DLAB|DLIN|FILT|JOIN|NODE|PICT|QUAD|RSET|SIZE|STRU|TXTP|VIEW|XLSX|AND|CDB|DBO|FLT|GRP|PFA|PLN|PMR|FF|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(AND|(?:B(?:EAM|RIC))|(?:C(?:ROS|DB))|(?:D(?:GRA|IAG|IAX|LAB|LIN|BO))|(?:F(?:ILT|LT|F))|GRP|JOIN|LC|NODE|(?:P(?:ICT|FA|LN|MR))|QUAD|RSET|(?:S(?:IZE|TRU))|TXTP|VIEW|XLSX)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ACHS|ALIG|ARCH|AVER|AXFU|AXIS|BMAX|BMIN|BMTP|CLNM|COL1|COL2|COLO|DATE|DELI|DESC|DESI|DRUD|DRUL|DRUR|DRUU|ELEM|ETYP|EXRF|EXTR|FILL|FILT|FORM|FREE|GDEF|HLEG|INCR|LABL|LBAX|LCTP|LEGE|LEGW|MARG|MODE|MSCA|NAME|NMAT|NUMB|OPTI|OVLP|REPE|REPR|RESU|RULE|SCAL|SCHH|SECT|SHAE|SHOW|SIZE|SLEG|SORT|SPLI|SPLT|SPPL|STYP|TICK|TIME|TITL|TOTA|TYPE|UMBR|UNI2|UNIT|VAL1|VAL2|WIDT|WLEG|ACT|ASB|CDB|COL|DEC|ENO|ID1|ID2|ID3|ID4|MAT|POS|REF|ROW|VAL|XIV|YUP|CS|ND|NO|SC|WS|XI|A|B|G|H|M|R|T|W|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:CHS|LIG|RCH|VER|XFU|XIS|CT|SB|))|(?:B(?:MAX|MIN|MTP|))|(?:C(?:LNM|OL1|OL2|OLO|DB|OL|S))|(?:D(?:ATE|ELI|ESC|ESI|RUD|RUL|RUR|RUU|EC))|(?:E(?:LEM|TYP|XRF|XTR|NO))|(?:F(?:ILL|ILT|ORM|REE))|(?:G(?:DEF|))|(?:H(?:LEG|))|(?:I(?:NCR|D1|D2|D3|D4))|(?:L(?:ABL|BAX|CTP|EGE|EGW))|(?:M(?:ARG|ODE|SCA|AT|))|(?:N(?:AME|MAT|UMB|D|O))|(?:O(?:PTI|VLP))|POS|(?:R(?:EPE|EPR|ESU|ULE|EF|OW|))|(?:S(?:CAL|CHH|ECT|HAE|HOW|IZE|LEG|ORT|PLI|PLT|PPL|TYP|C))|(?:T(?:ICK|IME|ITL|OTA|YPE|))|(?:U(?:MBR|NI2|NIT))|(?:V(?:AL1|AL2|AL))|(?:W(?:IDT|LEG|S|))|(?:X(?:IV|I|))|(?:Y(?:UP|))|Z)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -968,14 +968,14 @@ repository:
   }
   SHEARWALL: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CHCK|CTRL|DESI|ECHO|PLOT|SEL|LC|RF)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:C(?:HCK|TRL))|DESI|ECHO|LC|PLOT|RF|SEL)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(CMAX|LENA|LENB|MAXA|MAXB|STAT|TITL|TMAX|TYPA|TYPB|TYPE|VAL1|VAL2|ZLVL|OPT|REF|AS|DC|MY|MZ|NO|D|N)(?!\\w)'
+        match: '(?i)(?<!\\w)(AS|CMAX|(?:D(?:C|))|(?:L(?:ENA|ENB))|(?:M(?:AXA|AXB|Y|Z))|(?:N(?:O|))|OPT|REF|STAT|(?:T(?:ITL|MAX|YPA|YPB|YPE))|(?:V(?:AL1|AL2))|ZLVL)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -983,14 +983,14 @@ repository:
   }
   SIR: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(COLO|CTRL|ECHO|SCHH|SECT|SIZE|GRP|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:C(?:OLO|TRL))|ECHO|GRP|LC|(?:S(?:CHH|ECT|IZE)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(CSMA|CSMI|ETYP|FORM|KIND|MARG|SPEC|SPLI|TEXT|TYPE|TYPM|TYPT|XMAX|XMIN|YMAX|YMIN|ZMAX|ZMIN|LAY|MNO|OPT|REF|SNO|VAL|YSC|ZSC|C1|C2|C3|C4|C5|C6|H1|H2|H3|H4|H5|H6|HE|HF|HL|ND|NO|NR|NX|NY|NZ|SC|SX|SY|SZ|XM|XS|YM|ZM|H|W|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:C(?:SMA|SMI|1|2|3|4|5|6))|ETYP|FORM|(?:H(?:1|2|3|4|5|6|E|F|L|))|KIND|LAY|(?:M(?:ARG|NO))|(?:N(?:D|O|R|X|Y|Z))|OPT|REF|(?:S(?:PEC|PLI|NO|C|X|Y|Z))|(?:T(?:EXT|YPE|YPM|YPT))|VAL|W|(?:X(?:MAX|MIN|M|S|))|(?:Y(?:MAX|MIN|SC|M|))|(?:Z(?:MAX|MIN|SC|M|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -998,14 +998,14 @@ repository:
   }
   SOFILOAD: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(ACCE|AREA|BEAM|BEPL|BRIC|CABL|COPY|CTRL|CURV|ECHO|EVAL|EXPO|FIMP|FUNC|LANE|LINE|LTDG|NODE|POIN|PUSH|QUAD|RESP|REVA|SIMQ|STEP|TRAI|TRBL|TREX|TRPL|TRUS|VOLU|WAVE|WGEN|WIND|WIPT|WPRO|WROU|WSPE|WTOP|WTST|ACT|GAX|GRP|LAR|LTD|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:A(?:CCE|REA|CT))|(?:B(?:EAM|EPL|RIC))|(?:C(?:ABL|OPY|TRL|URV))|(?:E(?:CHO|VAL|XPO))|(?:F(?:IMP|UNC))|(?:G(?:AX|RP))|(?:L(?:ANE|INE|TDG|AR|TD|C))|NODE|(?:P(?:OIN|USH))|QUAD|(?:R(?:ESP|EVA))|(?:S(?:IMQ|TEP))|(?:T(?:RAI|RBL|REX|RPL|RUS))|VOLU|(?:W(?:AVE|GEN|IND|IPT|PRO|ROU|SPE|TOP|TST)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(A1LA|A1LO|A1VE|A2LA|A2LO|A2VE|A3LA|A3LO|A3VE|ALPH|ARED|BEFF|BOGI|CASE|CLAS|CNOD|CODE|COMP|CONT|CRI1|CRI2|CRI3|DABO|DAWH|DEFF|DIRT|DIST|DMAX|DMIN|DPOS|DSTR|ELIM|EVAL|EXPU|FACD|FACT|FDEL|FMAX|FMIN|FRAD|FRBO|FROM|FRWH|FUGA|GAMA|GAMF|GAMU|GRP1|GRP2|GRP3|GUID|HEFF|HIST|HMIN|HMOM|HTYP|INCA|INCD|INCE|INCL|INCR|ITER|LCC0|LCC1|LCDM|LCOH|LCST|LDEL|LEIG|LFUN|LINF|LINT|LLAT|LLON|LMAX|LSPE|LVER|MNAM|NAME|NEIG|NFRE|NLCC|NODE|NREF|NTYP|PART|PASS|PFAC|PFAV|PHIS|PIS0|PROJ|PS1S|PSI0|PSI1|PSI2|REF1|REF2|REF3|REFT|REFX|REFY|REFZ|RID1|RID2|RID3|SIGA|SIGB|SMIN|SPEC|SPL1|SPL2|SPL3|SPL4|SPL5|SRCT|SRLC|TBLC|TDIF|TEFF|TITL|TLAT|TLON|TMAX|TMIN|TRGM|TRGT|TVER|TYPE|TYPT|VBOE|VTYP|WHEE|WIDE|WIDT|WIND|XABS|XCON|XREF|XV10|XV11|XV12|XV13|XV14|XV15|YREF|ZONE|ZREF|A/U|ALF|ASL|AXX|AYY|AZZ|BEZ|BLA|BLO|BVE|C3E|CFR|CLA|CLO|CVE|DAB|DIR|DLX|DLY|DLZ|DPX|DPY|DPZ|DXR|DYR|DZR|EXX|EYA|EYE|EYY|EZA|EZE|EZZ|F10|F11|F12|F13|F14|F15|FRB|GAM|GRP|HSA|HSE|INC|IND|KUU|KUV|KUW|KVU|KVV|KVW|KWU|KWV|KWW|LCG|LEV|MOD|NAR|NR0|NR1|NR2|NR3|NR4|NR5|NR6|NR7|NR8|NR9|NRE|OPT|PHI|REF|RHO|SEA|SNO|SRC|SUP|SWL|TOL|TRG|VAL|WXX|WYY|WZZ|XV1|XV2|XV3|XV4|XV5|XV6|XV7|XV8|XV9|YCA|YCE|YEX|YLA|YLE|YRA|YRE|Z10|Z11|Z12|Z13|Z14|Z15|A1|A2|A3|A4|A5|A6|A7|A8|A9|AG|AH|AV|AX|AY|AZ|BW|CS|CU|CV|CW|D1|D2|D4|D5|DT|DX|DY|DZ|EY|EZ|F0|F1|F2|F3|F4|F5|F6|F7|F8|F9|GH|HF|HW|K1|K2|LC|LW|NF|NO|NW|NX|NY|NZ|P1|P2|P3|P4|P5|P6|P7|P8|P9|PA|PB|PE|PF|PW|R1|R2|R3|R4|R5|R6|R7|R8|R9|RX|RY|RZ|SA|SB|SE|T1|T2|T3|T4|TB|TC|TD|TE|TO|UC|V2|V3|V4|VB|VR|WL|WR|X1|X2|X3|X4|X5|X6|XM|Y1|Y2|Y3|Y4|Y5|Y6|YM|Z0|Z1|Z2|Z3|Z4|Z5|Z6|Z7|Z8|Z9|ZM|ZW|A|B|D|F|H|L|M|N|P|R|S|T|V|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:1LA|1LO|1VE|2LA|2LO|2VE|3LA|3LO|3VE|LPH|RED|/U|LF|SL|XX|YY|ZZ|1|2|3|4|5|6|7|8|9|G|H|V|X|Y|Z|))|(?:B(?:EFF|OGI|EZ|LA|LO|VE|W|))|(?:C(?:ASE|LAS|NOD|ODE|OMP|ONT|RI1|RI2|RI3|3E|FR|LA|LO|VE|S|U|V|W))|(?:D(?:ABO|AWH|EFF|IRT|IST|MAX|MIN|POS|STR|AB|IR|LX|LY|LZ|PX|PY|PZ|XR|YR|ZR|1|2|4|5|T|X|Y|Z|))|(?:E(?:LIM|VAL|XPU|XX|YA|YE|YY|ZA|ZE|ZZ|Y|Z))|(?:F(?:ACD|ACT|DEL|MAX|MIN|RAD|RBO|ROM|RWH|UGA|10|11|12|13|14|15|RB|0|1|2|3|4|5|6|7|8|9|))|(?:G(?:AMA|AMF|AMU|RP1|RP2|RP3|UID|AM|RP|H))|(?:H(?:EFF|IST|MIN|MOM|TYP|SA|SE|F|W|))|(?:I(?:NCA|NCD|NCE|NCL|NCR|TER|NC|ND))|(?:K(?:UU|UV|UW|VU|VV|VW|WU|WV|WW|1|2))|(?:L(?:CC0|CC1|CDM|COH|CST|DEL|EIG|FUN|INF|INT|LAT|LON|MAX|SPE|VER|CG|EV|C|W|))|(?:M(?:NAM|OD|))|(?:N(?:AME|EIG|FRE|LCC|ODE|REF|TYP|AR|R0|R1|R2|R3|R4|R5|R6|R7|R8|R9|RE|F|O|W|X|Y|Z|))|OPT|(?:P(?:ART|ASS|FAC|FAV|HIS|IS0|ROJ|S1S|SI0|SI1|SI2|HI|1|2|3|4|5|6|7|8|9|A|B|E|F|W|))|(?:R(?:EF1|EF2|EF3|EFT|EFX|EFY|EFZ|ID1|ID2|ID3|EF|HO|1|2|3|4|5|6|7|8|9|X|Y|Z|))|(?:S(?:IGA|IGB|MIN|PEC|PL1|PL2|PL3|PL4|PL5|RCT|RLC|EA|NO|RC|UP|WL|A|B|E|))|(?:T(?:BLC|DIF|EFF|ITL|LAT|LON|MAX|MIN|RGM|RGT|VER|YPE|YPT|OL|RG|1|2|3|4|B|C|D|E|O|))|UC|(?:V(?:BOE|TYP|AL|2|3|4|B|R|))|(?:W(?:HEE|IDE|IDT|IND|XX|YY|ZZ|L|R))|(?:X(?:ABS|CON|REF|V10|V11|V12|V13|V14|V15|V1|V2|V3|V4|V5|V6|V7|V8|V9|1|2|3|4|5|6|M|))|(?:Y(?:REF|CA|CE|EX|LA|LE|RA|RE|1|2|3|4|5|6|M|))|(?:Z(?:ONE|REF|10|11|12|13|14|15|0|1|2|3|4|5|6|7|8|9|M|W|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -1013,14 +1013,14 @@ repository:
   }
   SOFIMSHA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(ADDM|BEAM|BOUN|BRIC|BSEC|CABL|CTRL|ECHO|EDGE|EXPO|EXTR|GETN|IMPO|INTF|KINE|LOFT|MASS|MIRR|NODE|QUAD|RSET|SBOX|SPRI|SYST|TRAN|TRUS|UBND|UMSH|DEL|GRP|MOD)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(ADDM|(?:B(?:EAM|OUN|RIC|SEC))|(?:C(?:ABL|TRL))|DEL|(?:E(?:CHO|DGE|XPO|XTR))|(?:G(?:ETN|RP))|(?:I(?:MPO|NTF))|KINE|LOFT|(?:M(?:ASS|IRR|OD))|NODE|QUAD|RSET|(?:S(?:BOX|PRI|YST))|(?:T(?:RAN|RUS))|(?:U(?:BND|MSH)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(AHIN|ALFY|ALFZ|ALPH|BASE|BETA|BETY|BETZ|CRAC|DIST|DROT|EHIN|EXPM|EXPP|EXPT|FAKX|FAKY|FAKZ|FROM|GAPT|GDIR|GDIV|HMAX|IDSC|IDTG|ITEM|NARE|NERE|NMRE|PASS|PATH|PHIG|PHIX|PHIY|PHIZ|POSI|PROG|PROP|REFS|REFT|REFX|REFY|REFZ|SELE|SNAP|SPEC|SREF|THET|TITL|TYPE|TYPM|TYPT|UNIT|WIDE|XMAX|XMIN|XREF|YIEL|YMAX|YMIN|YREF|ZMAX|ZMIN|ZREF|A1X|A1Y|A1Z|A2X|A2Y|A2Z|A3X|A3Y|A3Z|B1X|B1Y|B1Z|B2X|B2Y|B2Z|B3X|B3Y|B3Z|COH|DIL|DIV|DNO|DRX|DRY|DRZ|FAC|FD1|FD2|FD3|FD4|FD5|FD6|FD7|FD8|FD9|FIX|GAP|INC|IND|M12|M15|M23|M26|M34|M37|M41|M48|M56|M67|M78|M85|MNO|MP1|MP2|MP3|MRF|MUE|MXX|MXY|MXZ|MYY|MYZ|MZZ|N10|N11|N12|N13|N14|N15|N16|N17|N18|N19|N20|N21|N22|N23|N24|N25|N26|N27|N28|N29|N30|N31|N32|N33|N34|N35|N36|NCS|ND1|ND2|ND3|ND4|ND5|ND6|ND7|ND8|ND9|NGS|NO1|NO2|NR1|NR2|NR3|NR4|NRA|OPT|PER|PRE|PRZ|REF|SAR|SEL|SET|SLN|T11|T12|T13|T21|T22|T23|T31|T32|T33|TXY|TYP|UXX|UYY|UZZ|VAL|VAR|AR|CA|CE|CM|CP|CT|DM|DP|DT|DX|DY|DZ|KR|LC|MB|MX|MY|MZ|N1|N2|N3|N4|N5|N6|N7|N8|N9|NA|ND|NE|NG|NM|NO|NP|RX|RY|RZ|T1|T2|T3|T4|TD|TO|TX|TY|UW|UX|UY|UZ|V1|V2|V3|XA|XE|YA|YE|ZA|ZE|A|B|C|D|K|M|N|P|R|T|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:HIN|LFY|LFZ|LPH|1X|1Y|1Z|2X|2Y|2Z|3X|3Y|3Z|R|))|(?:B(?:ASE|ETA|ETY|ETZ|1X|1Y|1Z|2X|2Y|2Z|3X|3Y|3Z|))|(?:C(?:RAC|OH|A|E|M|P|T|))|(?:D(?:IST|ROT|IL|IV|NO|RX|RY|RZ|M|P|T|X|Y|Z|))|(?:E(?:HIN|XPM|XPP|XPT))|(?:F(?:AKX|AKY|AKZ|ROM|AC|D1|D2|D3|D4|D5|D6|D7|D8|D9|IX))|(?:G(?:APT|DIR|DIV|AP))|HMAX|(?:I(?:DSC|DTG|TEM|NC|ND))|(?:K(?:R|))|LC|(?:M(?:12|15|23|26|34|37|41|48|56|67|78|85|NO|P1|P2|P3|RF|UE|XX|XY|XZ|YY|YZ|ZZ|B|X|Y|Z|))|(?:N(?:ARE|ERE|MRE|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|CS|D1|D2|D3|D4|D5|D6|D7|D8|D9|GS|O1|O2|R1|R2|R3|R4|RA|1|2|3|4|5|6|7|8|9|A|D|E|G|M|O|P|))|OPT|(?:P(?:ASS|ATH|HIG|HIX|HIY|HIZ|OSI|ROG|ROP|ER|RE|RZ|))|(?:R(?:EFS|EFT|EFX|EFY|EFZ|EF|X|Y|Z|))|(?:S(?:ELE|NAP|PEC|REF|AR|EL|ET|LN))|(?:T(?:HET|ITL|YPE|YPM|YPT|11|12|13|21|22|23|31|32|33|XY|YP|1|2|3|4|D|O|X|Y|))|(?:U(?:NIT|XX|YY|ZZ|W|X|Y|Z))|(?:V(?:AL|AR|1|2|3))|WIDE|(?:X(?:MAX|MIN|REF|A|E|))|(?:Y(?:IEL|MAX|MIN|REF|A|E|))|(?:Z(?:MAX|MIN|REF|A|E|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -1028,14 +1028,14 @@ repository:
   }
   SOFIMSHC: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(BBOX|COOR|CTRL|ECHO|EXPO|GARA|GARC|GARS|GAXA|GAXB|GAXC|GAXH|GAXN|GAXP|GAXS|GAXV|GUID|IMPO|SARB|SARC|SARN|SARP|SARR|SARS|SLNB|SLNN|SLNP|SLNS|SLSC|SPTH|SPTP|SPTS|SVOB|SVOS|SYST|XCON|XSUB|GAR|GAX|GRP|SAR|SLN|SPT|SVO)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(BBOX|(?:C(?:OOR|TRL))|(?:E(?:CHO|XPO))|(?:G(?:ARA|ARC|ARS|AXA|AXB|AXC|AXH|AXN|AXP|AXS|AXV|UID|AR|AX|RP))|IMPO|(?:S(?:ARB|ARC|ARN|ARP|ARR|ARS|LNB|LNN|LNP|LNS|LSC|PTH|PTP|PTS|VOB|VOS|YST|AR|LN|PT|VO))|(?:X(?:CON|SUB)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ALFX|ALFY|ALFZ|BASE|BFIX|CHK4|CHK5|CHK6|CHK7|CRAC|DEGS|DEGT|DEGU|DEGV|DFIX|DPHI|DROT|FAC0|FAC1|FCTA|FCTE|FIMA|FIME|FIXA|FIXE|FIXL|FIXM|FIXS|FROM|GDIR|GDIV|GID1|GID2|GIDI|INCL|INCR|LSKN|MCTL|MXPF|MXSK|NAME|NARA|NARE|NREF|PASS|PHI0|PSKN|QREF|RCTL|REFT|SDIV|SMAX|SMIN|STYP|SUR1|SUR2|TFA1|TFAC|TITL|TMAX|TMIN|TREF|TYPC|TYPE|TYPM|TYPS|TYPT|UMAX|UMIN|VALM|VALQ|VMAX|VMIN|XFLG|XMAX|XMIN|XREF|XUV1|XUV4|YIEL|YMAX|YMIN|YREF|YUV1|YUV4|ZMAX|ZMIN|ZREF|ZUV1|ZUV4|ACT|ALF|CDB|COH|CXX|CYY|CZZ|DEG|DIL|DIV|DRX|DRY|DRZ|DXX|DYY|DZZ|EXA|EXE|EYA|EYE|EZA|EZE|FIX|GAP|GPT|GRP|ICE|ICS|ID2|ID3|ID4|ID5|IDP|IDS|MNO|MRF|MUE|MUL|NAR|NCS|NPA|NPE|NRA|NU0|NU1|NV0|NV1|OPT|PHI|PRE|REF|SEL|SNO|SPT|T11|T12|T13|T21|T22|T23|T31|T32|T33|TXY|TYP|VAL|AR|BX|BY|CA|CB|CD|CL|CM|CP|CQ|CT|DV|DX|DY|DZ|H1|H2|H3|ID|KR|LA|LE|NA|NE|NL|NO|NP|NX|NY|NZ|RA|RE|SX|SY|SZ|TD|TO|TT|TX|TY|V2|V3|V4|X1|X2|X3|XM|XX|Y1|Y2|Y3|YM|YY|Z1|Z2|Z3|ZM|ZZ|H|L|M|N|R|S|T|V|W|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:LFX|LFY|LFZ|CT|LF|R))|(?:B(?:ASE|FIX|X|Y))|(?:C(?:HK4|HK5|HK6|HK7|RAC|DB|OH|XX|YY|ZZ|A|B|D|L|M|P|Q|T))|(?:D(?:EGS|EGT|EGU|EGV|FIX|PHI|ROT|EG|IL|IV|RX|RY|RZ|XX|YY|ZZ|V|X|Y|Z))|(?:E(?:XA|XE|YA|YE|ZA|ZE))|(?:F(?:AC0|AC1|CTA|CTE|IMA|IME|IXA|IXE|IXL|IXM|IXS|ROM|IX))|(?:G(?:DIR|DIV|ID1|ID2|IDI|AP|PT|RP))|(?:H(?:1|2|3|))|(?:I(?:NCL|NCR|CE|CS|D2|D3|D4|D5|DP|DS|D))|KR|(?:L(?:SKN|A|E|))|(?:M(?:CTL|XPF|XSK|NO|RF|UE|UL|))|(?:N(?:AME|ARA|ARE|REF|AR|CS|PA|PE|RA|U0|U1|V0|V1|A|E|L|O|P|X|Y|Z|))|OPT|(?:P(?:ASS|HI0|SKN|HI|RE))|QREF|(?:R(?:CTL|EFT|EF|A|E|))|(?:S(?:DIV|MAX|MIN|TYP|UR1|UR2|EL|NO|PT|X|Y|Z|))|(?:T(?:FA1|FAC|ITL|MAX|MIN|REF|YPC|YPE|YPM|YPS|YPT|11|12|13|21|22|23|31|32|33|XY|YP|D|O|T|X|Y|))|(?:U(?:MAX|MIN))|(?:V(?:ALM|ALQ|MAX|MIN|AL|2|3|4|))|W|(?:X(?:FLG|MAX|MIN|REF|UV1|UV4|1|2|3|M|X|))|(?:Y(?:IEL|MAX|MIN|REF|UV1|UV4|1|2|3|M|Y|))|(?:Z(?:MAX|MIN|REF|UV1|UV4|1|2|3|M|Z|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -1043,14 +1043,14 @@ repository:
   }
   STAR2: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CTRL|DESI|ECHO|INFL|NSTR|REIN|GRP|LCC|LC|LV)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)(CTRL|DESI|ECHO|GRP|INFL|(?:L(?:CC|C|V))|NSTR|REIN)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ALPH|AMAX|CFRO|CHKC|CHKS|CHKT|CINC|CRAC|CRI1|CRI2|CRI3|CSMA|CSMI|FACG|FACP|FACS|FACT|FACV|FMAX|FROM|GAMA|GAMF|GAMU|HMAX|HMIN|KMAX|KMIN|KMOD|KTAU|KTYP|MSCD|NFRO|NINC|PRES|PS1S|PSI0|PSI1|PSI2|RMOD|SECT|SELE|SFAC|SIGS|SMOD|STAT|STIF|TANA|TANB|TANC|TANS|TFRO|TINC|TITL|TTOL|TYPE|ZGRP|AM1|AM2|AM3|AM4|CTO|CW-|DLX|DLY|DLZ|EPS|FAT|INC|KSB|KSV|LCR|MOD|NTO|OPT|P10|P11|P12|PHI|SC1|SC2|SCL|SS1|SS2|TTO|TVS|VAL|BB|C1|C2|CS|CW|NO|P6|P7|P8|P9|S1|S2|SC|TO|Z1|Z2)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:LPH|MAX|M1|M2|M3|M4))|BB|(?:C(?:FRO|HKC|HKS|HKT|INC|RAC|RI1|RI2|RI3|SMA|SMI|TO|W-|1|2|S|W))|(?:D(?:LX|LY|LZ))|EPS|(?:F(?:ACG|ACP|ACS|ACT|ACV|MAX|ROM|AT))|(?:G(?:AMA|AMF|AMU))|(?:H(?:MAX|MIN))|INC|(?:K(?:MAX|MIN|MOD|TAU|TYP|SB|SV))|LCR|(?:M(?:SCD|OD))|(?:N(?:FRO|INC|TO|O))|OPT|(?:P(?:RES|S1S|SI0|SI1|SI2|10|11|12|HI|6|7|8|9))|RMOD|(?:S(?:ECT|ELE|FAC|IGS|MOD|TAT|TIF|C1|C2|CL|S1|S2|1|2|C))|(?:T(?:ANA|ANB|ANC|ANS|FRO|INC|ITL|TOL|YPE|TO|VS|O))|VAL|(?:Z(?:GRP|1|2)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -1058,14 +1058,14 @@ repository:
   }
   TALPA: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(CCRL|CGRP|CLOA|CSYS|CTRL|CTXT|ECHO|HIST|NSTR|PHRS|SYST|TASK|TPLC|CGW|GRP|LCC|PLC|CS|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:C(?:CRL|GRP|LOA|SYS|TRL|TXT|GW|S))|ECHO|GRP|HIST|(?:L(?:CC|C))|NSTR|(?:P(?:HRS|LC))|SYST|(?:T(?:ASK|PLC)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ACT2|ALP0|ALPH|CRI3|EMAX|EMIN|FACD|FACL|FACQ|FACS|FACT|FACU|FADD|FMAX|FMIN|FS2L|GAMA|GAMC|GAMF|GAMU|GCOH|GFRI|HING|HPLC|IDES|ITER|KMOD|LADD|MSTP|MTYP|NFRO|NINC|PROB|PS1S|PSI0|PSI1|PSI2|PTSZ|PTYP|REFZ|SAVE|SIGH|SIGN|TCRL|TITL|TREF|TYPE|ACT|DLX|DLY|DLZ|FCT|GAM|GFS|KSB|KSV|LC1|LC2|MNO|NOG|NTO|OCR|OPT|PCS|PLC|PLQ|POP|VAL|DT|HW|LC|NO|T1|T2|H|K|P|T)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:CT2|LP0|LPH|CT))|CRI3|(?:D(?:LX|LY|LZ|T))|(?:E(?:MAX|MIN))|(?:F(?:ACD|ACL|ACQ|ACS|ACT|ACU|ADD|MAX|MIN|S2L|CT))|(?:G(?:AMA|AMC|AMF|AMU|COH|FRI|AM|FS))|(?:H(?:ING|PLC|W|))|(?:I(?:DES|TER))|(?:K(?:MOD|SB|SV|))|(?:L(?:ADD|C1|C2|C))|(?:M(?:STP|TYP|NO))|(?:N(?:FRO|INC|OG|TO|O))|(?:O(?:CR|PT))|(?:P(?:ROB|S1S|SI0|SI1|SI2|TSZ|TYP|CS|LC|LQ|OP|))|REFZ|(?:S(?:AVE|IGH|IGN))|(?:T(?:CRL|ITL|REF|YPE|1|2|))|VAL)(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -1073,7 +1073,7 @@ repository:
   }
   TEMPLATE: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
         match: '(?i)(?:^ *|; *)(ECHO)(?=;|$| )'
         captures:
@@ -1088,14 +1088,14 @@ repository:
   }
   TENDON: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(AXES|COLO|CTRL|ECHO|EXPO|FRIC|GEOX|PAAS|PDAT|PDEF|PFAC|PLOT|PSIG|PTSV|PTUV|SCHH|SIZE|SLAB|SLBS|SYSP|SYSS|TDEL|TEND|TGEO|TOPP|AND|GRP|CS)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:A(?:XES|ND))|(?:C(?:OLO|TRL|S))|(?:E(?:CHO|XPO))|FRIC|(?:G(?:EOX|RP))|(?:P(?:AAS|DAT|DEF|FAC|LOT|SIG|TSV|TUV))|(?:S(?:CHH|IZE|LAB|LBS|YSP|YSS))|(?:T(?:DEL|END|GEO|OPP)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ANWS|AXES|AXID|BETA|BETE|BETG|BLCK|CDIS|CEDG|COMP|DELT|EFRO|EINL|ELEM|ETYP|EXPO|FACA|FACE|FACF|FACH|FACS|FORM|FRLL|FRLT|FROM|FTYP|GUID|ICS1|ICS2|ICS3|KAPA|KAPL|KIND|LCOP|LFIX|LITZ|LPRE|MARG|MATA|MINR|MUE-|NOPS|NTEN|OUTP|POSI|REFS|SFRO|SHOW|SPLI|TAPP|TEND|TGEO|TITL|TYPE|TYPG|VAL1|VAL2|VAL3|XREF|ZSPB|ZSPT|BIT|C10|C11|CMD|CSP|DIA|DUS|DVS|DZS|ECC|ETO|F10|F11|F12|F13|F14|FAC|FAK|FTL|INC|LC0|MAT|MUE|NOG|NOH|NOT|OPT|PCS|REL|RER|RSL|RSR|SEP|SLL|SLR|STL|STO|STR|VAL|AR|AZ|C1|C2|C3|C4|C5|C6|C7|C8|C9|DI|DL|DO|DR|DU|DV|DZ|F1|F2|F3|F4|F5|F6|F7|F8|F9|H1|H2|H3|H4|H5|H6|H7|H8|K1|K2|K3|K4|K5|K6|K7|K8|LC|NO|RH|RL|RV|S0|SC|SF|SP|SS|TO|UD|UZ|VC|VF|VP|ZS|ZV|H|R|S|U|V|W|X)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:NWS|XES|XID|R|Z))|(?:B(?:ETA|ETE|ETG|LCK|IT))|(?:C(?:DIS|EDG|OMP|10|11|MD|SP|1|2|3|4|5|6|7|8|9))|(?:D(?:ELT|IA|US|VS|ZS|I|L|O|R|U|V|Z))|(?:E(?:FRO|INL|LEM|TYP|XPO|CC|TO))|(?:F(?:ACA|ACE|ACF|ACH|ACS|ORM|RLL|RLT|ROM|TYP|10|11|12|13|14|AC|AK|TL|1|2|3|4|5|6|7|8|9))|GUID|(?:H(?:1|2|3|4|5|6|7|8|))|(?:I(?:CS1|CS2|CS3|NC))|(?:K(?:APA|APL|IND|1|2|3|4|5|6|7|8))|(?:L(?:COP|FIX|ITZ|PRE|C0|C))|(?:M(?:ARG|ATA|INR|UE-|AT|UE))|(?:N(?:OPS|TEN|OG|OH|OT|O))|(?:O(?:UTP|PT))|(?:P(?:OSI|CS))|(?:R(?:EFS|EL|ER|SL|SR|H|L|V|))|(?:S(?:FRO|HOW|PLI|EP|LL|LR|TL|TO|TR|0|C|F|P|S|))|(?:T(?:APP|END|GEO|ITL|YPE|YPG|O))|(?:U(?:D|Z|))|(?:V(?:AL1|AL2|AL3|AL|C|F|P|))|W|(?:X(?:REF|))|(?:Z(?:SPB|SPT|S|V)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -1103,14 +1103,14 @@ repository:
   }
   TEXTILE: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(COMP|CUTT|ECHO|LINE|QUAD|GRP)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:C(?:OMP|UTT))|ECHO|GRP|LINE|QUAD)(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(EXPO|FROM|LOCX|PROJ|GRP|INC|MNO|OPT|TYP|VAL|W10|LC|NO|NX|NY|NZ|TO|W1|W2|W3|W4|W5|W6|W7|W8|W9|XA|XE|YA|YE|ZA|ZE|N)(?!\\w)'
+        match: '(?i)(?<!\\w)(EXPO|FROM|GRP|INC|(?:L(?:OCX|C))|MNO|(?:N(?:O|X|Y|Z|))|OPT|PROJ|(?:T(?:YP|O))|VAL|(?:W(?:10|1|2|3|4|5|6|7|8|9))|(?:X(?:A|E))|(?:Y(?:A|E))|(?:Z(?:A|E)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }
@@ -1118,14 +1118,14 @@ repository:
   }
   WING: {
     patterns: [
-      { include: '#defA' }
+      { include: '#preprocessorDefine' }
       {
-        match: '(?i)(?:^ *|; *)(ARRO|AXIS|BEAM|BRIC|COL2|COLB|COLO|CTRL|CUPT|CURV|DEFO|DRAW|DSGN|DSIR|FILL|GRID|INTE|ISOL|LEGO|LIST|LOAD|MOVE|NIVE|NODE|PALE|PERS|POST|QUAD|SCH2|SCH3|SCHH|SECT|SELE|SIZ2|SIZE|STRU|TEXT|VIEW|VISI|AND|BOX|GRP|SEL|DB|LC)(?=;|$| )'
+        match: '(?i)(?:^ *|; *)((?:A(?:RRO|XIS|ND))|(?:B(?:EAM|RIC|OX))|(?:C(?:OL2|OLB|OLO|TRL|UPT|URV))|(?:D(?:EFO|RAW|SGN|SIR|B))|FILL|(?:G(?:RID|RP))|(?:I(?:NTE|SOL))|(?:L(?:EGO|IST|OAD|C))|MOVE|(?:N(?:IVE|ODE))|(?:P(?:ALE|ERS|OST))|QUAD|(?:S(?:CH2|CH3|CHH|ECT|ELE|IZ2|IZE|TRU|EL))|TEXT|(?:V(?:IEW|ISI)))(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
       }
       {
-        match: '(?i)(?<!\\w)(ABSO|ADDT|ADDV|ADJU|AGLA|ALIG|ALTE|ANGL|AVER|AXIS|BACX|BACY|BCON|BGRP|BLUE|BMAX|BMIN|BRIG|BRIR|CDIS|CHEA|CINS|COLE|COLH|COLI|COLO|COMT|CROS|DANG|DARK|DASH|DATE|DEFO|DELO|DESI|DIF2|DIF3|DIFF|DIRE|DIST|DISX|DISY|DISZ|DMAX|DMIN|DMOD|DOMA|DOUB|DREL|DRUL|DRUO|DRUR|DRUU|DTYP|DVAR|EDGE|ELEM|ETYP|EXCE|EXPO|EXTR|FAC1|FAC2|FAC3|FACS|FACT|FACW|FAKH|FDIC|FDIL|FDIS|FILL|FKIN|FLEG|FMVX|FMVY|FORM|FREE|FROM|GDIV|GFRB|GREE|GRNO|GTYP|HBEH|HCPC|HCPD|HCPS|HDSL|HEAD|HIDD|HINT|HLEG|HSBM|HSBS|HSCM|HSCR|HSIR|HSPC|HSPD|HSPM|HSPT|HSPU|HSUP|INDX|INIT|INTE|ISOL|KIN2|KIN3|KIND|KREF|LCRV|LDIR|LEGW|LEGX|LEGY|LENG|LFRB|LIGH|LINE|LIPX|LIPY|LIPZ|LMAX|LMIN|LOST|MARG|MARK|MAX1|MAX2|MAX3|MAXF|MAXH|MAXN|MAXR|MAXW|MAXX|MFAC|MFIX|MHEI|MIN1|MIN2|MIN3|MINH|MINN|MINT|MINV|MINW|MMAX|MMIN|MMOD|MODE|MPNT|MPRP|MRGD|MRGL|MRGR|MRGU|MSCA|NCRV|NIVE|NMAT|NUMB|NUME|NUMN|OFF3|OFFC|OFFE|OFFN|OFFP|OFFS|OFFZ|OPER|OPTI|ORIG|PA10|PA11|PA12|PA13|PA14|PA15|PA16|PA17|PA18|PA19|PA20|PA21|PA22|PA23|PA24|PA25|PA26|PA27|PAR1|PAR2|PAR3|PAR4|PAR5|PAR6|PAR7|PAR8|PAR9|PERF|PERS|PICT|POSD|POSI|POSL|POSR|POSU|PREF|PROP|PUNT|RANG|REPR|REVI|REVX|REVY|RMAX|RMIN|RMOD|ROTA|RSCH|RTOL|SBOX|SCAL|SCHH|SELE|SEPA|SGRP|SHAE|SHEA|SICH|SING|SIZC|SIZH|SIZP|SIZW|SLEG|SMOV|SPLI|SPSC|STAL|STAT|STYP|SUME|SUPP|SYST|TABS|TITL|TOLA|TOLZ|TOTA|TOTT|TREV|TYPE|UDIS|UKI2|UKI3|UKIN|UMA2|UMAX|UMBR|UMI2|UMIN|UNI2|UNIT|UOFF|UPRO|UWID|VAL1|VAL2|VAL3|VIEW|VISI|VXCM|VYCM|WBEH|WCON|WCPD|WDSL|WIDE|WLEG|WSBM|WSBS|WSIR|WSPC|WSPD|WSPS|WSPU|WSUP|XMAX|XMIN|YMAX|YMIN|ZMAX|ZMIN|ADD|ARE|ASB|BOX|C10|C11|C12|C13|C14|C15|C16|C17|C18|C19|C20|C21|C22|C23|C24|C25|C26|C27|C28|C29|C30|C31|C32|C33|C34|C35|C36|C37|C38|C39|C40|C41|C42|C43|C44|C45|COL|CUT|ENO|FAC|GRP|H10|IF1|INC|LCS|LIN|MAT|MIN|MNO|OPT|RED|REF|SEL|SET|SNO|TOL|VAL|BX|BY|BZ|C1|C2|C3|C4|C5|C6|C7|C8|C9|CB|DB|DC|DP|DX|DY|DZ|H1|H2|H3|H4|H5|H6|H7|H8|HS|LC|MS|ND|NO|NX|NY|NZ|SC|TO|A|C|F|H|T|W|X|Y|Z)(?!\\w)'
+        match: '(?i)(?<!\\w)((?:A(?:BSO|DDT|DDV|DJU|GLA|LIG|LTE|NGL|VER|XIS|DD|RE|SB|))|(?:B(?:ACX|ACY|CON|GRP|LUE|MAX|MIN|RIG|RIR|OX|X|Y|Z))|(?:C(?:DIS|HEA|INS|OLE|OLH|OLI|OLO|OMT|ROS|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|OL|UT|1|2|3|4|5|6|7|8|9|B|))|(?:D(?:ANG|ARK|ASH|ATE|EFO|ELO|ESI|IF2|IF3|IFF|IRE|IST|ISX|ISY|ISZ|MAX|MIN|MOD|OMA|OUB|REL|RUL|RUO|RUR|RUU|TYP|VAR|B|C|P|X|Y|Z))|(?:E(?:DGE|LEM|TYP|XCE|XPO|XTR|NO))|(?:F(?:AC1|AC2|AC3|ACS|ACT|ACW|AKH|DIC|DIL|DIS|ILL|KIN|LEG|MVX|MVY|ORM|REE|ROM|AC|))|(?:G(?:DIV|FRB|REE|RNO|TYP|RP))|(?:H(?:BEH|CPC|CPD|CPS|DSL|EAD|IDD|INT|LEG|SBM|SBS|SCM|SCR|SIR|SPC|SPD|SPM|SPT|SPU|SUP|10|1|2|3|4|5|6|7|8|S|))|(?:I(?:NDX|NIT|NTE|SOL|F1|NC))|(?:K(?:IN2|IN3|IND|REF))|(?:L(?:CRV|DIR|EGW|EGX|EGY|ENG|FRB|IGH|INE|IPX|IPY|IPZ|MAX|MIN|OST|CS|IN|C))|(?:M(?:ARG|ARK|AX1|AX2|AX3|AXF|AXH|AXN|AXR|AXW|AXX|FAC|FIX|HEI|IN1|IN2|IN3|INH|INN|INT|INV|INW|MAX|MIN|MOD|ODE|PNT|PRP|RGD|RGL|RGR|RGU|SCA|AT|IN|NO|S))|(?:N(?:CRV|IVE|MAT|UMB|UME|UMN|D|O|X|Y|Z))|(?:O(?:FF3|FFC|FFE|FFN|FFP|FFS|FFZ|PER|PTI|RIG|PT))|(?:P(?:A10|A11|A12|A13|A14|A15|A16|A17|A18|A19|A20|A21|A22|A23|A24|A25|A26|A27|AR1|AR2|AR3|AR4|AR5|AR6|AR7|AR8|AR9|ERF|ERS|ICT|OSD|OSI|OSL|OSR|OSU|REF|ROP|UNT))|(?:R(?:ANG|EPR|EVI|EVX|EVY|MAX|MIN|MOD|OTA|SCH|TOL|ED|EF))|(?:S(?:BOX|CAL|CHH|ELE|EPA|GRP|HAE|HEA|ICH|ING|IZC|IZH|IZP|IZW|LEG|MOV|PLI|PSC|TAL|TAT|TYP|UME|UPP|YST|EL|ET|NO|C))|(?:T(?:ABS|ITL|OLA|OLZ|OTA|OTT|REV|YPE|OL|O|))|(?:U(?:DIS|KI2|KI3|KIN|MA2|MAX|MBR|MI2|MIN|NI2|NIT|OFF|PRO|WID))|(?:V(?:AL1|AL2|AL3|IEW|ISI|XCM|YCM|AL))|(?:W(?:BEH|CON|CPD|DSL|IDE|LEG|SBM|SBS|SIR|SPC|SPD|SPS|SPU|SUP|))|(?:X(?:MAX|MIN|))|(?:Y(?:MAX|MIN|))|(?:Z(?:MAX|MIN|)))(?!\\w)'
         name: 'entity.name.function.sofistik'
       }
       { include: '#normalText' }

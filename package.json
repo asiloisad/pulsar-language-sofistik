@@ -1,6 +1,6 @@
 {
   "name": "language-sofistik",
-  "description": "Syntax highlighting  for SOFiSTiK",
+  "description": "Syntax highlighting for SOFiSTiK",
   "repository": "https://github.com/asiloisad/pulsar-language-sofistik",
   "keywords": [
     "SOFiSTiK",
@@ -8,8 +8,21 @@
     "language"
   ],
   "version": "1.1.2",
+  "main": "./lib/main",
   "license": "MIT",
   "engines": {
     "atom": ">=1.100.0 <2.0.0"
-  }
+  },
+  "providedServices": {
+    "sofistik.keywords": {
+      "description": "Provides SOFiSTiK keywords for programmatic access",
+      "versions": {
+        "1.0.0": "provideKeywords"
+      }
+    }
+  },
+  "grammars": [
+    "grammars/sofistik.cson",
+    "grammars/sofistik-raw.cson"
+  ]
 }
