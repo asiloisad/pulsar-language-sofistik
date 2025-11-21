@@ -1,5 +1,8 @@
 """
-SOFiSTiK Grammar Builder
+SOFiSTiK Grammar Builder - Fixed Version v4
+Now properly scopes subkeywords to their parent commands
+Scope continues across ALL lines until another command appears or semicolon
+FIXED: Module scope (PROG) now works correctly
 """
 
 import openpyxl
@@ -85,6 +88,8 @@ def optimize_pattern(keyword_list):
 def generate_module_patterns(keywords_data):
     """
     Generate optimized pattern blocks for each SOFiSTiK module.
+    NOW PROPERLY SCOPES SUBKEYWORDS TO THEIR PARENT COMMANDS.
+    Scope continues across ALL lines until another command or semicolon.
 
     Args:
         keywords_data: Dictionary of modules and their keywords
@@ -111,46 +116,70 @@ def generate_module_patterns(keywords_data):
     3:
       name: 'comment.line.{module_name_lowercase}.sofistik'
       patterns: [{{ include: 'text.todo' }}]
-  end: '(?i)(?=^ *([\\\\$\\\\+-]?PROG))'
+  end: '(?i)(?=^ *[\\\\$\\\\+-]?PROG\\\\b)'
   name: 'module.{module_name_lowercase}.sofistik'
   patterns: [
     {{'include': '#{module_name}'}}
     ]
   }}''')
 
-        # Collect all commands and sub-keywords for this module
-        all_module_commands = set()
-        all_module_subkeywords = set()
-
-        for command_name, command_subkeywords in module_commands.items():
-            all_module_commands.add(command_name)
-            all_module_subkeywords.update(command_subkeywords)
+        # Collect all commands for this module
+        all_module_commands = list(module_commands.keys())
 
         # Sort by length (longest first) to prevent prefix matching issues
-        sorted_commands = sorted(list(all_module_commands), key=lambda x: (-len(x), x))
-        sorted_subkeywords = sorted(list(all_module_subkeywords), key=lambda x: (-len(x), x))
+        sorted_commands = sorted(all_module_commands, key=lambda x: (-len(x), x))
 
-        # Generate optimized regex patterns
+        # Generate optimized regex pattern for all commands - to use in the end pattern
         commands_regex_pattern = optimize_pattern(sorted_commands)
-        subkeywords_regex_pattern = optimize_pattern(sorted_subkeywords)
 
-        # Generate repository entry with optimized patterns
-        module_repository_patterns.append(f'''
+        # Build repository entry with command-specific subkeyword scoping
+        repository_entry = f'''
   {module_name}: {{
     patterns: [
-      {{ include: '#preprocessorDefine' }}
+      {{ include: '#preprocessorDefine' }}'''
+
+        # Generate a begin/end pattern for EACH command with its specific subkeywords
+        for command_name, command_subkeywords in module_commands.items():
+            if command_subkeywords:  # Only if command has subkeywords
+                # Sort subkeywords by length (longest first)
+                sorted_subkeywords = sorted(command_subkeywords, key=lambda x: (-len(x), x))
+                subkeywords_regex_pattern = optimize_pattern(sorted_subkeywords)
+
+                # Create a scoped pattern for this command and its subkeywords
+                # The scope continues across ALL lines until:
+                # 1. Another command from this module appears (at line start or after semicolon)
+                # 2. A semicolon is encountered (ends current command)
+                # 3. A new PROG statement (which ends the module scope)
+                repository_entry += f'''
       {{
-        match: '(?i)(?:^ *|; *)({commands_regex_pattern})(?=;|$| )'
+        begin: '(?i)(?:^ *|; *)({command_name})(?=;|$| )'
+        beginCaptures:
+          1: name: 'keyword.control.sofistik'
+        end: '(?i)(?=(?:^ *|; *)(?:{commands_regex_pattern})|;|^ *[\\\\$\\\\+-]?PROG\\\\b)'
+        patterns: [
+          {{
+            match: '(?i)(?<!\\\\w)({subkeywords_regex_pattern})(?!\\\\w)'
+            name: 'entity.name.function.sofistik'
+          }}
+          {{ include: '#normalText' }}
+        ]
+      }}'''
+            else:
+                # Command without subkeywords - just match it directly
+                repository_entry += f'''
+      {{
+        match: '(?i)(?:^ *|; *)({command_name})(?=;|$| )'
         captures:
           1: name: 'keyword.control.sofistik'
-      }}
-      {{
-        match: '(?i)(?<!\\\\w)({subkeywords_regex_pattern})(?!\\\\w)'
-        name: 'entity.name.function.sofistik'
-      }}
-      {{ include: '#normalText' }}
+      }}'''
+
+        # Close the repository entry
+        repository_entry += '''
+      { include: '#normalText' }
     ]
-  }}''')
+  }'''
+
+        module_repository_patterns.append(repository_entry)
 
     return module_begin_end_patterns, module_repository_patterns
 
@@ -366,7 +395,7 @@ def main():
     print("Saving keywords.json...")
     save_keywords_json(keywords_data)
 
-    print("Generating optimized grammar...")
+    print("Generating optimized grammar with properly scoped subkeywords...")
     complete_grammar = generate_grammar(keywords_data)
 
     print("Writing grammar file...")
