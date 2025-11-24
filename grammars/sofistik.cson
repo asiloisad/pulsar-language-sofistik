@@ -815,7 +815,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:BEAM|(?:C(?:APA|OMB|TRL))|DESI|(?:E(?:CHO|IGE))|LC|(?:N(?:ORM|STR))|REIN|(?:S(?:TRE|))|(?:T(?:END|VAR)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(ALPH|BB|(?:C(?:HKC|HKR|HKS|HKT|RAC|W-|W))|DUMP|(?:F(?:FCT|MAX|AT))|(?:H(?:MAX|MIN))|(?:K(?:MAX|MIN|MOD|SB|SV))|SIGS|(?:T(?:ANC|ANS)))(?!\\w)'
+            match: '(?i)(?<!\\w)(ALPH|BB|(?:C(?:HKC|HKR|HKS|HKT|RAC|W))|DUMP|(?:F(?:FCT|MAX|AT))|(?:H(?:MAX|MIN))|(?:K(?:MAX|MIN|MOD|SB|SV))|SIGS|(?:T(?:ANC|ANS))|CW\\-)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -1395,7 +1395,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:ACTB|(?:C(?:REP|TRL))|DESI|(?:E(?:CHO|IGE|LEM|LLO))|(?:F(?:IXH|IXT))|(?:G(?:RP2|RP))|(?:H(?:IGH|IST))|(?:L(?:AUN|EN0|CC|C))|(?:M(?:ASS|OVS))|NSTR|OBLI|(?:P(?:EXT|LOT|USH))|Q8X8|(?:R(?:EIN|EIQ))|(?:S(?:FIX|LIP|OIL|TEP|TEX|YST))|(?:T(?:BEX|EMB|EMP))|ULTI|(?:V(?:OLU|0)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(ALPH|BB|(?:C(?:HKC|HKR|HKS|HKT|RAC|W-|W))|DUMP|(?:F(?:FCT|MAX|AT))|(?:H(?:MAX|MIN))|(?:K(?:MAX|MIN|MOD|SB|SV))|SIGS|(?:T(?:ANC|ANS)))(?!\\w)'
+            match: '(?i)(?<!\\w)(ALPH|BB|(?:C(?:HKC|HKR|HKS|HKT|RAC|W))|DUMP|(?:F(?:FCT|MAX|AT))|(?:H(?:MAX|MIN))|(?:K(?:MAX|MIN|MOD|SB|SV))|SIGS|(?:T(?:ANC|ANS))|CW\\-)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -1709,7 +1709,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:B(?:BAX|BLA|LAY|MAT|ORE|TAB))|(?:C(?:ABL|IRC|ONC|TRL|URF|RF|UT|S))|(?:E(?:CHO|DGB|XPO))|FLAY|HMAT|(?:I(?:MPO|NTE))|(?:L(?:AY|CA|RF))|(?:M(?:ASO|ATE|EXT|LAY|AT))|(?:N(?:EFF|MAT|ORM))|(?:P(?:ANE|LAT|OLY|ROF))|RF|(?:S(?:CIT|ECT|FLA|HRW|MAT|REC|SLA|TEE|VAL|PT|V))|(?:T(?:IMB|VAR))|VERT|(?:W(?:ELD|IND|PAR)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(ALPH|LTYP|(?:M(?:TYP|Y+|Y-|Z+|Z-))|NO|(?:P(?:10|-|2|))|TITL|(?:V(?:Y+|Y-|Z+|Z-)))(?!\\w)'
+            match: '(?i)(?<!\\w)(ALPH|LTYP|MTYP|NO|(?:P(?:10|2))|TITL|MY\\+|MY\\-|MZ\\+|MZ\\-|VY\\+|VY\\-|VZ\\+|VZ\\-|P\\+|P\\-)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -1779,7 +1779,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:B(?:BAX|BLA|LAY|MAT|ORE|TAB))|(?:C(?:ABL|IRC|ONC|TRL|URF|RF|UT|S))|(?:E(?:CHO|DGB|XPO))|FLAY|HMAT|(?:I(?:MPO|NTE))|(?:L(?:AY|CA|RF))|(?:M(?:ASO|ATE|EXT|LAY|AT))|(?:N(?:EFF|MAT|ORM))|(?:P(?:ANE|LAT|OLY|ROF))|RF|(?:S(?:CIT|ECT|FLA|HRW|MAT|REC|SLA|TEE|VAL|PT|V))|(?:T(?:IMB|VAR))|VERT|(?:W(?:ELD|IND|PAR)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)((?:A(?:Z+|Z-|))|(?:D(?:Z+|Z-|))|(?:L(?:Z+|Z-|))|(?:M(?:RFL|NO))|NO|(?:R(?:TYP|Z+|Z-))|(?:S(?:Z+|Z-|S))|(?:T(?:ITL|)))(?!\\w)'
+            match: '(?i)(?<!\\w)(A|D|L|(?:M(?:RFL|NO))|NO|RTYP|SS|(?:T(?:ITL|))|AZ\\+|AZ\\-|DZ\\+|DZ\\-|LZ\\+|LZ\\-|RZ\\+|RZ\\-|SZ\\+|SZ\\-)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -3375,7 +3375,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:ACT|(?:B(?:OND|OX))|(?:C(?:ABL|AMB|OMB|OPY|REP|TRL|S))|(?:D(?:ECS|EPS|ESI))|(?:E(?:CHO|QBE|QIT|QLC|QPP|QUU|XPO))|(?:G(?:AMT|RCS|RPD|RP))|KINK|(?:L(?:AUN|CCS|AM|C))|MEX|QCUT|REIN|(?:S(?:CAL|ELE|UMA))|(?:T(?:BEX|EMP|XCS))|WAIT)|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(LAMC|LAML|LAMS|LAMT|LML2|LMS2|LMT2)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:L(?:AMC|AML|AMS|AMT|ML2|MS2|MT2)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -3751,7 +3751,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:B(?:EAM|RIC))|(?:C(?:ABL|DB))|ECHO|GRP|LC|MAT|NODE|QUAD|(?:S(?:ECT|PRI))|TRUS)|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(NOS|NO)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:N(?:OS|O)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -3765,7 +3765,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:B(?:EAM|RIC))|(?:C(?:ABL|DB))|ECHO|GRP|LC|MAT|NODE|QUAD|(?:S(?:ECT|PRI))|TRUS)|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(NOS|NO)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:N(?:OS|O)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -4141,7 +4141,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:CASE|(?:D(?:OLF|RAG))|EPS|FLOW|HIST|(?:I(?:NOU|N))|OUT|(?:S(?:OLV|TEP))|(?:W(?:ALL|IND)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(..|(?:A(?:LF|XX|YY|ZZ|X|Y|Z))|(?:R(?:EFX|EFY|EFZ))|VREF|(?:W(?:1|)))(?!\\w)'
+            match: '(?i)(?<!\\w)((?:A(?:LF|XX|YY|ZZ|X|Y|Z))|(?:R(?:EFX|EFY|EFZ))|VREF|(?:W(?:1|))|\\.\\.)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -4447,7 +4447,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:E(?:CHO|XCI))|FUNC|HIST|RESP|(?:S(?:CHH|IZE|PEC)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(H1|H2|H3|H4|H5)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:H(?:1|2|3|4|5)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -4649,7 +4649,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:A(?:PPL|CT))|(?:C(?:ALC|ASE|OMB|TRL))|ECHO|GAX|(?:L(?:ANE|INF|SEL|C))|POSL|(?:S(?:AVE|HOW|IZE))|(?:T(?:RAI|RBL|RPL)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(TGEN|TYPE)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:T(?:GEN|YPE)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -6025,7 +6025,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:AND|(?:B(?:EAM|RIC))|(?:C(?:ROS|DB))|(?:D(?:GRA|IAG|IAX|LAB|LIN|BO))|(?:F(?:ILT|LT|F))|GRP|JOIN|LC|NODE|(?:P(?:ICT|FA|LN|MR))|QUAD|RSET|(?:S(?:IZE|TRU))|TXTP|VIEW|XLSX)|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(COL1|COL2)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:C(?:OL1|OL2)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -6443,7 +6443,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:C(?:OLO|TRL))|ECHO|GRP|LC|(?:S(?:CHH|ECT|IZE)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(C1|C2|C3|C4|C5|C6)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:C(?:1|2|3|4|5|6)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -8357,7 +8357,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:CTRL|DESI|ECHO|GRP|INFL|(?:L(?:CC|C|V))|NSTR|REIN)|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(ALPH|BB|(?:C(?:HKC|HKS|HKT|RAC|W-|W))|(?:F(?:MAX|AT))|(?:H(?:MAX|MIN))|(?:K(?:MAX|MIN|MOD|SB|SV))|SIGS|(?:T(?:ANC|ANS)))(?!\\w)'
+            match: '(?i)(?<!\\w)(ALPH|BB|(?:C(?:HKC|HKS|HKT|RAC|W))|(?:F(?:MAX|AT))|(?:H(?:MAX|MIN))|(?:K(?:MAX|MIN|MOD|SB|SV))|SIGS|(?:T(?:ANC|ANS))|CW\\-)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -8517,7 +8517,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:C(?:CRL|GRP|LOA|SYS|TRL|TXT|GW|S))|ECHO|GRP|HIST|(?:L(?:CC|C))|NSTR|(?:P(?:HRS|LC))|SYST|(?:T(?:ASK|PLC)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(KMOD|KSB|KSV)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:K(?:MOD|SB|SV)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -8675,7 +8675,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:A(?:XES|ND))|(?:C(?:OLO|TRL|S))|(?:E(?:CHO|XPO))|FRIC|(?:G(?:EOX|RP))|(?:P(?:AAS|DAT|DEF|FAC|LOT|SIG|TSV|TUV))|(?:S(?:CHH|IZE|LAB|LBS|YSP|YSS))|(?:T(?:DEL|END|GEO|OPP)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(AZ|(?:B(?:ETA|ETG))|(?:C(?:DIS|EDG|OMP))|(?:D(?:I|O))|ECC|(?:L(?:COP|FIX|ITZ|PRE))|(?:M(?:INR|UE-|AT|UE))|(?:N(?:OPS|O))|(?:S(?:C|F|P|S))|(?:T(?:APP|ITL))|(?:V(?:C|F|P))|ZV)(?!\\w)'
+            match: '(?i)(?<!\\w)(AZ|(?:B(?:ETA|ETG))|(?:C(?:DIS|EDG|OMP))|(?:D(?:I|O))|ECC|(?:L(?:COP|FIX|ITZ|PRE))|(?:M(?:INR|AT|UE))|(?:N(?:OPS|O))|(?:S(?:C|F|P|S))|(?:T(?:APP|ITL))|(?:V(?:C|F|P))|ZV|MUE\\-)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -8955,7 +8955,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:A(?:XES|ND))|(?:C(?:OLO|TRL|S))|(?:E(?:CHO|XPO))|FRIC|(?:G(?:EOX|RP))|(?:P(?:AAS|DAT|DEF|FAC|LOT|SIG|TSV|TUV))|(?:S(?:CHH|IZE|LAB|LBS|YSP|YSS))|(?:T(?:DEL|END|GEO|OPP)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(H1|H2|H3|H4|H5|H6|H7|H8)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:H(?:1|2|3|4|5|6|7|8)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -9295,7 +9295,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:A(?:RRO|XIS|ND))|(?:B(?:EAM|RIC|OX))|(?:C(?:OL2|OLB|OLO|TRL|UPT|URV))|(?:D(?:EFO|RAW|SGN|SIR|B))|FILL|(?:G(?:RID|RP))|(?:I(?:NTE|SOL))|(?:L(?:EGO|IST|OAD|C))|MOVE|(?:N(?:IVE|ODE))|(?:P(?:ALE|ERS|OST))|QUAD|(?:S(?:CH2|CH3|CHH|ECT|ELE|IZ2|IZE|TRU|EL))|TEXT|(?:V(?:IEW|ISI)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(C10|C11|C12|C13|C14|C15|C16|C17|C18|C19|C20|C21|C22|C23|C24|C25|C26|C27|C28|C29|C30|C31|C32|C33|C34|C35|C36|C37|C38|C39|C40|C1|C2|C3|C4|C5|C6|C7|C8|C9)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:C(?:10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|1|2|3|4|5|6|7|8|9)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -9309,7 +9309,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:A(?:RRO|XIS|ND))|(?:B(?:EAM|RIC|OX))|(?:C(?:OL2|OLB|OLO|TRL|UPT|URV))|(?:D(?:EFO|RAW|SGN|SIR|B))|FILL|(?:G(?:RID|RP))|(?:I(?:NTE|SOL))|(?:L(?:EGO|IST|OAD|C))|MOVE|(?:N(?:IVE|ODE))|(?:P(?:ALE|ERS|OST))|QUAD|(?:S(?:CH2|CH3|CHH|ECT|ELE|IZ2|IZE|TRU|EL))|TEXT|(?:V(?:IEW|ISI)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(C10|C11|C12|C13|C14|C15|C16|C17|C18|C19|C20|C21|C22|C23|C24|C25|C26|C27|C28|C29|C30|C31|C32|C33|C34|C35|C36|C37|C38|C39|C40|C41|C42|C43|C44|C45|C1|C2|C3|C4|C5|C6|C7|C8|C9)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:C(?:10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|1|2|3|4|5|6|7|8|9)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -9323,7 +9323,7 @@ repository:
         end: '(?i)(?=(?:^ *|; *)(?:(?:A(?:RRO|XIS|ND))|(?:B(?:EAM|RIC|OX))|(?:C(?:OL2|OLB|OLO|TRL|UPT|URV))|(?:D(?:EFO|RAW|SGN|SIR|B))|FILL|(?:G(?:RID|RP))|(?:I(?:NTE|SOL))|(?:L(?:EGO|IST|OAD|C))|MOVE|(?:N(?:IVE|ODE))|(?:P(?:ALE|ERS|OST))|QUAD|(?:S(?:CH2|CH3|CHH|ECT|ELE|IZ2|IZE|TRU|EL))|TEXT|(?:V(?:IEW|ISI)))|;|^ *[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(C10|C11|C12|C13|C14|C15|C16|C17|C18|C19|C20|C21|C1|C2|C3|C4|C5|C6|C7|C8|C9)(?!\\w)'
+            match: '(?i)(?<!\\w)((?:C(?:10|11|12|13|14|15|16|17|18|19|20|21|1|2|3|4|5|6|7|8|9)))(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }

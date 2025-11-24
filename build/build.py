@@ -41,10 +41,40 @@ def save_keywords_json(keywords_data, output_path='../assets/keywords.json'):
         json.dump(keywords_data, json_file, indent=2)
 
 
+def escape_regex(text):
+    """
+    Escape special regex characters in text.
+    For CSON files, we need double backslashes (\\).
+
+    Args:
+        text: String to escape
+
+    Returns:
+        Escaped string safe for use in regex patterns
+    """
+    # Characters that need escaping in regex
+    special_chars = r'\.^$*+?{}[]()|\-'
+    result = ""
+    for char in text:
+        if char in special_chars:
+            result += "\\\\" + char  # Double backslash for CSON
+        else:
+            result += char
+    return result
+
+
+def has_special_chars(text):
+    """Check if text contains regex special characters that need escaping."""
+    special_chars = r'\.^$*+?{}[]()|\-'
+    return any(char in special_chars for char in text)
+
+
 def optimize_pattern(keyword_list):
     """
     Create optimized regex pattern by grouping keywords by first character.
     This reduces backtracking and improves matching performance.
+
+    Keywords with special regex characters are NOT grouped for safety.
 
     Args:
         keyword_list: List of keywords to optimize into a regex pattern
@@ -55,9 +85,13 @@ def optimize_pattern(keyword_list):
     if not keyword_list:
         return ""
 
-    # Group keywords by their first character (case-insensitive)
+    # Separate keywords with special chars from regular ones
+    special_keywords = [kw for kw in keyword_list if has_special_chars(kw)]
+    regular_keywords = [kw for kw in keyword_list if not has_special_chars(kw)]
+
+    # Group regular keywords by their first character (case-insensitive)
     keywords_grouped_by_first_char = defaultdict(list)
-    for keyword in keyword_list:
+    for keyword in regular_keywords:
         first_character = keyword[0].upper()
         keywords_grouped_by_first_char[first_character].append(keyword)
 
@@ -65,14 +99,9 @@ def optimize_pattern(keyword_list):
     for character in keywords_grouped_by_first_char:
         keywords_grouped_by_first_char[character].sort(key=lambda x: (-len(x), x))
 
-    # Build optimized pattern
-    if len(keywords_grouped_by_first_char) == 1:
-        # Single character group - use simple alternation
-        character, word_list = list(keywords_grouped_by_first_char.items())[0]
-        return "|".join(word_list)
-
-    # Multiple character groups - use character class optimization
+    # Build optimized pattern for regular keywords
     pattern_parts = []
+
     for character in sorted(keywords_grouped_by_first_char.keys()):
         word_list = keywords_grouped_by_first_char[character]
         if len(word_list) == 1:
@@ -81,6 +110,11 @@ def optimize_pattern(keyword_list):
             # Group words with same first character
             word_suffixes = '|'.join(word[1:] for word in word_list)
             pattern_parts.append(f"(?:{character}(?:{word_suffixes}))")
+
+    # Add special keywords individually, escaped and sorted by length (longest first)
+    special_keywords.sort(key=lambda x: (-len(x), x))
+    for keyword in special_keywords:
+        pattern_parts.append(escape_regex(keyword))
 
     return "|".join(pattern_parts)
 
