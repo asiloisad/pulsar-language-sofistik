@@ -152,9 +152,10 @@ def generate_module_patterns(keywords_data):
                 # 3. A new PROG statement (which ends the module scope)
                 repository_entry += f'''
       {{
-        begin: '(?i)(?:^ *|; *)({command_name})(?=;|$| )'
+        begin: '(?i)(?:^ *|(;) *)({command_name})(?=;|$| )'
         beginCaptures:
-          1: name: 'keyword.control.sofistik'
+          1: name: 'support.type.sofistik'
+          2: name: 'keyword.control.sofistik'
         end: '(?i)(?=(?:^ *|; *)(?:{commands_regex_pattern})|;|^ *[\\\\$\\\\+-]?PROG\\\\b)'
         patterns: [
           {{
@@ -168,9 +169,10 @@ def generate_module_patterns(keywords_data):
                 # Command without subkeywords - just match it directly
                 repository_entry += f'''
       {{
-        match: '(?i)(?:^ *|; *)({command_name})(?=;|$| )'
+        match: '(?i)(?:^ *|(;) *)({command_name})(?=;|$| )'
         captures:
-          1: name: 'keyword.control.sofistik'
+          1: name: 'support.type.sofistik'
+          2: name: 'keyword.control.sofistik'
       }}'''
 
         # Close the repository entry
