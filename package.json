@@ -36,10 +36,10 @@
     "language": {
       "order": 2,
       "title": "Language",
-      "description": "Language for SOFiSTiK keyword service (EN = English, DE = German).",
+      "description": "Language for SOFiSTiK keyword service.",
       "type": "string",
-      "enum": ["EN", "DE"],
-      "default": "EN"
+      "enum": ["English", "German"],
+      "default": "English"
     }
   }
 }
