@@ -7,22 +7,39 @@
     "CADINP",
     "language"
   ],
-  "version": "2.0.3",
-  "main": "./lib/main",
+  "version": "2.2.0",
   "license": "MIT",
   "engines": {
     "atom": ">=1.100.0 <2.0.0"
   },
+  "main": "./lib/main",
   "providedServices": {
     "sofistik.keywords": {
-      "description": "Provides SOFiSTiK keywords for programmatic access",
       "versions": {
-        "1.0.0": "provideKeywords"
+        "2.0.0": "provideKeywords"
       }
     }
   },
   "grammars": [
     "grammars/sofistik.cson",
     "grammars/sofistik-raw.cson"
-  ]
+  ],
+  "configSchema": {
+    "version": {
+      "order": 1,
+      "title": "SOFiSTiK version",
+      "description": "SOFiSTiK version for keyword service (autocomplete). Use 'Auto detect' to detect from file content or sofistik.def.",
+      "type": "string",
+      "enum": ["Auto", "2026", "2025", "2024", "2023", "2022", "2020", "2018"],
+      "default": "Auto"
+    },
+    "language": {
+      "order": 2,
+      "title": "Language",
+      "description": "Language for SOFiSTiK keyword service (EN = English, DE = German).",
+      "type": "string",
+      "enum": ["EN", "DE"],
+      "default": "EN"
+    }
+  }
 }

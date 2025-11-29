@@ -10,10 +10,6 @@ Syntax highlighting for SOFiSTiK with optimized grammar and programmatic keyword
 
 To install `language-sofistik` search for [language-sofistik](https://web.pulsar-edit.dev/packages/language-sofistik) in the Install pane of the Pulsar settings or run `ppm install language-sofistik`. Alternatively, you can run `ppm install asiloisad/pulsar-language-sofistik` to install a package directly from the GitHub repository.
 
-## Compatibility
-
-Support versions of SOFiSTiK are 2026, 2025, 2024, 2023, 2022, 2020 and 2018. English only.
-
 ## SOFiSTiK Keywords Service
 
 This package provides a service that exposes SOFiSTiK keywords for programmatic access by other Pulsar packages.
