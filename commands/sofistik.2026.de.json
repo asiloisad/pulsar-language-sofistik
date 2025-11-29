@@ -1180,43 +1180,8 @@
       "R2": null,
       "ART": [
         "A",
-        "ATP",
-        "TP",
-        "U",
-        "UTP"
-      ],
-      "EXP": null,
-      "PHI": null,
-      "REFP": null,
-      "REFD": null,
-      "REFS": null
-    },
-    "KREI": {
-      "NR": null,
-      "Y": null,
-      "Z": null,
-      "R": null,
-      "MNR": null,
-      "EXP": null,
-      "AIR": null,
-      "REFP": null,
-      "REFD": null,
-      "REFS": null,
-      "REFR": null
-    },
-    "WAND": {
-      "NR": null,
-      "YA": null,
-      "ZA": null,
-      "YE": null,
-      "ZE": null,
-      "D": null,
-      "MNR": null,
-      "R": null,
-      "PHI": null,
-      "AUS": [
-        "A",
         "AE",
+        "ATP",
         "E",
         "FREE",
         "M",
@@ -1228,8 +1193,29 @@
         "NMW",
         "NNMW",
         "OFF",
-        "SUPP"
+        "SUPP",
+        "TP",
+        "TYP",
+        "U",
+        "UTP",
+        "WAND"
       ],
+      "EXP": null,
+      "PHI": null,
+      "REFP": null,
+      "REFD": null,
+      "REFS": null,
+      "KREI": null,
+      "MNR": null,
+      "AIR": null,
+      "REFR": null,
+      "WAND": null,
+      "YA": null,
+      "ZA": null,
+      "YE": null,
+      "ZE": null,
+      "D": null,
+      "AUS": null,
       "LAGA": null,
       "LAGE": null,
       "TYP": null,
@@ -1246,72 +1232,16 @@
       "TORS": null,
       "DAS": null,
       "A": null,
-      "DIST": null
-    },
-    "BLEC": {
-      "NR": null,
-      "YA": null,
-      "ZA": null,
-      "YE": null,
-      "ZE": null,
-      "D": null,
-      "MNR": null,
-      "R": null,
-      "PHI": null,
-      "AUS": [
-        "A",
-        "AE",
-        "E",
-        "FREE",
-        "M",
-        "MA",
-        "MAE",
-        "ME",
-        "NEIN",
-        "OFF",
-        "SUPP",
-        "TYP",
-        "WAND"
-      ],
-      "LAGA": null,
-      "LAGE": null,
-      "TYP": null,
-      "REFA": null,
-      "RFDA": null,
-      "RFSA": null,
-      "REFE": null,
-      "RFDE": null,
-      "RFSE": null
-    },
-    "LNAH": {
-      "NR": null,
-      "YA": null,
-      "ZA": null,
-      "YE": null,
-      "ZE": null,
-      "D": null,
-      "MNR": null,
-      "REFA": null,
-      "RFDA": null,
-      "RFSA": null,
-      "REFE": null,
-      "RFDE": null,
-      "RFSE": null
-    },
-    "PROF": {
-      "NR": null,
-      "TYP": null,
+      "DIST": null,
+      "BLEC": null,
+      "LNAH": null,
+      "PROF": null,
       "Z1": null,
       "Z2": null,
       "Z3": null,
-      "MNR": null,
       "ALPH": null,
       "YM": null,
       "ZM": null,
-      "REFP": null,
-      "REFD": null,
-      "REFS": null,
-      "REFR": null,
       "DTYP": null,
       "SYM": null,
       "REF": null,
@@ -1346,6 +1276,7 @@
       "AS": null,
       "ASMA": null,
       "RANG": [
+        "DIST",
         "RANG",
         "STEU",
         "TORS"
@@ -1358,28 +1289,14 @@
       "TEMP": null,
       "REFP": null,
       "REFD": null,
-      "REFS": null
-    },
-    "LBEW": {
-      "NR": null,
+      "REFS": null,
+      "LBEW": null,
       "YA": null,
       "ZA": null,
       "YE": null,
       "ZE": null,
-      "AS": null,
-      "ASMA": null,
-      "RANG": [
-        "DIST",
-        "RANG",
-        "STEU",
-        "TORS"
-      ],
-      "MBW": null,
-      "TORS": null,
-      "D": null,
       "A": null,
       "DIST": null,
-      "AR": null,
       "R": null,
       "PHI": null,
       "REFA": null,
@@ -1387,32 +1304,9 @@
       "RFSA": null,
       "REFE": null,
       "RFDE": null,
-      "RFSE": null
-    },
-    "KBEW": {
-      "NR": null,
-      "Y": null,
-      "Z": null,
-      "R": null,
-      "PHI": null,
+      "RFSE": null,
+      "KBEW": null,
       "DPHI": null,
-      "AS": null,
-      "ASMA": null,
-      "RANG": [
-        "DIST",
-        "RANG",
-        "STEU",
-        "TORS"
-      ],
-      "MBW": null,
-      "TORS": null,
-      "D": null,
-      "A": null,
-      "DIST": null,
-      "AR": null,
-      "REFP": null,
-      "REFD": null,
-      "REFS": null,
       "REFR": null
     },
     "UBEW": {
@@ -1932,8 +1826,9 @@
       "GAMA": null,
       "CRI1": null,
       "CRI2": null,
-      "CRI3": null,
-      "Q8X8": null,
+      "CRI3": null
+    },
+    "Q8X8": {
       "ZEIL": null,
       "MXX": null,
       "MYY": null,
@@ -2263,14 +2158,13 @@
     },
     "AUSW": {
       "TYP": [
+        "ITER",
         "QUA2"
       ],
       "NR1": null,
       "NR2": null,
       "LF1": null,
-      "LF2": null
-    },
-    "STEX": {
+      "LF2": null,
       "NAME": null,
       "OPT": null,
       "NSHI": null,
@@ -2296,11 +2190,9 @@
       "NRG": null,
       "NEFF": null,
       "AREA": null,
-      "EX": null,
-      "Q": null,
-      "F": null,
-      "IZ": null,
-      "GZ": null,
+      "EX_Q": null,
+      "F_IZ": null,
+      "F_GZ": null,
       "FIXE": null,
       "FREE": null,
       "F001": null,
@@ -2363,11 +2255,14 @@
         "QUE0",
         "QUER",
         "TGRP"
-      ],
-      "V0": null,
+      ]
+    },
+    "V0": {
+      "NR": null,
       "VX": null,
       "VY": null,
-      "VZ": null
+      "VZ": null,
+      "GRP": null
     },
     "TEMP": {
       "NR": null,
@@ -2573,8 +2468,9 @@
       ],
       "MUE": null,
       "BETA": null,
-      "SS": null,
-      "GRP2": null,
+      "SS": null
+    },
+    "GRP2": {
       "NR": null,
       "STEA": null,
       "QUEA": null,
@@ -2587,9 +2483,8 @@
       "GEOM": null,
       "BWES": null,
       "QEMY": null,
-      "ST": null,
-      "M": null,
-      "QU": null,
+      "ST_M": null,
+      "QU_M": null,
       "STIT": null
     },
     "PUSH": {
@@ -3082,9 +2977,9 @@
     "KOPF": {},
     "TEST": {
       "NR": null,
-      "WERT": null
+      "WERT": null,
+      "SEIT": null
     },
-    "SEIT": {},
     "ECHO": {
       "OPT": [
         "BEME",
@@ -3282,8 +3177,7 @@
       "QUER": null,
       "LFB": null,
       "DBRU": null,
-      "RO": null,
-      "V": null,
+      "RO_V": null,
       "BETA": null,
       "VMIN": null,
       "COTT": null,
@@ -3366,15 +3260,15 @@
       "B": null,
       "KOPF": null,
       "DKOP": null,
-      "RO": null,
-      "V": null,
+      "RO_V": null,
       "MBEW": null,
       "P": null,
-      "LF": null,
+      "LF_P": null,
       "BEWE": null,
       "L": null,
       "VPD": null,
-      "M": null,
+      "RO_M": null,
+      "RO_L": null,
       "MMOM": null,
       "HRED": null,
       "BETA": null,
@@ -3388,11 +3282,10 @@
       "CHKR": null,
       "DEKO": null,
       "FATC": null,
-      "LS": null,
-      "O": null,
-      "U": null,
-      "V": null,
-      "P": null,
+      "LS_O": null,
+      "LS_U": null,
+      "LS_V": null,
+      "LS_P": null,
       "LC14": null,
       "FAKO": null,
       "FAKU": null,
@@ -3401,8 +3294,7 @@
       "SIGP": null,
       "LOCP": null,
       "CHKS": null,
-      "G": null,
-      "SD": null
+      "G_SD": null
     },
     "GRUP": {
       "NR": null,
@@ -3496,8 +3388,9 @@
     "EXPO": {
       "OPT": null,
       "TO": null,
-      "PASS": null,
-      "RI3D": null,
+      "PASS": null
+    },
+    "RI3D": {
       "OAL": null,
       "OAF": null,
       "X": null,
@@ -3532,7 +3425,7 @@
     },
     "FREI": {
       "SEE": null,
-      "MS": null,
+      "MS_": null,
       "CADI": null
     }
   },
@@ -3610,8 +3503,9 @@
       "EPS": null,
       "ALPC": null,
       "ALPL": null,
-      "KURV": null,
-      "L0FI": null,
+      "KURV": null
+    },
+    "L0FI": {
       "VON": null,
       "BIS": null,
       "L0": null
@@ -3683,17 +3577,14 @@
     },
     "CDEL": {
       "OPT": [
-        "DGRP"
-      ]
-    },
-    "RCPY": {
-      "TO": null,
-      "MTYP": [
         "ALL",
+        "DGRP",
         "DSLN",
         "ENV",
         "SLN"
       ],
+      "PYTO": null,
+      "MTYP": null,
       "ID": null,
       "DTYP": null
     },
@@ -3920,10 +3811,14 @@
     },
     "EXPO": {
       "OPT": [
+        "CONC",
         "HYPE",
         "MTAK",
         "PLAS",
-        "SMAT"
+        "RF",
+        "SMAT",
+        "STEE",
+        "TEND"
       ],
       "NO": null,
       "MTYP": null,
@@ -3931,18 +3826,12 @@
       "TAY": null,
       "TAZ": null,
       "TBY": null,
-      "TBZ": null
-    },
-    "PCAT": {
+      "TBZ": null,
+      "PCAT": null,
       "CAT": null,
-      "TITL": null
-    },
-    "PCRT": {
+      "PCRT": null,
       "CRT": null,
-      "TITL": null
-    },
-    "LIMS": {
-      "CRT": null,
+      "LIMS": null,
       "MAT": null,
       "LSC": null,
       "LST": null
@@ -3971,13 +3860,12 @@
         "AQB",
         "ASE",
         "ASE2",
-        "B",
         "BEME",
+        "B_G1",
         "EG",
         "EIGE",
         "EMOD",
         "FILE",
-        "G1",
         "GAMC",
         "GPCS",
         "GUSS",
@@ -4334,18 +4222,17 @@
       "NR1": null,
       "NR2": null,
       "PHI": null,
-      "NR": null,
-      "T": null
+      "NR_T": null
     },
     "SCAL": {
       "VERS": null,
-      "ST": null,
-      "M": null,
-      "N": null,
+      "ST_M": null,
+      "ST_N": null,
       "LAST": null,
-      "QU": null,
-      "S": null,
-      "AQ": null,
+      "QU_M": null,
+      "QU_N": null,
+      "QU_S": null,
+      "AQ_S": null,
       "SIGD": null,
       "QUAS": null,
       "DESI": null
@@ -4368,11 +4255,10 @@
     "MEX": {
       "LF": null,
       "DIFF": null,
-      "EX": null,
-      "Z": null,
-      "Y": null,
-      "R": null,
-      "Q": null,
+      "EX_Z": null,
+      "EX_Y": null,
+      "EX_R": null,
+      "EX_Q": null,
       "GRP": null
     },
     "KINK": {
@@ -4470,7 +4356,7 @@
     },
     "FREI": {
       "SEE": null,
-      "MS": null,
+      "MS_": null,
       "CADI": null
     }
   },
@@ -5800,17 +5686,12 @@
         "ADD",
         "BRIC",
         "CQC",
-        "DR",
-        "DT",
-        "DX",
-        "DY",
         "FACH",
         "FEDE",
         "M",
         "MB",
         "MT",
         "MT2",
-        "MX",
         "MXX",
         "MXY",
         "MY",
@@ -5827,9 +5708,6 @@
         "PTX",
         "PTY",
         "PTZ",
-        "PX",
-        "PY",
-        "PZ",
         "QUAD",
         "RS1",
         "RS10",
@@ -5863,8 +5741,6 @@
         "RS8",
         "RS9",
         "RSET",
-        "RZ",
-        "S",
         "SEIL",
         "SLVL",
         "SP",
@@ -5877,6 +5753,22 @@
         "SRSS",
         "STAB",
         "SUM",
+        "S_DR",
+        "S_DT",
+        "S_DX",
+        "S_DY",
+        "S_MX",
+        "S_MY",
+        "S_MZ",
+        "S_PT",
+        "S_PX",
+        "S_PY",
+        "S_PZ",
+        "S_RZ",
+        "S_UT",
+        "S_UX",
+        "S_UY",
+        "S_UZ",
         "TXX",
         "TXY",
         "TXZ",
@@ -5884,10 +5776,6 @@
         "TYZ",
         "TZZ",
         "U",
-        "UT",
-        "UX",
-        "UY",
-        "UZ",
         "V",
         "VXX",
         "VY",
@@ -6225,9 +6113,8 @@
       "W3": null,
       "W4": null,
       "W5": null,
-      "W6": null
-    },
-    "SGEO": {
+      "W6": null,
+      "SGEO": null,
       "NR": null,
       "S": null,
       "X": null,
@@ -6256,14 +6143,18 @@
       "TYP": [
         "AXIS",
         "BGEO",
+        "CUBI",
+        "DUAL",
+        "GRP",
         "LANE",
+        "QGRP",
+        "RAND",
+        "SING",
+        "SZUG",
         "TEND"
       ],
-      "BEZ": null
-    },
-    "SPUR": {
-      "NR": null,
-      "TYP": null,
+      "BEZ": null,
+      "SPUR": null,
       "WR": null,
       "WL": null,
       "SA": null,
@@ -6276,19 +6167,9 @@
       "YLE": null,
       "L": null,
       "HSA": null,
-      "HSE": null
-    },
-    "SAUS": {
-      "NR": null,
-      "INT": [
-        "CUBI",
-        "DUAL",
-        "GRP",
-        "QGRP",
-        "RAND",
-        "SING",
-        "SZUG"
-      ],
+      "HSE": null,
+      "SAUS": null,
+      "INT": null,
       "DX": null,
       "DY": null,
       "DZ": null,
@@ -6477,7 +6358,25 @@
     },
     "LF": {
       "NR": null,
-      "TYP": null,
+      "TYP": [
+        "COMP",
+        "CONC",
+        "F18",
+        "F19",
+        "F19C",
+        "F20",
+        "F21",
+        "F22",
+        "F22C",
+        "F23",
+        "F24",
+        "F25",
+        "F26",
+        "F27",
+        "LOWM",
+        "PRCO",
+        "STEE"
+      ],
       "GAMU": null,
       "GAMF": null,
       "PSI0": null,
@@ -6485,10 +6384,8 @@
       "PSI2": null,
       "PS1S": null,
       "GAMA": null,
-      "BEZ": null
-    },
-    "LZUG": {
-      "TYP": null,
+      "BEZ": null,
+      "LZUG": null,
       "P1": null,
       "P2": null,
       "P3": null,
@@ -6596,6 +6493,8 @@
       "NR": null,
       "GRP": [
         "ALL",
+        "CODE",
+        "FREE",
         "GR0",
         "GR1",
         "GR11",
@@ -6624,11 +6523,17 @@
         "GR5",
         "GR6",
         "GRU",
-        "GRU0"
-      ]
-    },
-    "PZUG": {
-      "NR": null,
+        "GRU0",
+        "LANE",
+        "LIM",
+        "NEG",
+        "OFF",
+        "ON",
+        "PHYS",
+        "POS",
+        "VAR"
+      ],
+      "PZUG": null,
       "LZUG": null,
       "FAKT": null,
       "OPT": null,
@@ -6691,14 +6596,11 @@
     "TEST": {},
     "ECHO": {
       "OPT": null,
-      "VAL": null
-    },
-    "TTAG": {
-      "OPT": null,
       "VAL": null,
-      "XX06": null,
-      "XX07": null
+      "GOPT": null
     },
+    "XX06": {},
+    "XX07": {},
     "SET": {
       "KEY": null,
       "V1": null,
@@ -6732,20 +6634,34 @@
     },
     "EIGE": {
       "TYPE": [
+        "ALL",
         "APND",
         "AUTO",
+        "BEAM",
+        "BEDD",
+        "BRIC",
+        "CABL",
         "CVRT",
         "FST",
+        "HSPC",
+        "IHNG",
         "IRAM",
         "LANC",
         "LDRV",
+        "LINE",
         "LPCK",
         "NEW",
+        "NONL",
+        "NPIL",
         "OFF",
         "ON",
         "OVRW",
+        "PBED",
+        "QUAD",
         "REST",
         "SIMU",
+        "SPRI",
+        "TRUS",
         "YES"
       ],
       "NEIG": null,
@@ -6758,9 +6674,8 @@
       "IMAX": null,
       "NVEC": null,
       "MMAS": null,
-      "TZPA": null
-    },
-    "PHYS": {
+      "TZPA": null,
+      "PHYS": null,
       "ETYP": null,
       "KIND": null
     },
@@ -6872,11 +6787,17 @@
         "CONT",
         "DISP",
         "FIX",
+        "GENA",
+        "HHTA",
         "LMX",
         "LOAD",
+        "NEWC",
         "PEAK",
         "SRED",
+        "STTC",
         "ULT",
+        "USER",
+        "WBZA",
         "X",
         "XY",
         "XYZ",
@@ -6897,12 +6818,8 @@
       "TDIR": null,
       "LCR": null,
       "INT": null,
-      "LCST": null
-    },
-    "STEP": {
-      "TYPE": null,
-      "STPS": null,
-      "TVAL": null,
+      "LCST": null,
+      "STEP": null,
       "DT": null,
       "FLDT": null,
       "RHOI": null,
@@ -6910,11 +6827,8 @@
       "ALFM": null,
       "GAMM": null,
       "BETA": null,
-      "LCR": null,
-      "INT": null,
       "DTMX": null,
-      "DTMN": null,
-      "MSTP": null
+      "DTMN": null
     },
     "MCRL": {
       "STAT": [
@@ -6999,17 +6913,27 @@
     },
     "MODF": {
       "CRIT": [
+        "MASS",
+        "MXA",
+        "MXN",
+        "NRM2",
+        "RMS",
         "SUM",
-        "THRS"
+        "THRS",
+        "URX",
+        "URY",
+        "URZ",
+        "UX",
+        "UY",
+        "UZ"
       ],
       "MX": null,
       "MY": null,
       "MZ": null,
       "MXX": null,
       "MYY": null,
-      "MZZ": null
-    },
-    "MSCL": {
+      "MZZ": null,
+      "MSCL": null,
       "TYPE": null,
       "TVAL": null,
       "DIR": null
@@ -7018,37 +6942,27 @@
       "TYPE": [
         "ABS",
         "ABSE",
-        "CQC",
-        "CQCE",
-        "NEWE",
-        "NEWM",
-        "ROS",
-        "ROSE",
-        "SRSE",
-        "SRSS"
-      ],
-      "ACT": null,
-      "DSUP": null,
-      "FACN": null,
-      "TD": null
-    },
-    "RSEL": {
-      "ETYP": null,
-      "ITEM": null,
-      "LCR": null,
-      "TITL": null,
-      "TRAC": [
+        "ARX",
+        "ARY",
+        "ARZ",
         "AX",
         "AY",
         "AZ",
         "BEAM",
         "BOUN",
         "BOUS",
+        "CABL",
+        "CQC",
+        "CQCE",
         "DRZ",
         "DSLN",
         "DX",
         "DY",
+        "END",
         "M",
+        "MAMI",
+        "MAX",
+        "MIN",
         "MN",
         "MT",
         "MX",
@@ -7058,6 +6972,8 @@
         "MYY",
         "MZ",
         "N",
+        "NEWE",
+        "NEWM",
         "NODE",
         "NX",
         "NXY",
@@ -7067,6 +6983,7 @@
         "P",
         "PRE",
         "PSE",
+        "PT",
         "PTE",
         "PTX",
         "PTXE",
@@ -7080,12 +6997,22 @@
         "PZ",
         "QBED",
         "QUAD",
+        "RFZ",
+        "ROS",
+        "ROSE",
         "RZ",
         "SIG",
         "SLVL",
         "SPRI",
+        "SRSE",
+        "SRSS",
+        "STRT",
+        "TRUS",
         "U",
         "UR",
+        "URX",
+        "URY",
+        "URZ",
         "UTX",
         "UTY",
         "UTZ",
@@ -7093,6 +7020,9 @@
         "UY",
         "UZ",
         "VEAC",
+        "VRX",
+        "VRY",
+        "VRZ",
         "VX",
         "VY",
         "VZ",
@@ -7100,26 +7030,23 @@
         "YES",
         "Z"
       ],
-      "EQVL": null,
-      "ROI": null,
-      "X": null
-    },
-    "EXTR": {
+      "ACT": null,
+      "DSUP": null,
+      "FACN": null,
+      "TD": null,
+      "RSEL": null,
       "ETYP": null,
       "ITEM": null,
-      "XTYP": null,
       "LCR": null,
       "TITL": null,
-      "ACT": null
-    },
-    "HIST": {
-      "ETYP": null,
-      "ITEM": null,
+      "TRAC": null,
+      "EQVL": null,
       "ROI": null,
       "X": null,
-      "HC": null,
-      "TITL": null,
-      "LCR": null
+      "EXTR": null,
+      "XTYP": null,
+      "HIST": null,
+      "HC": null
     },
     "DTC": {
       "ETYP": null,
@@ -7172,35 +7099,34 @@
       "RBF": [
         "BOTH",
         "CCIP",
+        "CCPF",
+        "FLRI",
+        "FULL",
+        "NODE",
         "OFF",
+        "QGRP",
         "SCI",
+        "SCIF",
+        "SCIS",
         "SDSA",
+        "SELF",
         "TRSA",
+        "WB",
+        "WG",
         "YES"
       ],
       "LPTH": null,
-      "LSTR": null
-    },
-    "FFRN": {
+      "LSTR": null,
+      "FFRN": null,
       "SELE": null,
       "NO": null,
       "TRF": null,
       "FWC": null,
-      "TRAC": [
-        "NODE",
-        "OFF",
-        "QGRP",
-        "WB",
-        "WG",
-        "YES"
-      ]
-    },
-    "FFLP": {
+      "TRAC": null,
+      "FFLP": null,
       "TYPE": null,
       "EXCT": null,
       "RADI": null,
-      "SELE": null,
-      "NO": null,
       "FRQ1": null,
       "FRQ2": null,
       "DFRQ": null,
@@ -7256,8 +7182,7 @@
       "ZLVT": null
     },
     "SHPR": {
-      "LC": null,
-      "G": null,
+      "LC_G": null,
       "QD": null,
       "IMP": null
     },
@@ -8131,10 +8056,8 @@
     "ENDE": {},
     "ECHO": {
       "OPT": null,
-      "VAL": null
-    },
-    "PROJ": {
-      "DAT": null,
+      "VAL": null,
+      "JDAT": null,
       "CDB": null
     },
     "VAR": {
@@ -8157,15 +8080,9 @@
       "UMAX": null,
       "CHAV": null,
       "TXT": null,
-      "TID": null
-    },
-    "CORR": {
-      "VAR1": null,
+      "TID": null,
       "VAR2": null,
-      "C": null
-    },
-    "FUNC": {
-      "NAME": null,
+      "C": null,
       "EXPR": null
     },
     "ADS": {
@@ -8362,10 +8279,7 @@
       ],
       "LSF": null,
       "LOAD": null,
-      "SAVE": null
-    },
-    "SLSF": {
-      "VARN": null,
+      "SAVE": null,
       "EXPR": null
     }
   },
@@ -8464,18 +8378,6 @@
       "MSCA": null,
       "BEZ": null,
       "SPLT": [
-        "JA",
-        "NEIN",
-        "STAN"
-      ],
-      "BRBZ": null
-    },
-    "XLSX": {
-      "NAME": null,
-      "WS": null,
-      "ZEIL": null,
-      "SPAL": null,
-      "SPNM": [
         "CSV",
         "DOPP",
         "JA",
@@ -8483,10 +8385,16 @@
         "NEIN",
         "PKT",
         "SEMI",
+        "STAN",
         "SYS",
         "TAB",
         "XLSX"
       ],
+      "BRBZ": null,
+      "MEWS": null,
+      "ZEIL": null,
+      "SPAL": null,
+      "SPNM": null,
       "ZEIT": null,
       "CDB": null,
       "ELEM": null,
@@ -8502,6 +8410,7 @@
         "AB",
         "AUF",
         "AUS",
+        "DIAG",
         "E1",
         "E2",
         "E3",
@@ -8513,7 +8422,10 @@
         "E9",
         "EIN",
         "JA",
-        "NEIN"
+        "NAME",
+        "NEIN",
+        "NR",
+        "NRNM"
       ],
       "UNIT": null,
       "ND": null,
@@ -8524,19 +8436,10 @@
       "FORM": null,
       "BMIN": null,
       "BMAX": null,
-      "BEZ": null
-    },
-    "DIAG": {
-      "X": null,
+      "BEZ": null,
+      "IAGX": null,
       "Y": null,
-      "LFTP": [
-        "DIAG",
-        "JA",
-        "NAME",
-        "NEIN",
-        "NR",
-        "NRNM"
-      ],
+      "LFTP": null,
       "YUP": null,
       "GDEF": null,
       "LEGE": null,
@@ -8550,9 +8453,7 @@
         "VER"
       ],
       "VAL": null,
-      "INFO": null
-    },
-    "DGRA": {
+      "INFO": null,
       "DESC": null,
       "VAL1": null,
       "VAL2": null,
@@ -8651,9 +8552,17 @@
         "CRSS",
         "DIAG",
         "DOT",
+        "EX",
         "GR",
+        "LEFT",
+        "LFTO",
+        "MAX",
+        "MIMA",
+        "MIN",
+        "NEIN",
         "PFA",
-        "PLUS"
+        "PLUS",
+        "RIGH"
       ],
       "ID2": null,
       "ID3": null,
@@ -8664,26 +8573,10 @@
       "B": null,
       "A": null,
       "TYPE": null,
-      "SIZE": null
-    },
-    "JOIN": {
-      "SPA1": null,
+      "SIZE": null,
       "SPA2": null,
-      "TYP": [
-        "LEFT",
-        "LFTO",
-        "RIGH"
-      ]
-    },
-    "FILT": {
+      "TYP": null,
       "NAME": null,
-      "TYP": [
-        "EX",
-        "MAX",
-        "MIMA",
-        "MIN",
-        "NEIN"
-      ],
       "EXRF": null,
       "EXTP": null
     },
@@ -9845,9 +9738,7 @@
         "D",
         "DARS",
         "DL",
-        "DR",
         "DSGN",
-        "DT",
         "DV",
         "DW",
         "DX",
@@ -9944,7 +9835,6 @@
         "MZ",
         "P",
         "PAAR",
-        "PT",
         "PV",
         "PX",
         "PXY",
@@ -9979,7 +9869,6 @@
         "RYD",
         "RZ",
         "RZD",
-        "S",
         "SADX",
         "SADY",
         "SCHR",
@@ -9992,12 +9881,27 @@
         "SRZ",
         "STRU",
         "SUMM",
+        "S_DR",
+        "S_DT",
+        "S_DX",
+        "S_DY",
+        "S_MX",
+        "S_MY",
+        "S_MZ",
+        "S_PT",
+        "S_PX",
+        "S_PY",
+        "S_PZ",
+        "S_RZ",
+        "S_UT",
+        "S_UX",
+        "S_UY",
+        "S_UZ",
         "TRAP",
         "U",
         "UL",
         "UNIT",
         "USER",
-        "UT",
         "UV",
         "UX",
         "UXL",
@@ -10217,7 +10121,6 @@
         "GVYL",
         "GVZ",
         "GVZL",
-        "H",
         "HDPP",
         "HFP",
         "HHP",
@@ -10239,6 +10142,13 @@
         "HVM",
         "HVMM",
         "HVMO",
+        "H_MB",
+        "H_MT",
+        "H_MY",
+        "H_MZ",
+        "H_N",
+        "H_VY",
+        "H_VZ",
         "IMB",
         "IMT",
         "IMY",
@@ -10978,6 +10888,9 @@
         "HYFK",
         "HYFS",
         "HYFZ",
+        "H_SX",
+        "H_SY",
+        "H_SZ",
         "IS1",
         "IS2",
         "KLF1",
@@ -13052,14 +12965,8 @@
       "TYP": [
         "AXIS",
         "BGEO",
-        "LANE",
-        "TEND"
-      ],
-      "BEZ": null
-    },
-    "SPUR": {
-      "NR": null,
-      "TYP": [
+        "COMP",
+        "CONC",
         "CONT",
         "F18",
         "F19",
@@ -13072,8 +12979,15 @@
         "F24",
         "F25",
         "F26",
-        "F27"
+        "F27",
+        "LANE",
+        "LOWM",
+        "PRCO",
+        "STEE",
+        "TEND"
       ],
+      "BEZ": null,
+      "SPUR": null,
       "WR": null,
       "WL": null,
       "SA": null,
@@ -13094,10 +13008,8 @@
       "DEFF": null,
       "INCD": null,
       "ASL": null,
-      "WREF": null
-    },
-    "LZUG": {
-      "TYP": null,
+      "WREF": null,
+      "LZUG": null,
       "P1": null,
       "P2": null,
       "P3": null,
@@ -13456,10 +13368,8 @@
       "Y3": null,
       "Z3": null,
       "BEZ": null,
-      "GUID": null
-    },
-    "GUID": {
-      "ID": null,
+      "GUID": null,
+      "IDID": null,
       "TAG": null
     },
     "TRB": {
@@ -15667,9 +15577,7 @@
       "FDEL": null,
       "SVON": null,
       "SBIS": null,
-      "SDEL": null
-    },
-    "STEX": {
+      "SDEL": null,
       "NAME": null,
       "NSHI": null
     },
@@ -16078,9 +15986,7 @@
       ],
       "P": null,
       "DPZ": null,
-      "ETYP": null
-    },
-    "STEX": {
+      "ETYP": null,
       "NAME": null,
       "NSHI": null
     },
@@ -16472,8 +16378,9 @@
       "DUS": null,
       "DVS": null,
       "BIT": null,
-      "FRL": null,
-      "XX11": null,
+      "FRL": null
+    },
+    "XX11": {
       "N": null
     },
     "CS": {
@@ -16634,8 +16541,9 @@
       "FAK": null,
       "IBA1": null,
       "IBA2": null,
-      "IBA3": null,
-      "XX24": null,
+      "IBA3": null
+    },
+    "XX24": {
       "N": null
     },
     "GEOX": {
@@ -16663,8 +16571,9 @@
       "EXPO": null,
       "AXID": null,
       "TITL": null,
-      "SEP": null,
-      "XX26": null,
+      "SEP": null
+    },
+    "XX26": {
       "N": null
     },
     "HOCH": {
@@ -16693,8 +16602,9 @@
       "ZE": null,
       "XM": null,
       "YM": null,
-      "ZM": null,
-      "XX29": null,
+      "ZM": null
+    },
+    "XX29": {
       "N": null
     },
     "SIZE": {
@@ -16784,12 +16694,18 @@
       "DIA": null,
       "ANZ": null
     },
-    "UND": {
-      "XX36": null,
-      "N": null,
-      "XX37": null,
-      "XX38": null,
-      "XX39": null
+    "UND": {},
+    "XX36": {
+      "N": null
+    },
+    "XX37": {
+      "N": null
+    },
+    "XX38": {
+      "N": null
+    },
+    "XX39": {
+      "N": null
     },
     "SYSP": {
       "NRSV": null,
@@ -16861,8 +16777,9 @@
       "ZV": null,
       "AZ": null,
       "LITZ": null,
-      "BEZ": null,
-      "XX44": null,
+      "BEZ": null
+    },
+    "XX44": {
       "N": null
     },
     "ROTS": {
@@ -16917,8 +16834,9 @@
         "JA",
         "NEIN"
       ],
-      "LF": null,
-      "XX49": null,
+      "LF": null
+    },
+    "XX49": {
       "N": null
     },
     "SLAB": {
@@ -16949,16 +16867,31 @@
       "DL": null,
       "DR": null,
       "RV": null,
-      "RL": null,
-      "XX52": null,
-      "N": null,
-      "XX53": null,
-      "XX54": null,
-      "XX55": null,
-      "XX56": null,
-      "XX57": null,
-      "XX58": null,
-      "XX59": null
+      "RL": null
+    },
+    "XX52": {
+      "N": null
+    },
+    "XX53": {
+      "N": null
+    },
+    "XX54": {
+      "N": null
+    },
+    "XX55": {
+      "N": null
+    },
+    "XX56": {
+      "N": null
+    },
+    "XX57": {
+      "N": null
+    },
+    "XX58": {
+      "N": null
+    },
+    "XX59": {
+      "N": null
     },
     "SYST": {
       "ZV": null,
@@ -17026,16 +16959,25 @@
         "RELI"
       ],
       "STLL": null,
-      "STLR": null,
-      "STR1": null,
+      "STLR": null
+    },
+    "STR1": {
       "LUEB": null,
       "VUEB": null,
       "LNAL": null,
       "VNAL": null,
       "LWSP": null,
       "VWSP": null,
-      "STAU": null,
-      "STR2": null
+      "STAU": null
+    },
+    "STR2": {
+      "LUEB": null,
+      "VUEB": null,
+      "LNAL": null,
+      "VNAL": null,
+      "LWSP": null,
+      "VWSP": null,
+      "STAU": null
     },
     "SPGT": {
       "NR": null,
@@ -17047,13 +16989,22 @@
       "SPL": null,
       "SPLB": null,
       "SPLL": null,
-      "SPLR": null,
-      "XX75": null,
-      "N": null,
-      "XX76": null,
-      "XX77": null,
-      "XX78": null,
-      "XX79": null
+      "SPLR": null
+    },
+    "XX75": {
+      "N": null
+    },
+    "XX76": {
+      "N": null
+    },
+    "XX77": {
+      "N": null
+    },
+    "XX78": {
+      "N": null
+    },
+    "XX79": {
+      "N": null
     },
     "UPDA": {
       "NRS": null,
@@ -17063,14 +17014,25 @@
       "OPT": null,
       "VAL": null,
       "TO": null,
-      "PASS": null,
-      "XX82": null,
-      "N": null,
-      "XX83": null,
-      "XX84": null,
-      "XX85": null,
-      "XX86": null,
-      "XX87": null
+      "PASS": null
+    },
+    "XX82": {
+      "N": null
+    },
+    "XX83": {
+      "N": null
+    },
+    "XX84": {
+      "N": null
+    },
+    "XX85": {
+      "N": null
+    },
+    "XX86": {
+      "N": null
+    },
+    "XX87": {
+      "N": null
     },
     "STEU": {
       "OPT": [
@@ -17429,16 +17391,13 @@
       "W": null,
       "H": null,
       "RAND": [
-        "AB",
         "AUS",
         "BILD",
         "JA",
         "NEIN",
-        "SEIT",
         "STAN",
         "URS",
         "VOLL",
-        "WEG",
         "XY",
         "YZ",
         "ZTVK",
@@ -17449,9 +17408,18 @@
       "BLEG": null,
       "MASS": null,
       "TEIL": null,
-      "TLEG": null,
-      "SIZ2": null,
-      "UMBR": null,
+      "TLEG": null
+    },
+    "SIZ2": {
+      "UMBR": [
+        "AB",
+        "BILD",
+        "JA",
+        "NEIN",
+        "SEIT",
+        "STAN",
+        "WEG"
+      ],
       "DRUO": null,
       "DRUR": null,
       "DRUL": null,
@@ -17461,7 +17429,8 @@
       "DRUU": null,
       "SKOP": null,
       "DATE": null,
-      "LASB": null
+      "TEIL": null,
+      "ASB": null
     },
     "SCHR": {
       "H1": null,
@@ -17494,13 +17463,117 @@
       "MINN": null,
       "MAXR": null,
       "MAXF": null,
-      "MPRP": null,
-      "SCH2": null,
+      "MPRP": null
+    },
+    "SCH2": {
       "FLEG": null,
       "MIN1": null,
       "MIN2": null,
       "MIN3": null,
-      "ABSO": null,
+      "ABSO": [
+        "AE",
+        "AQ",
+        "BX",
+        "BY",
+        "CROS",
+        "DAE",
+        "DAQ",
+        "DBX",
+        "DBY",
+        "DEFA",
+        "DEG",
+        "DEP",
+        "DEQ",
+        "DGK",
+        "DGQ",
+        "DI1",
+        "DI2",
+        "DKG",
+        "DKI",
+        "DKM",
+        "DNM",
+        "DNZ",
+        "DPP",
+        "DPQ",
+        "DPZ",
+        "DVK",
+        "DVQ",
+        "DWG",
+        "DWL",
+        "DWV",
+        "DWW",
+        "DX",
+        "DXV",
+        "DXX",
+        "DXY",
+        "DXZ",
+        "DY",
+        "DYV",
+        "DYY",
+        "DYZ",
+        "DZ",
+        "DZV",
+        "DZZ",
+        "EG",
+        "ENPL",
+        "EP",
+        "EPPL",
+        "EQ",
+        "GK",
+        "GQ",
+        "HINX",
+        "I1",
+        "I2",
+        "JA",
+        "KG",
+        "KI",
+        "KM",
+        "MIN1",
+        "NEG1",
+        "NEG2",
+        "NEGS",
+        "NEGX",
+        "NEGY",
+        "NEGZ",
+        "NEIN",
+        "NM",
+        "NO",
+        "NPLA",
+        "NZ",
+        "PLAN",
+        "POS1",
+        "POS2",
+        "POSS",
+        "POSX",
+        "POSY",
+        "POSZ",
+        "PP",
+        "PPLA",
+        "PQ",
+        "PZ",
+        "QUER",
+        "STAN",
+        "URI",
+        "URIC",
+        "VK",
+        "VQ",
+        "WG",
+        "WL",
+        "WV",
+        "WW",
+        "X",
+        "XV",
+        "XX",
+        "XY",
+        "XZ",
+        "Y",
+        "YV",
+        "YY",
+        "YZ",
+        "Z",
+        "ZV",
+        "ZZ"
+      ],
       "RICH": null,
       "RAND": null,
       "HINX": null,
@@ -17524,8 +17597,9 @@
       "PROP": null,
       "MAX1": null,
       "MAX2": null,
-      "MAX3": null,
-      "SCH3": null,
+      "MAX3": null
+    },
+    "SCH3": {
       "BFDA": null,
       "FDAB": null,
       "HFDD": null,
@@ -17680,8 +17754,52 @@
       "F40": null,
       "F41": null,
       "F42": null,
+      "F43": null
+    },
+    "FAR2": {
+      "F1": null,
+      "F2": null,
+      "F3": null,
+      "F4": null,
+      "F5": null,
+      "F6": null,
+      "F7": null,
+      "F8": null,
+      "F9": null,
+      "F10": null,
+      "F11": null,
+      "F12": null,
+      "F13": null,
+      "F14": null,
+      "F15": null,
+      "F16": null,
+      "F17": null,
+      "F18": null,
+      "F19": null,
+      "F20": null,
+      "F21": null,
+      "F22": null,
+      "F23": null,
+      "F24": null,
+      "F25": null,
+      "F26": null,
+      "F27": null,
+      "F28": null,
+      "F29": null,
+      "F30": null,
+      "F31": null,
+      "F32": null,
+      "F33": null,
+      "F34": null,
+      "F35": null,
+      "F36": null,
+      "F37": null,
+      "F38": null,
+      "F39": null,
+      "F40": null,
+      "F41": null,
+      "F42": null,
       "F43": null,
-      "FAR2": null,
       "F44": null,
       "F45": null
     },
@@ -17739,7 +17857,10 @@
         "HOEH",
         "INK",
         "JA",
-        "LG",
+        "LG_1",
+        "LG_2",
+        "LG_3",
+        "LG_4",
         "LMAT",
         "MBLU",
         "MGRE",
@@ -18014,58 +18135,57 @@
       "DIF2": null,
       "DIF3": null,
       "RICH": [
-        "AI",
         "AIHC",
         "AILC",
         "AIR",
+        "AI_C",
         "ALLE",
         "AMN",
         "AMX",
-        "AS",
         "ASLC",
         "ASPC",
-        "B",
-        "B0",
+        "AS_C",
         "B0LC",
-        "BA",
+        "B0_C",
+        "BA_B",
         "BPBP",
         "BRAS",
-        "BS",
         "BSHC",
         "BSLC",
-        "C",
+        "BS_C",
         "CAL",
         "CAMC",
         "CAN",
         "CAP",
         "CLMB",
-        "CS",
         "CSLC",
+        "CS_C",
         "CU",
         "DEFA",
-        "DN",
         "DNBE",
         "DNLB",
         "DNLC",
         "DNSB",
+        "DN_B",
+        "DN_C",
         "DRUC",
-        "DS",
+        "DS_B",
         "DUCT",
         "DUNC",
-        "EC",
         "ECCE",
         "ECDA",
         "ECDB",
         "ECLC",
+        "EC_C",
         "EHHA",
         "EHHP",
         "ESG",
         "FAUL",
         "FIND",
         "FIRS",
-        "GB",
         "GBHC",
         "GBLC",
+        "GB_C",
         "GLAS",
         "GRAN",
         "GUDE",
@@ -18073,12 +18193,12 @@
         "HYPO",
         "ICF",
         "IFCL",
-        "IR",
-        "IS",
+        "IR_C",
         "ISLC",
-        "JI",
+        "IS_C",
         "JILC",
-        "JR",
+        "JI_C",
+        "JR_C",
         "LADE",
         "LAST",
         "LAY",
@@ -18092,29 +18212,29 @@
         "MIN",
         "MISE",
         "MOHR",
-        "MS",
         "MSLC",
+        "MS_C",
         "NAME",
-        "NB",
         "NBLC",
         "NBPC",
+        "NB_C",
         "NEXT",
-        "NS",
         "NSLC",
-        "NZ",
+        "NS_C",
         "NZLC",
         "NZPC",
-        "OE",
+        "NZ_C",
         "OELB",
         "OESB",
+        "OE_B",
         "PB",
         "PREV",
         "ROCK",
-        "SA",
         "SALC",
         "SAPC",
-        "SN",
+        "SA_C",
         "SNLC",
+        "SN_C",
         "STAN",
         "SUM",
         "SWEL",
@@ -18141,14 +18261,14 @@
         "VSGH",
         "VSGV",
         "W",
-        "X",
         "XY",
         "XYZ",
         "XZ",
-        "Y",
+        "X_",
         "YZ",
-        "Z",
-        "ZN"
+        "Y_",
+        "ZN",
+        "Z_"
       ],
       "NMAT": null,
       "REF": null,
@@ -18260,21 +18380,16 @@
       "HINT": null,
       "DIST": null
     },
-    "TEXT": {},
-    "POST": {
-      "BEZ": null
-    },
-    "NIVE": {
-      "BEZ": null
+    "TEXT": {
+      "TBEZ": null,
+      "EBEZ": null
     },
     "SPUR": {
       "NR": null,
       "F": null,
       "DX": null,
-      "H": null
-    },
-    "ACHS": {
-      "BEZ": null
+      "H": null,
+      "SBEZ": null
     },
     "DSIR": {
       "NR": null,
@@ -18430,6 +18545,7 @@
         "ASUQ",
         "AY",
         "AZ",
+        "A_E",
         "B",
         "BA",
         "BAQA",
@@ -19081,9 +19197,7 @@
         "D",
         "DARS",
         "DL",
-        "DR",
         "DSGN",
-        "DT",
         "DV",
         "DW",
         "DX",
@@ -19141,9 +19255,6 @@
         "KZ",
         "M",
         "MAX",
-        "MX",
-        "MY",
-        "MZ",
         "ND",
         "OD",
         "ODL",
@@ -19165,10 +19276,6 @@
         "OUYL",
         "OUZ",
         "OUZL",
-        "PT",
-        "PX",
-        "PY",
-        "PZ",
         "R",
         "RAND",
         "RE",
@@ -19214,11 +19321,26 @@
         "SRZ",
         "STAN",
         "STRU",
+        "S_DR",
+        "S_DT",
+        "S_DX",
+        "S_DY",
+        "S_MX",
+        "S_MY",
+        "S_MZ",
+        "S_PT",
+        "S_PX",
+        "S_PY",
+        "S_PZ",
+        "S_RZ",
+        "S_UT",
+        "S_UX",
+        "S_UY",
+        "S_UZ",
         "U",
         "UL",
         "UNIT",
         "USER",
-        "UT",
         "UV",
         "UX",
         "UXL",
@@ -20899,8 +21021,6 @@
     "DFNK": {
       "NR": null,
       "ART": [
-        "AN",
-        "D",
         "D3S2",
         "DA00",
         "DA01",
@@ -21104,16 +21224,17 @@
         "DZSM",
         "DZSX",
         "DZSY",
-        "EQ",
-        "GE",
-        "GT",
-        "IF",
-        "LE",
-        "LT",
-        "NE",
-        "OR",
-        "RW",
-        "ST"
+        "D_AN",
+        "D_EQ",
+        "D_GE",
+        "D_GT",
+        "D_IF",
+        "D_LE",
+        "D_LT",
+        "D_NE",
+        "D_OR",
+        "D_RW",
+        "D_ST"
       ],
       "VAL1": null,
       "VAL2": null,
@@ -22349,9 +22470,9 @@
         "CSA",
         "CSE",
         "CUBI",
+        "C_EN",
         "DS",
         "DUCT",
-        "EN",
         "GB",
         "GBWS",
         "HA",
@@ -22444,6 +22565,7 @@
         "BSK",
         "BSOE",
         "BST",
+        "B_EN",
         "C",
         "CA",
         "COE",
@@ -22451,7 +22573,6 @@
         "CSA",
         "EA",
         "EB",
-        "EN",
         "EY",
         "FEB",
         "FEE",
@@ -22500,9 +22621,11 @@
         "SNZS",
         "ST",
         "STOE",
+        "S_EN",
         "Y",
         "YC",
-        "YDS"
+        "YDS",
+        "Y_EN"
       ],
       "GUET": null,
       "FY": null,
@@ -22634,17 +22757,18 @@
       "TYP": [
         "BRUC",
         "EXT",
-        "F",
-        "FS",
         "GEBR",
         "GPOL",
         "GSPL",
         "I",
         "II",
+        "II_S",
+        "I_F",
+        "I_FS",
+        "I_S",
         "LIM",
         "POL",
         "RECH",
-        "S",
         "SHIF",
         "SPL"
       ],
