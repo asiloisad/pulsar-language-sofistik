@@ -7,7 +7,7 @@
     "CADINP",
     "language"
   ],
-  "version": "2.2.0",
+  "version": "2.2.1",
   "license": "MIT",
   "engines": {
     "atom": ">=1.100.0 <2.0.0"
@@ -30,7 +30,16 @@
       "title": "SOFiSTiK version",
       "description": "SOFiSTiK version for keyword service (autocomplete). Use 'Auto detect' to detect from file content or sofistik.def.",
       "type": "string",
-      "enum": ["Auto", "2026", "2025", "2024", "2023", "2022", "2020", "2018"],
+      "enum": [
+        "Auto",
+        "2026",
+        "2025",
+        "2024",
+        "2023",
+        "2022",
+        "2020",
+        "2018"
+      ],
       "default": "Auto"
     },
     "language": {
@@ -38,7 +47,10 @@
       "title": "Language",
       "description": "Language for SOFiSTiK keyword service.",
       "type": "string",
-      "enum": ["English", "German"],
+      "enum": [
+        "English",
+        "German"
+      ],
       "default": "English"
     }
   }
