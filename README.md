@@ -1,23 +1,21 @@
 # language-sofistik
 
-Syntax highlighting for SOFiSTiK with optimized grammar and programmatic keyword access.
+Syntax highlighting for SOFiSTiK structural analysis software. Provides grammar for input files with multi-version keyword support and programmatic API.
 
-- **Syntax Highlighting**: Complete syntax highlighting for SOFiSTiK files (`.dat`, `.gra`, `.grb`, `.results`)
-- **RAW File Support**: Grammar for SOFiSTiK output files (`.erg`, `.lst`, `.prt`, `.urs`)
-- **Keywords Service**: Programmatic access to SOFiSTiK keywords for other packages
-- **Multi-Version Support**: Keywords for SOFiSTiK versions 2018-2026
-- **Multi-Language Support**: English and German keyword sets
+## Features
+
+- **Syntax highlighting**: Complete support for `.dat`, `.gra`, `.grb`, `.results` files.
+- **RAW file support**: Grammar for output files `.erg`, `.lst`, `.prt`, `.urs`.
+- **Multi-version**: Keywords for SOFiSTiK versions 2018-2026.
+- **Multi-language**: English and German keyword sets.
+- **Keywords service**: Programmatic access to keywords for other packages.
+- **Outline support**: Section markers via [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel).
 
 ## Installation
 
 To install `language-sofistik` search for [language-sofistik](https://web.pulsar-edit.dev/packages/language-sofistik) in the Install pane of the Pulsar settings or run `ppm install language-sofistik`. Alternatively, you can run `ppm install asiloisad/pulsar-language-sofistik` to install a package directly from the GitHub repository.
 
-## Configuration
-
-- **SOFiSTiK Version**: Select a specific version (2018-2026) or let it be detected automatically
-- **Language**: Choose between English and German keyword sets
-
-### Version Detection
+### Version detection
 
 The package detects the SOFiSTiK version from:
 
@@ -76,7 +74,7 @@ const modules = ctx.getModuleNames();
 const commands = ctx.getModuleCommands("AQUA");
 ```
 
-### Context Methods
+### Context methods
 
 #### `getVersion()` / `getLanguage()`
 
@@ -205,7 +203,7 @@ const stats = ctx.getStatistics();
 // }
 ```
 
-### Provider Methods
+### Provider methods
 
 These methods are available directly on the provider (without creating a context):
 
@@ -226,6 +224,6 @@ Load keywords for a specific version and language directly.
 const keywords = this.keywordsService.loadKeywords("2024", "de");
 ```
 
-# Contributing
+## Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
