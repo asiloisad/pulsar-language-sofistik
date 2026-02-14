@@ -1,6 +1,6 @@
 {
   "name": "language-sofistik",
-  "description": "Syntax highlighting for SOFiSTiK",
+  "description": "Syntax highlighting for SOFiSTiK structural analysis software",
   "repository": "https://github.com/asiloisad/pulsar-language-sofistik",
   "keywords": [
     "SOFiSTiK",
