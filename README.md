@@ -226,4 +226,4 @@ const keywords = this.keywordsService.loadKeywords("2024", "de");
 
 ## Contributing
 
-Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub. Any feedback is welcome!
