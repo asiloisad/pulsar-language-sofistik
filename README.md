@@ -224,6 +224,10 @@ Load keywords for a specific version and language directly.
 const keywords = this.keywordsService.loadKeywords("2024", "de");
 ```
 
+## Keyword sources
+
+Keywords and enum values are extracted from SOFiSTiK module `.err` files. The `.err` file format is documented at [sofistik-skills/sofistik-cadinp/ERR_FILE_FORMAT.md](https://github.com/andreasniggl/sofistik-skills/blob/main/sofistik-cadinp/ERR_FILE_FORMAT.md).
+
 ## Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub. Any feedback is welcome!
