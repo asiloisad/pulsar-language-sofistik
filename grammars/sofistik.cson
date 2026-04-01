@@ -5381,7 +5381,7 @@ repository:
         end: '(?i)(?=(?:^[ \\t]*|; *)(?:BDEL|(?:C(?:OMB|OPY|RCK|TRL))|(?:D(?:EFL|ELR|ESI|GRP|SLN))|(?:E(?:CHO|NDE|ND))|(?:G(?:COL|FAI|GDP|LBA|LBL|PLI|PMI|SCA|TXI|TXT|AX|FA|NT|PL|PM))|(?:H(?:EAD|ELP))|KOPF|(?:L(?:POS|RF))|(?:P(?:AGE|OS))|QUER|(?:S(?:EIT|TEU|VAL|RF))|(?:T(?:EST|VAR|XAB|XBB|XEB|XEN|XA|XB|XE))|UNIT)|;|^[ \\t]*[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(ECHO|OPT|VAL|WERT)(?!\\w)'
+            match: '(?i)(?<!\\w)(OPT|VAL|WERT)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }
@@ -31797,7 +31797,7 @@ repository:
         end: '(?i)(?=(?:^[ \\t]*|; *)(?:(?:C(?:HCK|TRL))|DESI|(?:E(?:CHO|NDE|ND))|(?:G(?:COL|FAI|GDP|LBA|LBL|PLI|PMI|SCA|TXI|TXT|AX|FA|NT|PL|PM))|(?:H(?:EAD|ELP))|KOPF|LC|(?:P(?:AGE|LOT))|QUER|RF|(?:S(?:EIT|TEU|VAL|EL))|(?:T(?:EST|VAR|XAB|XBB|XEB|XEN|XA|XB|XE))|UNIT)|;|^[ \\t]*[\\$\\+-]?PROG\\b)'
         patterns: [
           {
-            match: '(?i)(?<!\\w)(ECHO|OPT|VAL|WERT)(?!\\w)'
+            match: '(?i)(?<!\\w)(OPT|VAL|WERT)(?!\\w)'
             name: 'entity.name.function.sofistik'
           }
           { include: '#normalText' }

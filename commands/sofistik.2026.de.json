@@ -4696,6 +4696,7 @@
         "MAT",
         "NCS",
         "RFC",
+        "SECT",
         "SLS",
         "SUM",
         "SUP",
@@ -4708,9 +4709,7 @@
         "FULL",
         "NO",
         "YES"
-      ],
-      "ECHO",
-      "VAL"
+      ]
     ],
     "DSLN": [
       "NO",

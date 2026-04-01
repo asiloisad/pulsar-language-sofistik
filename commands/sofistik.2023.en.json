@@ -4530,6 +4530,7 @@
         "MAT",
         "NCS",
         "RFC",
+        "SECT",
         "SLS",
         "SYST",
         "ULS"
@@ -4540,8 +4541,7 @@
         "FULL",
         "NO",
         "YES"
-      ],
-      "ECHO"
+      ]
     ],
     "DSLN": [
       "NO"
@@ -13504,8 +13504,7 @@
         "OFF",
         "ON",
         "YES"
-      ],
-      "ECHO"
+      ]
     ],
     "LC": [
       "NO",
