@@ -189,17 +189,12 @@
         "AGEL",
         "AIND",
         "ANSC",
-        "AS",
-        "ASV",
-        "AUTO",
-        "AUTX",
         "BIEG",
         "DBEA",
         "DCOL",
         "DRUC",
         "DSLN",
         "FACH",
-        "NUM",
         "PK1",
         "PK1S",
         "PK2",
@@ -230,6 +225,13 @@
       "LAMC",
       "LAMM",
       "BA",
+      [
+        "AS",
+        "ASV",
+        "AUTO",
+        "AUTX",
+        "NUM"
+      ],
       "BA0",
       "BA1",
       "BA2",
@@ -283,6 +285,9 @@
       "DZ",
       "AR",
       "UZ",
+      [
+        "BUND"
+      ],
       "TEMP"
     ],
     "LF": [
@@ -595,8 +600,6 @@
         "BT0",
         "BT1",
         "BTN",
-        "DINF",
-        "EN92",
         "FIRE",
         "FK0",
         "FK1",
@@ -685,6 +688,10 @@
       "CHKR",
       "CHKS",
       "FAT",
+      [
+        "DINF",
+        "EN92"
+      ],
       "SIGS",
       "TANS",
       "TANC",
@@ -1511,20 +1518,11 @@
         "B_EN",
         "C",
         "CA",
-        "CEB1",
-        "CEB2",
-        "CEB3",
         "COE",
         "CP",
         "CSA",
         "EA",
         "EB",
-        "ECL1",
-        "ECL2",
-        "ECL3",
-        "ENC1",
-        "ENC2",
-        "ENC3",
         "EY",
         "FEB",
         "FEE",
@@ -1534,8 +1532,6 @@
         "FEP",
         "GSOE",
         "GU",
-        "IRC",
-        "IRCL",
         "IS",
         "JIS",
         "KS",
@@ -1558,7 +1554,6 @@
         "PSOE",
         "PST",
         "Q",
-        "RN",
         "S",
         "SABS",
         "SACI",
@@ -1577,7 +1572,6 @@
         "ST",
         "STOE",
         "S_EN",
-        "TBR",
         "Y",
         "YC",
         "YDS",
@@ -1596,6 +1590,22 @@
       "EPST",
       "REL1",
       "REL2",
+      [
+        "AS",
+        "CEB1",
+        "CEB2",
+        "CEB3",
+        "ECL1",
+        "ECL2",
+        "ECL3",
+        "ENC1",
+        "ENC2",
+        "ENC3",
+        "IRC",
+        "IRCL",
+        "RN",
+        "TBR"
+      ],
       "R",
       "K1",
       "FDYN",
@@ -2123,9 +2133,7 @@
       "REF",
       [
         "C",
-        "JA",
         "M",
-        "NEIN",
         "P",
         "PM",
         "S",
@@ -2141,6 +2149,10 @@
         "NEIN"
       ],
       "FLIP",
+      [
+        "JA",
+        "NEIN"
+      ],
       "ASO",
       "ASU",
       "DASO",
@@ -2289,12 +2301,6 @@
       "MNR",
       "MBW",
       "RANG",
-      [
-        "DIN",
-        "EC",
-        "LEON",
-        "SIA"
-      ],
       "ASB",
       [
         "VGUR"
@@ -2333,6 +2339,12 @@
       "VZFK",
       "BNEI",
       "BMAX",
+      [
+        "DIN",
+        "EC",
+        "LEON",
+        "SIA"
+      ],
       "BRED",
       "CFUG",
       "MUE",
@@ -2512,35 +2524,6 @@
     "PROF": [
       "NR",
       "TYP",
-      [
-        "C",
-        "D",
-        "DP",
-        "L",
-        "M",
-        "O",
-        "OL",
-        "OM",
-        "OR",
-        "QUAD",
-        "R",
-        "S",
-        "SC",
-        "SM",
-        "TABD",
-        "TABV",
-        "TADP",
-        "TAVP",
-        "UL",
-        "UM",
-        "UR",
-        "V",
-        "VP",
-        "Y",
-        "YFLP",
-        "Z",
-        "ZFLP"
-      ],
       "Z1",
       "Z2",
       "Z3",
@@ -2553,8 +2536,43 @@
       "REFS",
       "REFR",
       "DTYP",
+      [
+        "D",
+        "DP",
+        "TABD",
+        "TABV",
+        "TADP",
+        "TAVP",
+        "V",
+        "VP"
+      ],
       "SYM",
+      [
+        "O",
+        "QUAD",
+        "Y",
+        "YFLP",
+        "Z",
+        "ZFLP"
+      ],
       "REF",
+      [
+        "C",
+        "L",
+        "M",
+        "OL",
+        "OM",
+        "OR",
+        "R",
+        "S",
+        "SC",
+        "SM",
+        "UL",
+        "UM",
+        "UR",
+        "Y",
+        "Z"
+      ],
       "MATI",
       "VD",
       "VB",
@@ -3610,7 +3628,6 @@
       "WERT",
       [
         "ALT",
-        "BOND",
         "GLIN",
         "JA",
         "LIN",
@@ -3639,6 +3656,9 @@
       "RADB",
       "MODD",
       "BA",
+      [
+        "BOND"
+      ],
       "VORX",
       "VORY",
       "PHI",
@@ -4061,7 +4081,6 @@
         "BT0",
         "BT1",
         "BTN",
-        "DINF",
         "FIRE",
         "FK0",
         "FK1",
@@ -4149,6 +4168,9 @@
       "CHKT",
       "CHKR",
       "CHKS",
+      [
+        "DINF"
+      ],
       "FAT",
       "SIGS",
       "TANS",
@@ -4452,9 +4474,7 @@
       [
         "BS",
         "DIN",
-        "EN",
-        "JA",
-        "NEIN"
+        "EN"
       ],
       "KURV",
       [
@@ -4497,7 +4517,11 @@
         "JA",
         "NEIN"
       ],
-      "SWZ"
+      "SWZ",
+      [
+        "JA",
+        "NEIN"
+      ]
     ],
     "TVAR": [
       "NAME",
@@ -8938,15 +8962,9 @@
       "FAKT",
       "OPT",
       [
-        "ALL",
-        "AUTO",
-        "FIX",
         "FREE",
         "LANE",
-        "LIM",
-        "OFF",
-        "ON",
-        "VERT"
+        "LIM"
       ],
       "SMIN",
       "SMAX",
@@ -8979,8 +8997,20 @@
         "PHYS"
       ],
       "IMPA",
+      [
+        "OFF",
+        "ON"
+      ],
       "EXCE",
-      "EXTR"
+      [
+        "AUTO",
+        "FIX"
+      ],
+      "EXTR",
+      [
+        "ALL",
+        "VERT"
+      ]
     ],
     "KOMB": [
       "TYP",
@@ -10054,20 +10084,11 @@
         "B_EN",
         "C",
         "CA",
-        "CEB1",
-        "CEB2",
-        "CEB3",
         "COE",
         "CP",
         "CSA",
         "EA",
         "EB",
-        "ECL1",
-        "ECL2",
-        "ECL3",
-        "ENC1",
-        "ENC2",
-        "ENC3",
         "EY",
         "FEB",
         "FEE",
@@ -10077,8 +10098,6 @@
         "FEP",
         "GSOE",
         "GU",
-        "IRC",
-        "IRCL",
         "IS",
         "JIS",
         "KS",
@@ -10101,7 +10120,6 @@
         "PSOE",
         "PST",
         "Q",
-        "RN",
         "S",
         "SABS",
         "SACI",
@@ -10120,7 +10138,6 @@
         "ST",
         "STOE",
         "S_EN",
-        "TBR",
         "Y",
         "YC",
         "YDS",
@@ -10139,6 +10156,22 @@
       "EPST",
       "REL1",
       "REL2",
+      [
+        "AS",
+        "CEB1",
+        "CEB2",
+        "CEB3",
+        "ECL1",
+        "ECL2",
+        "ECL3",
+        "ENC1",
+        "ENC2",
+        "ENC3",
+        "IRC",
+        "IRCL",
+        "RN",
+        "TBR"
+      ],
       "R",
       "K1",
       "FDYN",
@@ -11513,7 +11546,15 @@
       ],
       "SKOP",
       "DATE",
+      [
+        "JA",
+        "NEIN"
+      ],
       "PICT",
+      [
+        "JA",
+        "NEIN"
+      ],
       "ASB",
       "ARCH",
       "DRUL",
@@ -14622,11 +14663,9 @@
       "NZ",
       "KR",
       [
-        "BRIC",
         "NEGX",
         "NEGY",
         "NEGZ",
-        "QUAD",
         "XX",
         "YY",
         "ZZ"
@@ -14638,6 +14677,10 @@
       "ZMIN",
       "ZMAX",
       "REF",
+      [
+        "BRIC",
+        "QUAD"
+      ],
       "QNR",
       "MNR",
       "SX",
@@ -15508,9 +15551,22 @@
         "DZX"
       ],
       "X3",
+      [
+        "GPT",
+        "SPT"
+      ],
       "Y3",
       "Z3",
+      [
+        "DXY",
+        "DYZ",
+        "DZX"
+      ],
       "X4",
+      [
+        "GPT",
+        "SPT"
+      ],
       "Y4",
       "Z4"
     ],
@@ -15592,25 +15648,15 @@
       [
         "AUTO",
         "BGRP",
-        "DDXY",
-        "DDYZ",
-        "DDZX",
-        "DXY",
-        "DYZ",
-        "DZX",
         "EDG",
         "GAR",
         "GFA",
         "GLN",
-        "GPT",
         "LAR",
         "MOVE",
         "QGRP",
-        "S",
         "SAR",
         "SLN",
-        "SPT",
-        "SX",
         "VGRP"
       ],
       "NR",
@@ -15744,6 +15790,18 @@
       "Z1",
       "P2",
       "X2",
+      [
+        "DDXY",
+        "DDYZ",
+        "DDZX",
+        "DXY",
+        "DYZ",
+        "DZX",
+        "GPT",
+        "S",
+        "SPT",
+        "SX"
+      ],
       "Y2",
       "Z2",
       "P3",
@@ -17217,9 +17275,6 @@
       "Y",
       "Z",
       "FIX",
-      [
-        "NORM"
-      ],
       "NR1",
       [
         "AUTO",
@@ -17250,6 +17305,9 @@
       "PHIY",
       "PHIZ",
       "PHIG",
+      [
+        "NORM"
+      ],
       "KM",
       "TEIL",
       "PROG",
@@ -17796,9 +17854,15 @@
       "A3Y",
       "A3Z",
       "B3X",
+      [
+        "GPT"
+      ],
       "B3Y",
       "B3Z",
       "A4X",
+      [
+        "GPT"
+      ],
       "A4Y",
       "A4Z",
       "B4X",
@@ -17812,10 +17876,7 @@
       "B5Z",
       "R",
       "T",
-      "OPT",
-      [
-        "GPT"
-      ]
+      "OPT"
     ],
     "DEL": [
       "TYP",
@@ -19614,8 +19675,6 @@
         "BRUC",
         "BS1",
         "BSN",
-        "DINF",
-        "EN92",
         "FIRE",
         "FK0",
         "FK1",
@@ -19691,6 +19750,10 @@
       "CHKT",
       "CHKS",
       "FAT",
+      [
+        "DINF",
+        "EN92"
+      ],
       "SIGS",
       "TANS",
       "TANC",
@@ -19732,7 +19795,6 @@
         "EPOL",
         "FIRE",
         "GRAN",
-        "HYPE",
         "ISTE",
         "ITER",
         "KITE",
@@ -19744,7 +19806,6 @@
         "MSTE",
         "NHPM",
         "NONL",
-        "PLAS",
         "QART",
         "SOLV",
         "SPRI",
@@ -19804,6 +19865,10 @@
       "GF",
       "MNR",
       "MTYP",
+      [
+        "HYPE",
+        "PLAS"
+      ],
       "MSTP"
     ],
     "SYST": [
@@ -20266,12 +20331,10 @@
         "EPOL",
         "FIRE",
         "GRAN",
-        "HYPE",
         "ITER",
         "KITE",
         "LSRC",
         "MOHR",
-        "PLAS",
         "SLCT",
         "SOLV",
         "SPRI",
@@ -20343,7 +20406,6 @@
     "DEHN": [
       "KMOD",
       [
-        "DINF",
         "K0",
         "K1",
         "KN",
@@ -20377,6 +20439,9 @@
       "CHKS",
       "FAT",
       "SIGS",
+      [
+        "DINF"
+      ],
       "TANS",
       "TANC"
     ],
@@ -21918,12 +21983,17 @@
         "MAXV",
         "MAXZ",
         "MINV",
-        "NDIM",
-        "NMAX",
         "STAN"
       ],
       "ND",
+      [
+        "NDIM",
+        "NMAX"
+      ],
       "PRUX",
+      [
+        "STAN"
+      ],
       "PRUY",
       "PMIN",
       "PMAX",
@@ -21955,14 +22025,8 @@
       "MIN3",
       "ABSO",
       [
-        "CM",
-        "FAKT",
         "JA",
-        "MAXC",
-        "MINC",
-        "MINF",
         "NEIN",
-        "PROZ",
         "STAN"
       ],
       "RICH",
@@ -22089,9 +22153,15 @@
       "SMAX",
       "VTYP",
       [
+        "CM",
         "EXTR",
+        "FAKT",
         "JA",
+        "MAXC",
+        "MINC",
+        "MINF",
         "NEIN",
+        "PROZ",
         "VOLL"
       ],
       "VWER",
@@ -22178,26 +22248,13 @@
       "TYP",
       [
         "ALLE",
-        "BILD",
         "BLEG",
         "FSKL",
-        "JA",
         "KOOR",
-        "LINK",
         "M",
         "MASS",
-        "NEBE",
-        "NEIN",
-        "OBEN",
-        "RECH",
         "SEIT",
-        "STAN",
-        "UEBE",
-        "UNTE",
-        "VERZ",
-        "XY",
-        "YZ",
-        "ZX"
+        "VERZ"
       ],
       "X",
       [
@@ -22224,8 +22281,31 @@
       ],
       "ND",
       "PAR1",
+      [
+        "BILD",
+        "JA",
+        "LINK",
+        "NEIN",
+        "OBEN",
+        "RECH",
+        "STAN",
+        "UNTE",
+        "XY",
+        "YZ",
+        "ZX"
+      ],
       "PAR2",
+      [
+        "JA",
+        "NEBE",
+        "NEIN",
+        "UEBE"
+      ],
       "PAR3",
+      [
+        "JA",
+        "NEIN"
+      ],
       "PAR4",
       "PAR5",
       "PAR6",
@@ -22436,7 +22516,6 @@
       ],
       "ZWIS",
       [
-        "BILD",
         "JA",
         "NEIN"
       ],
@@ -22459,6 +22538,9 @@
         "VSTR"
       ],
       "LIPX",
+      [
+        "BILD"
+      ],
       "LIPY",
       "LIPZ",
       "DUNK",
@@ -22789,23 +22871,7 @@
       "DIF3",
       "RICH",
       [
-        "ADD",
         "ALLE",
-        "AMN",
-        "AMX",
-        "DIF",
-        "DIV",
-        "MAX",
-        "MIN",
-        "MUL",
-        "TADD",
-        "TAMN",
-        "TAMX",
-        "TDIF",
-        "TDIV",
-        "TMAX",
-        "TMIN",
-        "TMUL",
         "XY",
         "XYZ",
         "XZ",
@@ -22944,6 +23010,24 @@
       "ENR",
       "X",
       "ART",
+      [
+        "ADD",
+        "AMN",
+        "AMX",
+        "DIF",
+        "DIV",
+        "MAX",
+        "MIN",
+        "MUL",
+        "TADD",
+        "TAMN",
+        "TAMX",
+        "TDIF",
+        "TDIV",
+        "TMAX",
+        "TMIN",
+        "TMUL"
+      ],
       "BEZ"
     ],
     "MOVE": [
@@ -22958,32 +23042,15 @@
       "REF",
       "UNIT",
       [
-        "ACGE",
-        "ACHS",
-        "ACLA",
-        "ACST",
-        "ACTE",
-        "ACUN",
-        "AINT",
-        "ASEK",
         "AUS",
-        "BSCH",
         "CM",
         "EIN",
-        "FLAE",
         "IN",
-        "LINE",
-        "MASS",
-        "NIVE",
-        "PCLA",
         "PL",
         "PLF",
-        "POST",
         "PR",
         "PRB",
         "PRWC",
-        "PSEK",
-        "QSCH",
         "RCM",
         "RIN",
         "RPL",
@@ -22992,12 +23059,7 @@
         "RPRB",
         "RPRW",
         "RWC",
-        "SIR",
-        "SPUR",
-        "TEXT",
-        "WC",
-        "ZUSC",
-        "ZWAN"
+        "WC"
       ],
       "A",
       "SCHR",
@@ -23052,6 +23114,30 @@
       ],
       "GRNR",
       "DTYP",
+      [
+        "ACGE",
+        "ACHS",
+        "ACLA",
+        "ACST",
+        "ACTE",
+        "ACUN",
+        "AINT",
+        "ASEK",
+        "BSCH",
+        "FLAE",
+        "LINE",
+        "MASS",
+        "NIVE",
+        "PCLA",
+        "POST",
+        "PSEK",
+        "QSCH",
+        "SIR",
+        "SPUR",
+        "TEXT",
+        "ZUSC",
+        "ZWAN"
+      ],
       "ABSZ",
       "ABST",
       "LANG",
@@ -23869,7 +23955,6 @@
         "LANG",
         "NEIN",
         "PLAN",
-        "STAN",
         "TEIL",
         "VOLL"
       ],
@@ -23939,8 +24024,17 @@
       ],
       "WKON",
       "VON",
+      [
+        "STAN"
+      ],
       "BIS",
+      [
+        "STAN"
+      ],
       "DELT",
+      [
+        "STAN"
+      ],
       "ANSC",
       "WGLA"
     ],
@@ -23949,7 +24043,6 @@
       [
         "A",
         "AL",
-        "ALLE",
         "AM",
         "AML",
         "AMV",
@@ -24022,8 +24115,6 @@
         "IUY",
         "IUZ",
         "K",
-        "K1",
-        "K2",
         "KM",
         "KMB",
         "KMV",
@@ -24031,7 +24122,6 @@
         "KMXY",
         "KMY",
         "KMZ",
-        "KONS",
         "KOPP",
         "KV",
         "KX",
@@ -24039,7 +24129,6 @@
         "KY",
         "KZ",
         "M",
-        "MOM",
         "OD",
         "ODL",
         "ODV",
@@ -24060,7 +24149,6 @@
         "OUYL",
         "OUZ",
         "OUZL",
-        "PAAR",
         "R",
         "RAND",
         "RE",
@@ -24100,7 +24188,6 @@
         "SRX",
         "SRY",
         "SRZ",
-        "SUMM",
         "S_DR",
         "S_DT",
         "S_DX",
@@ -24117,7 +24204,6 @@
         "S_UX",
         "S_UY",
         "S_UZ",
-        "TRAP",
         "U",
         "UL",
         "USER",
@@ -24163,21 +24249,29 @@
       "DARS",
       "DOFF",
       "RESU",
+      [
+        "KONS",
+        "MOM",
+        "PAAR",
+        "SUMM",
+        "TRAP"
+      ],
       "REST",
-      "SELK"
+      "SELK",
+      [
+        "ALLE",
+        "K1",
+        "K2"
+      ]
     ],
     "LAST": [
       "TYP",
       [
         "A",
-        "ALEL",
-        "ALFL",
         "ALGL",
         "ALLE",
-        "ALLL",
         "ALLO",
         "ALP",
-        "ALVL",
         "ALX",
         "ALXP",
         "ALXX",
@@ -24188,12 +24282,9 @@
         "ALZ",
         "ALZP",
         "ALZZ",
-        "AREA",
         "AXX",
         "AYY",
         "AZZ",
-        "BLAS",
-        "BRIC",
         "D",
         "DD",
         "DRUC",
@@ -24217,17 +24308,12 @@
         "EGX",
         "EGY",
         "EGZ",
-        "EING",
-        "ELAS",
-        "ELEM",
         "EX",
         "EXX",
         "EY",
         "EYY",
         "EZ",
         "EZZ",
-        "FACH",
-        "FREE",
         "IM",
         "IMX",
         "IMXY",
@@ -24241,14 +24327,10 @@
         "IVY",
         "JA",
         "K",
-        "KNOT",
         "KRIE",
         "KX",
         "KY",
         "KZ",
-        "LINE",
-        "LLAS",
-        "LVEK",
         "LVFL",
         "M",
         "MB",
@@ -24299,7 +24381,6 @@
         "PNXY",
         "PNY",
         "PNYI",
-        "POIN",
         "PP",
         "PPP",
         "PRE",
@@ -24329,14 +24410,7 @@
         "PZ",
         "PZP",
         "PZZ",
-        "QLAS",
-        "QUAD",
-        "RAND",
-        "SEIL",
         "SNOW",
-        "ST",
-        "STAB",
-        "STEL",
         "SWEL",
         "T",
         "TEMP",
@@ -24348,7 +24422,6 @@
         "UYS",
         "UZ",
         "UZS",
-        "VOLU",
         "VX",
         "W",
         "WIND",
@@ -24429,14 +24502,47 @@
       ],
       "DARS",
       "ETYP",
+      [
+        "ALEL",
+        "ALFL",
+        "ALLE",
+        "ALLL",
+        "ALVL",
+        "AREA",
+        "BLAS",
+        "BRIC",
+        "ELAS",
+        "FACH",
+        "FREE",
+        "KNOT",
+        "LINE",
+        "LLAS",
+        "POIN",
+        "QLAS",
+        "QUAD",
+        "RAND",
+        "SEIL",
+        "ST",
+        "STAB",
+        "STEL",
+        "VOLU"
+      ],
       "GTYP",
+      [
+        "EING",
+        "ELEM",
+        "LVEK"
+      ],
       "EIGE",
+      [
+        "JA",
+        "NEIN"
+      ],
       "LOST"
     ],
     "STAB": [
       "TYP",
       [
-        "ABTR",
         "AFP",
         "AFPM",
         "AFPQ",
@@ -24625,7 +24731,6 @@
         "GNP",
         "GNS",
         "GNZ",
-        "GRND",
         "GVY",
         "GVY1",
         "GVY2",
@@ -24658,7 +24763,6 @@
         "IMY",
         "IMZ",
         "IN",
-        "INNE",
         "IVY",
         "IVZ",
         "KNIC",
@@ -24690,13 +24794,11 @@
         "NLTY",
         "NLUS",
         "NM",
-        "OBEN",
         "PA",
         "PQ",
         "PT",
         "PTY",
         "PTZ",
-        "RAND",
         "RELZ",
         "SBBW",
         "SBCT",
@@ -24788,7 +24890,6 @@
         "ULT0",
         "ULVY",
         "ULVZ",
-        "UNTE",
         "USER",
         "UX",
         "UY",
@@ -24799,8 +24900,7 @@
         "VRBA",
         "VRBL",
         "VY",
-        "VZ",
-        "ZENT"
+        "VZ"
       ],
       "UNIT",
       "SCHR",
@@ -24833,6 +24933,15 @@
       "DARS",
       "STAL",
       "OFFZ",
+      [
+        "ABTR",
+        "GRND",
+        "INNE",
+        "OBEN",
+        "RAND",
+        "UNTE",
+        "ZENT"
+      ],
       "ARND",
       "LRND",
       "PERF",
@@ -25059,7 +25168,6 @@
         "IS2M",
         "IS2O",
         "IS2U",
-        "JA",
         "K",
         "KFL",
         "KFLK",
@@ -25098,7 +25206,6 @@
         "MXY",
         "MY",
         "N",
-        "NEIN",
         "NI",
         "NII",
         "NN",
@@ -25418,6 +25525,10 @@
       "OFFZ",
       "ASCH",
       "TZUS",
+      [
+        "JA",
+        "NEIN"
+      ],
       "REST",
       "DUSS",
       "ID"
