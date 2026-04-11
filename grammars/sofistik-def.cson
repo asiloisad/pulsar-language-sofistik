@@ -1,0 +1,16 @@
+scopeName: 'source.sofistik-def'
+name: 'SOFiSTiK DEF'
+fileTypes: []
+patterns: [
+  {
+    match: '^\\s*(#.*)$'
+    name: 'comment.line.number-sign.sofistik-def'
+  }
+  {
+    match: '^\\s*([\\w.]+)\\s*(=)\\s*(.*)$'
+    captures:
+      1: name: 'variable.other.key.sofistik-def'
+      2: name: 'keyword.operator.assignment.sofistik-def'
+      3: name: 'string.unquoted.value.sofistik-def'
+  }
+]

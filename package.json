@@ -22,7 +22,8 @@
   },
   "grammars": [
     "grammars/sofistik.cson",
-    "grammars/sofistik-raw.cson"
+    "grammars/sofistik-raw.cson",
+    "grammars/sofistik-def.cson"
   ],
   "configSchema": {
     "version": {
