@@ -15,6 +15,25 @@ Syntax highlighting for SOFiSTiK structural analysis software. Provides grammar 
 
 To install `language-sofistik` search for [language-sofistik](https://web.pulsar-edit.dev/packages/language-sofistik) in the Install pane of the Pulsar settings or run `ppm install language-sofistik`. Alternatively, you can run `ppm install asiloisad/pulsar-language-sofistik` to install a package directly from the GitHub repository.
 
+## File icons
+
+This package does not ship file icons. Use [native-icons](https://github.com/asiloisad/pulsar-native-icons) in `support` mode to show native SOFiSTiK file icons from the operating system.
+
+Example `native-icons` config:
+
+```cson
+"native-icons":
+  mode: "support"
+  greenlist: [
+    "*.dat"
+    "*.cdb"
+    "*.plb"
+    "*.gra"
+    "*.results"
+    "*.sofistik"
+  ]
+```
+
 ## Version detection
 
 The package detects the SOFiSTiK version from:
