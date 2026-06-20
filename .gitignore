@@ -1,7 +1,9 @@
 *.dev
 scripts
 .build
-build/
+build/*
+!build/*.py
+!build/*.md
 node_modules/
 npm-debug.log
 .DS_Store
